@@ -3,7 +3,7 @@
 一直想做一个属于自己的博客网站  
 曾经考虑过**WordPress**,**Github Pages + Jekyll**  
 但最后我权衡利弊，选择了**Github pages + Hexo**  
-如果你想直接看**Github pages + Hexo**的使用教程，请跳到[如何使用 Github pages + Hexo ?](#如何使用-github-pages-+-hexo?)
+如果你想直接看**Github pages + Hexo**的使用教程，请跳到[如何使用 Github pages + Hexo ?](#wordpress)
 
 ## 为什么我选择Github pages + Hexo?
 
