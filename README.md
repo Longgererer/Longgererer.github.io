@@ -108,16 +108,18 @@ https://hexo.io/themes/
 ##如何写博客?
 
 万事俱备，只差博客，那么博客应该怎么写呢? 同样的:  
+
 `cd blog`  
 `hexo new a`  
-a指的是文章的标题，可以加双引号也可以不加  
-之后会有提示告诉你该博客于何处创建(默认为：blog/source/_posts/a.md)  
-你就可以在a.md中使用md语法来写博客了  
+
+a指的是文章的标题，可以加双引号也可以不加，之后会有提示告诉你该博客于何处创建(默认为：blog/source/_posts/a.md)，你就可以在a.md中使用md语法来写博客了  
 
 ##如何将部署到GitHub上?
 
 输入如下命令:  
+
 `hexo g`  
+
 会生成一个名为public的文件夹
 
 回到GitHub，clone该仓库到本地
