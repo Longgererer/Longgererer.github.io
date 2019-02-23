@@ -140,3 +140,11 @@ local path可以设置该仓库存放的位置（一定要记住）
 如图，提示我README.md文件被修改了，这时我可以填写一个备注:Update README.md 表明我做了修改README.md的操作，下面的框框里可以写更多有关该操作的信息  
 然后就可以点击commit
 
+![9.jpg](https://i.loli.net/2019/02/23/5c710e80ce0f9.jpg)
+
+这是上方会出现Push origin的选项，点击就可以将更改部署到github上了  
+打开https://你的用户名.github.io/就可以看到完成的博客咯！
+
+
+
+
