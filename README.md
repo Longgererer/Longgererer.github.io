@@ -4,11 +4,11 @@
 曾经考虑过**WordPress**,**Github Pages + Jekyll**  
 但最后我权衡利弊，选择了**Github pages + Hexo**  
 
-##为什么我选择Github pages + Hexo?
+## 为什么我选择Github pages + Hexo?
 
 回答这个问题之前我要先说一下为什么不选择前面两者  
 
-###WordPress : 
+### WordPress : 
 
 >* WordPress的安装步骤非常简单
 >* 使用WordPress建立个人网站不需要建站者有任何编码知识
@@ -17,7 +17,7 @@
 但正是这个优点在我看来变成了缺点，我可是一个程序员啊！WordPress所面向的用户是没有什么编程知识的人，如果我用WordPress建立个人网站岂不是显得很没技术?  
 于是我把目光转向了**Github Pages**  
 
-###Github Pages :
+### Github Pages :
 
 >* Github本身是一个技术交流社区，很好的将代码和社区联系在一起
 >* 轻量级博客系统，配置方便
@@ -25,14 +25,14 @@
 
 当然，光有Github Pages还是不够的，目前据我所知比较常用的模板系统有**Jekyll**和**Hexo**  
 
-####Jekyll :
+#### Jekyll :
 
 >* 基于Ruby环境的模板系统
 >* 官方提供的主题都不太顺眼 (个人感觉)
 
 正当我考虑到底要不要使用Jekyll的时候，我遇到了**Hexo**
 
-####Hexo :
+#### Hexo :
 
 >* 基于Node环境的模板系统
 >* 官方提供的主题要好看一些 (个人感觉)
@@ -40,9 +40,9 @@
 对于一个前端来说，Node比Ruby要更有亲和力一些，更主要的是我发现Hexo上的主题有很多还是很不错的  
 于是我正式开始学习Hexo
 
-##如何使用 Github pages + Hexo ?
+## 如何使用 Github pages + Hexo ?
 
-###注册Github
+### 注册Github
 
 > 如何注册Github我就不多说了，不会的话网上有诸多教程
 
@@ -65,7 +65,7 @@
 这时打开https://你的用户名.github.io/  
 就可以看到你的个人网页了，当然上面什么都没有，就是一张白纸，因为仓库里并没有页面可以显示
 
-###安装Hexo
+### 安装Hexo
 
 打开终端（命令行）依次运行如下命令:  
 
@@ -91,7 +91,7 @@
 这是hexo的默认主题  
 如果你认为不好看，那么可以在官网上寻找你喜欢的主题
 
-###自定义blog
+### 自定义blog
 
 https://hexo.io/themes/
 
@@ -105,7 +105,7 @@ https://hexo.io/themes/
 
 之后可以按照改模板中**README.md**文件上的说明来安装并使用该模板
 
-##如何写博客?
+## 如何写博客?
 
 万事俱备，只差博客，那么博客应该怎么写呢? 同样的:  
 
@@ -114,7 +114,7 @@ https://hexo.io/themes/
 
 a指的是文章的标题，可以加双引号也可以不加，之后会有提示告诉你该博客于何处创建(默认为：blog/source/_posts/a.md)，你就可以在a.md中使用md语法来写博客了  
 
-##如何将部署到GitHub上?
+## 如何将部署到GitHub上?
 
 输入如下命令:  
 
