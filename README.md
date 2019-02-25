@@ -178,5 +178,5 @@ local path可以设置该仓库存放的位置（一定要记住）
 
 这样就可以清除无用的**tags**和**categories**了  
 
-最后，我的主题是在Hexo官网上找的，名为**Archer**，感谢Archer的作者提供的主题，我真的很喜欢
+最后，我的主题是在Hexo官网上找的，名为[Archer](https://github.com/fi3ework/hexo-theme-archer)，感谢Archer的作者提供的主题，我真的很喜欢
 
