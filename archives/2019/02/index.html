@@ -346,7 +346,7 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/22/hello-world/">
+        <a class="abstract-title" href="/2019/02/26/hello-world/">
             
                 <span>Hello World</span>
         </a>
@@ -360,9 +360,49 @@ More...
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
             </div>
             <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/02/26/LHS与RHS/">
+            
+                <span>LHS与RHS</span>
+        </a>
+        <div class="abstract-content">
+            在正式说明前，我们先看一个例子：
+12var a = 2console.log(a)
+
+这段代码声明了一个名为a的变量，然后通过console.log将a输出，最终后台输出的是 2  
+
+那么，console.log是如何得到a值的呢? 这里就涉及到了JS的查询机制  
+在JS中有两种查询方式：LHS 和 RHS，他们其实是Left Hand Side和Right Hand Side的缩写，意为左手边和右手边什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别
+LHS查询LHS查询的目的在于寻找变量的容器本身
+我们还是用a来打比方
+1var a = 2
+
+这里使用了L...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="-JS原理">-JS原理</a>
+    
+</div>
             
         </div>
     </article>
@@ -483,9 +523,16 @@ More...
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 1
+        Total : 2
         </div>
         <!-- search  -->
         
@@ -496,18 +543,25 @@ More...
     
     
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2019 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2019/02/22/hello-world/">Hello World</a>
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/hello-world/">Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/LHS与RHS/">LHS与RHS</a>
         </li>
     
     </ul></div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="-JS原理"><span class="iconfont-archer">&#xe606;</span>-JS原理</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
