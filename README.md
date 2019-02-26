@@ -51,7 +51,7 @@
 
 ![1.jpg](https://i.loli.net/2019/02/23/5c70fce42892a.jpg)
 
-如图 : 仓库名为 “你的用户名”.github.io，注意大小写  
+如图 : 仓库名为 “你的用户名”.github.io，注意大小写，否则部署到github上之后你就只能看到404了
 
 ![3.jpg](https://i.loli.net/2019/02/23/5c70ffe4067ad.jpg)
 
@@ -114,8 +114,32 @@ https://hexo.io/themes/
 `hexo new a`  
 
 a指的是文章的标题，可以加双引号也可以不加，之后会有提示告诉你该博客于何处创建(默认为：blog/source/_posts/a.md)，你就可以在a.md中使用md语法来写博客了  
+打开a.md，这时文章中应该有三个字段：  
+
+````dash
+title: a
+date: 创建时间
+tags: 
+````  
+
+title指的是文章标题  
+data指的是该文章创建时间，至于时间格式，是根据 **_config.yml** 规定的格式显示的，一般格式是这样: 2019-02-26 09:28:01，如果不喜欢可以更改 _config.yml 文件的配置  
+tags指的是该文章的标签，例如一个文章的内容涉及到了某样技术（例如JS），那么可以添加一个tag在里面，相当于给文章分类，这样以后想浏览也很方便  
+写tags的格式也很简单:
+
+````dash
+tags: 
+    - tag1
+    - tag2
+    - tag3
+    ...
+````
 
 ## 如何将部署到GitHub上?
+
+有两种方法:
+
+### 第一种
 
 输入如下命令:  
 
@@ -149,6 +173,13 @@ local path可以设置该仓库存放的位置（一定要记住）
 这是上方会出现Push origin的选项，点击就可以将更改部署到github上了  
 打开https://你的用户名.github.io/  
 就可以看到完成的博客咯！
+
+### 第二种
+
+使用hexo d命令自动部署到github上
+
+但操作有些麻烦，我就不说了，这里有个教程不错，可以去看看：  
+https://blog.csdn.net/Greenovia/arcticle/details/60576985
 
 ## 部署github遇到的一些问题
 
