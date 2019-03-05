@@ -104,7 +104,7 @@ https://hexo.io/themes/
 
 ![5.jpg](https://i.loli.net/2019/02/23/5c71060a03b04.jpg)
 
-之后可以按照改模板中**README.md**文件上的说明来安装并使用该模板
+之后可以按照该模板中**README.md**文件上的说明来安装并使用该模板
 
 ## 如何写博客?
 
