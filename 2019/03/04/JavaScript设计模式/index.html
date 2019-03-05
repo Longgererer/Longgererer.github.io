@@ -264,9 +264,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="-设计模式 -JS原理">-设计模式 -JS原理</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">2k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">8 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -396,8 +402,8 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p>随着前端学习的深入，开发者们的重心逐渐由怎么实现需求转变为如何写出<strong>高效，可维护，可读性强</strong>的代码<br>那么JavaScript设计模式就显得尤为重要了，很多开发者都不知道设计模式的重要性，他们可能有了解过，但并没有将设计模式的思想体现在代码中<br>最后写出的代码无法维护，后悔莫及，跳了几次坑之后才知道用设计模式，实在是不值得</p>
-<p>JavaScript有非常多的设计模式:<br><a href>工厂模式</a></p>
-<h2 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1.工厂模式"></a>1.工厂模式</h2><p>工厂模式是最常用的一种模式，工厂模式定义一个用于创建对象的接口，至于实例化与否，由子类决定，所以说该模式使一个类的实例化延迟到子类，子类可以重写接口方法以便创建的时候制定自己的对象类型<br>什么意思呢？看下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">    obj.name = name</span><br><span class="line">    obj.age = age</span><br><span class="line">    obj.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;obj.name&#125;</span>---<span class="subst">$&#123;obj.age&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = factory(<span class="string">'Tom'</span>, <span class="number">25</span>)</span><br><span class="line"><span class="keyword">let</span> person2 = factory(<span class="string">'Lisa'</span>, <span class="number">1</span>)</span><br><span class="line">person1.info()<span class="comment">//Tom---25</span></span><br><span class="line">person2.info()<span class="comment">//Lisa---1</span></span><br></pre></td></tr></table></figure></p>
+<p>JavaScript有非常多的设计模式:<br><a href="#工厂模式">工厂模式</a><br><a href="#原型模式">原型模式</a><br><a href="#构造函数模式-构造器模式">构造函数模式</a><br><a href="#构造原型模式">构造原型模式</a><br><a href="#动态原型模式">动态原型模式</a><br><a href="#寄生构造函数模式">寄生构造函数模式</a><br><a href="#稳妥构造函数模式">稳妥构造函数模式</a></p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式是最常用的一种模式，工厂模式定义一个用于创建对象的接口，至于实例化与否，由子类决定，所以说该模式使一个类的实例化延迟到子类，子类可以重写接口方法以便创建的时候制定自己的对象类型<br>什么意思呢？看下面的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factory</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">    obj.name = name</span><br><span class="line">    obj.age = age</span><br><span class="line">    obj.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;obj.name&#125;</span>---<span class="subst">$&#123;obj.age&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = factory(<span class="string">'Tom'</span>, <span class="number">25</span>)</span><br><span class="line"><span class="keyword">let</span> person2 = factory(<span class="string">'Lisa'</span>, <span class="number">1</span>)</span><br><span class="line">person1.info()<span class="comment">//Tom---25</span></span><br><span class="line">person2.info()<span class="comment">//Lisa---1</span></span><br></pre></td></tr></table></figure></p>
 <p>这就是用工厂模式的一个例子，每次调用factory函数都会使其创建一个包含(name, age, info())的对象并返回  </p>
 <h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><blockquote>
 <ul>
@@ -465,7 +471,7 @@ height:50vh;
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
             </p><p>原文链接：<a href="https://longgererer.github.io/2019/03/04/JavaScript设计模式/">https://longgererer.github.io/2019/03/04/JavaScript设计模式/</a>
             </p><p>发表日期：<a href="https://longgererer.github.io/2019/03/04/JavaScript设计模式/">March 4th 2019, 2:58:02 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/03/04/JavaScript设计模式/">March 5th 2019, 11:34:57 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/03/04/JavaScript设计模式/">March 5th 2019, 11:45:13 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -605,7 +611,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-工厂模式"><span class="toc-number">1.</span> <span class="toc-text">1.工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">1.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点："><span class="toc-number">1.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.</span> <span class="toc-text">原型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点：-1"><span class="toc-number">2.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点：-1"><span class="toc-number">2.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数模式-构造器模式"><span class="toc-number">3.</span> <span class="toc-text">构造函数模式(构造器模式)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点：-2"><span class="toc-number">3.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点：-2"><span class="toc-number">3.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造原型模式"><span class="toc-number">4.</span> <span class="toc-text">构造原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态原型模式"><span class="toc-number">5.</span> <span class="toc-text">动态原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#寄生构造函数模式"><span class="toc-number">6.</span> <span class="toc-text">寄生构造函数模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳妥构造函数模式"><span class="toc-number">7.</span> <span class="toc-text">稳妥构造函数模式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工厂模式"><span class="toc-number">1.</span> <span class="toc-text">工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点："><span class="toc-number">1.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点："><span class="toc-number">1.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型模式"><span class="toc-number">2.</span> <span class="toc-text">原型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点：-1"><span class="toc-number">2.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点：-1"><span class="toc-number">2.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数模式-构造器模式"><span class="toc-number">3.</span> <span class="toc-text">构造函数模式(构造器模式)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点：-2"><span class="toc-number">3.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点：-2"><span class="toc-number">3.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造原型模式"><span class="toc-number">4.</span> <span class="toc-text">构造原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态原型模式"><span class="toc-number">5.</span> <span class="toc-text">动态原型模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#寄生构造函数模式"><span class="toc-number">6.</span> <span class="toc-text">寄生构造函数模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳妥构造函数模式"><span class="toc-number">7.</span> <span class="toc-text">稳妥构造函数模式</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -691,11 +697,13 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
-    
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
         <span class="sidebar-tag-name" data-tags="-JS原理"><span class="iconfont-archer">&#xe606;</span>-JS原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="-设计模式 -JS原理"><span class="iconfont-archer">&#xe606;</span>-设计模式 -JS原理</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
