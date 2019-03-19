@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Webpack4学后总结 · lliiooiill的技术Blog</title>
+    <title>lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">lliiooiill的技术Blog.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">Webpack4学后总结</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            Webpack4学后总结
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/27</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,111 +338,42 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <blockquote>
-<p>找时间学了Webpack4，感受颇多，总结一下</p>
-</blockquote>
-<h1 id="安装Webpack4"><a href="#安装Webpack4" class="headerlink" title="安装Webpack4"></a>安装Webpack4</h1><p><strong>注意: 在Webpack4之后，Webpack和Webpack-cli就分离了</strong>，网站很多教程都是Webpack3的，会导致很多人在执行命令的时候弹出没有安装Webpack-cli包  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br><span class="line">npm install webpack-cli -g</span><br></pre></td></tr></table></figure>
-<p>在全局安装 Webpack 和 Webpack-cli ， g 是 global 的意思，代表全局<br>另外， install 可以简写成 i ，效果一样的</p>
-<p>使用Webpack前必须要准备两个文件 <strong>package.json</strong> 和 <strong>webpack.config.js</strong>   </p>
-<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>package.json这个文件用来管理你在本地安装的npm包<br>现在项目目录打开命令行，在命令行输入 <code>npm init</code> 创建package.json<br>之后会弹出一堆问题：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package name: project</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description:</span><br><span class="line">entry point: (index.js)</span><br><span class="line">test command:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author:</span><br><span class="line">license: (ISC)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>package name =&gt; 项目名称</li>
-<li>version =&gt; 项目版本号</li>
-<li>description =&gt; 项目描述</li>
-<li>entry point =&gt; 入口文件</li>
-<li>test command =&gt; 当你运行<code>npm run test</code>时运行的命令</li>
-<li>git repository =&gt; 你的git仓库地址</li>
-<li>keywords =&gt; 是一个字符串数组，放便于查找</li>
-<li>author =&gt; 作者</li>
-<li>license =&gt; 许可证，国内一般用MIT许可</li>
-</ul>
-</blockquote>
-<p>这里我只填了 package name 为 project<br>最后它会告诉你：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;package.json&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this OK? (yes)</span><br></pre></td></tr></table></figure>
-<p>现在文件就已经创建好了，打开它，发现内容就是上述代码</p>
-<p>现在我们尝试安装一个npm包：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install ejs --save</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>–save表示将包名和版本储存在package.json的dependencies字段中  </li>
-<li>如果是–save-dev表示将包名和版本储存在package.json的devDependencies字段中  </li>
-<li>dependencies是运行时所依赖的包，devDependencies是开发时所依赖的包  </li>
-<li>如果直接npm install ejs，就是在dependencies字段下</li>
-</ul>
-</blockquote>
-<p>装完之后你会发现文件夹中多了一个node_modules文件夹，里面是你所安装的包，将来这个文件夹删了也没关系，可以使用<code>npm install</code>命令来重新安装项目的所有依赖  </p>
-<h2 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h2><blockquote>
-<p>Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的webpack.config.js文件，这个文件是一个 node.js 模块，返回一个 json 格式的配置信息对象</p>
-</blockquote>
-<p>在文件夹手动创建一个webpack.config.js文件<br>在里面输入以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    devtool: &apos;eval-source-map&apos;,</span><br><span class="line">    mode: &apos;production&apos;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        app: &quot;index.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname, &quot;public&quot;),</span><br><span class="line">        filename: &quot;bundle.js&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>devtool =&gt; 表示项目所用调试工具，有很多，我就不说了，但这仅1仅是方便调试，最后打包生成的js文件是非常大的，所以该字段可以删除</li>
-<li>mode =&gt; 用来告知webpack使用相应模式的内置优化，有两个选项：production 和 development , 就是生产模式和开发模式,production环境要求更小的代码量以加快网页的加载速度,development主要是为了开启热加载，路由重定向等功能</li>
-<li>entry =&gt; 表示入口文件路径，可以指定多个文件，同样会打包成多个文件  </li>
-<li>output =&gt; 表示出口文件，也就是打包之后的文件信息   </li>
-<li>path =&gt; 表示打包文件的输出路径（绝对路径）</li>
-<li>filename =&gt; 表示打包文件的名称  </li>
-</ul>
-</blockquote>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><blockquote>
-<ol>
-<li>任何json文件，包括package.json,代码中都不能含有注释，可以在文件前面和后面加注释，但不能在中间</li>
-<li>package.json中的scripts字段存放的是脚本例如<code>&quot;scripts&quot;:{&quot;build&quot;:&quot;webpack --mode development&quot;}</code>，那么可以在命令行中输入<code>npm run build</code>相当于执行<code>webpack --mode development</code>命令，更加方便</li>
-<li>package.json中的”name”字段不要和任何包名相同，否则安装该包的时候会报错</li>
-</ol>
-</blockquote>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/02/27/Webpack4学后总结/">https://longgererer.github.io/2019/02/27/Webpack4学后总结/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/02/27/Webpack4学后总结/">February 27th 2019, 6:08:51 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/02/27/Webpack4学后总结/">March 8th 2019, 7:45:50 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/09/Generator生成器/">
+            
+                <span>Generator生成器</span>
+        </a>
+        <div class="abstract-content">
+            Promise解决了异步嵌套的问题，ES6又推出了Generator函数，这是一个新的函数类型，也叫做生成器来看例子：
+123456789101112let x = 1;function a()&#123;    x ++;    b();    console.log(x);&#125;a();function b()&#123;    x ++;&#125;
+输出结果是什么？毫无疑问会是 3如果我把b()这条调用函数b的行为取消，那结果应该是 2，有没有方法可以做到在取消调用函数b之后，仍然可以得到 3 的结果呢？答案就是：Generator  
+1234567891011let x...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/09</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Generator">Generator</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/04/JavaScript设计模式/" title="JavaScript设计模式">
-                    <div class="nextTitle">JavaScript设计模式</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/02/27/MVC与MVVM/" title="MVC与MVVM">
-                    <div class="prevTitle">MVC与MVVM</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -596,24 +466,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Webpack4"><span class="toc-number">1.</span> <span class="toc-text">安装Webpack4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json"><span class="toc-number">1.1.</span> <span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-config-js"><span class="toc-number">1.2.</span> <span class="toc-text">webpack.config.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -797,8 +649,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
