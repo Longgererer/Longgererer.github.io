@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>lliiooiill的技术Blog</title>
+    <title>函数节流与函数防抖 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的技术Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">函数节流与函数防抖</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            函数节流与函数防抖
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/03/28</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,45 +399,76 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/27/Webpack4学后总结/">
-            
-                <span>Webpack4学后总结</span>
-        </a>
-        <div class="abstract-content">
-            
-找时间学了Webpack4，感受颇多，总结一下
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h2><blockquote>
+<p>函数节流就是在指定时间间隔内只执行一次该函数</p>
+</blockquote>
+<p>举个栗子：滚动条滚动事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'页面滚动了'</span>)</span><br><span class="line">&#125;, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure></p>
+<p>该代码的初衷是：用户每滑动一次滚动条，执行一次<code>console.log(&#39;页面滚动了&#39;)</code>，但事实是：  </p>
+<p><img src="https://i.loli.net/2019/03/28/5c9c23639fcec.jpg" alt="1.jpg"></p>
+<p>用户只滑动了一次滚动条，就多次触发了<code>scroll</code>事件，因为浏览器每隔一个很短的时间间隔就要判断滚动条的变化，如果执行函数内需要执行DOM操作，将会非常消耗资源，这个时候节流函数就派上用场了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, func(putOut, <span class="number">400</span>), <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params">method, waitTime</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> run = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!run) <span class="keyword">return</span></span><br><span class="line">        run = <span class="literal">false</span></span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            method.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">            run = <span class="literal">true</span></span><br><span class="line">        &#125;, waitTime)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">putOut</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'页面滚动了'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>putOut</code>函数是我们触发<code>scroll</code>事件希望执行的函数，而<code>func</code>是实际执行的函数，用来控制<code>putOut</code>函数执行次数，在<code>func</code>中声明了一个<code>Boolean</code>类型的变量<code>run</code>，然后返回一个函数，先判断<code>!run</code>值是否为<code>true</code>(run是否为false)，条件成立则直接<code>return</code>退出函数，否则执行<code>setTimeout</code>，也就是在<code>waitTime</code>毫秒之后执行延时器内的命令，直到<code>waitTime</code>毫秒之后，才会再次执行函数</p>
+<blockquote>
+<p>在这里<code>putOut</code>是可以直接被调用的，但是在实际情况中往往不会像现在一样只有一个<code>console</code>语句，可能会有很多的DOM操作，也可能会涉及到<code>this</code>指向问题，为了保证函数<code>this</code>指向正确，采用apply的方式执行函数<code>putOut</code></p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/03/28/5c9c2c099b55b.jpg" alt="2.jpg"></p>
+<p>效果非常明显，由于我们设置了节流函数，所以执行函数的次数大大减少，效率大大提高  </p>
+<h2 id="防抖函数"><a href="#防抖函数" class="headerlink" title="防抖函数"></a>防抖函数</h2><p>防抖函数是指行为被触发的间隔超过指定间隔的时候，才会执行该函数<br>一个很经典的例子就是输入框的监听：<br>在用户注册的时候，可能需要检测用户的用户名是否重复，有两种方案：</p>
+<blockquote>
+<ul>
+<li>输入框失去焦点的时候触发检测事件</li>
+<li>输入框内容改变的时候触发检测事件</li>
+</ul>
+</blockquote>
+<p>很多网站都会选择第二种方案，因为第一种的用户体验不太好，每次都要点一下其他地方才能知道自己的用户名有没有重复<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'input'</span>)</span><br><span class="line">input.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://i.loli.net/2019/03/28/5c9c841945b7e.jpg" alt="3.jpg"></p>
+<p>这样就实现了第二种方案（AJAX用console.log代替），效果是有了，但是我们想要的是用户输入完整个用户名之后在开始检测，而事实是每当用户输入的时候就会进行检测，这样是相当浪费资源的行为，如果我把<code>console.log</code>替换成<code>AJAX</code>请求，那么我在输入完<code>123456789</code>的时候已经做了9次<code>AJAX</code>请求，这个时候防抖函数就派上用场了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> input = <span class="built_in">document</span>.getElementById(<span class="string">'input'</span>)</span><br><span class="line">input.addEventListener(<span class="string">'input'</span>, func(putOut, <span class="number">400</span>))</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">method, waitTime</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        clearTimeout(timer)</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            method.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">        &#125;, waitTime)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">putOut</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/03/28/5c9c8ad24ec99.jpg" alt="4.jpg"></p>
+<p>其实和函数节流十分相似，用户触发<code>input</code>事件之后执行<code>func</code>函数，函数内声明了一个变量<code>timer</code>，接着返回一个闭包函数，因为用户在<code>waitTime</code>毫秒之内又触发了<code>input</code>事件，所以清除先前的延时器，重新开始计时</p>
+<p>这就实现了函数防抖功能，在用户输入完成之后<code>waitTime</code>毫秒之内不再有任何字符输入，就会执行<code>putOut</code>函数</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>函数节流和函数防抖对提升性能都起到了非常大的作用，都用到了延时器，并且都用到了闭包函数来获取函数<code>func</code>内声明的属性的状态，以前耿直的我一直选择触发行为直接执行方法的方式，现在才知道是多么耗费资源</p>
 
-安装Webpack4注意: 在Webpack4之后，Webpack和Webpack-cli就分离了，网站很多教程都是Webpack3的，会导致很多人在执行命令的时候弹出没有安装Webpack-cli包  
-12npm install webpack -gnpm install webpack-cli -g
-在全局安装 Webpack 和 Webpack-cli ， g 是 global 的意思，代表全局另外， install 可以简写成 i ，效果一样的
-使用Webpack前必须要准备两个文件 package.json 和 webpac...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/03/28/函数节流与函数防抖/">https://longgererer.github.io/2019/03/28/函数节流与函数防抖/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/03/28/函数节流与函数防抖/">March 28th 2019, 9:06:02 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/03/28/函数节流与函数防抖/">March 28th 2019, 5:51:04 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/03/09/Generator生成器/" title="Generator生成器">
+                    <div class="prevTitle">Generator生成器</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -469,6 +561,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数节流"><span class="toc-number">1.</span> <span class="toc-text">函数节流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防抖函数"><span class="toc-number">2.</span> <span class="toc-text">防抖函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -664,6 +774,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
