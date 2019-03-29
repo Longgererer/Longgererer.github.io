@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>MVC与MVVM · lliiooiill的技术Blog</title>
+    <title>lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">lliiooiill的技术Blog.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">MVC与MVVM</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            MVC与MVVM
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="MVC&MVVM">MVC&MVVM</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">445</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/27</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,85 +338,43 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p><strong>MVC</strong>在开发中是最常用，最经典的设计模式<br>MVC分别代表：</p>
-<blockquote>
-<ul>
-<li>M =&gt; Model 数据存储模块</li>
-<li>V =&gt; View 视图模块</li>
-<li>C =&gt; Controller 逻辑处理模块</li>
-</ul>
-</blockquote>
-<p>他们的关系是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   客户端                  分发路由                 业务逻辑</span><br><span class="line">+---------+            +----------+            +----------+</span><br><span class="line">|         |            |          |            |          |</span><br><span class="line">|   App   | ---------&gt; |  Router  | ---------&gt; |Controller|</span><br><span class="line">|         |            |          |            |          |</span><br><span class="line">+---------+            +----------+            +----------+</span><br><span class="line">    /|\                                              |</span><br><span class="line">     |     +---------+                +---------+    |</span><br><span class="line">     |     |         |                |         |    |</span><br><span class="line">     +-----|   View  |&lt;---------------|  Model  |&lt;---+</span><br><span class="line">           |         |                |         |</span><br><span class="line">           +---------+                +---------+</span><br><span class="line">               视图                       数据库</span><br></pre></td></tr></table></figure>
-<p>如图，App代表项目的入口模块，所有的请求都要先进入这里进行处理<br>每当用户在View中进行操作，并且需要进行业务处理时，都会像后端服务器发送请求，App就会监听到<br>Router和Controller属于逻辑处理模块，Router只用于路由的分发，不负责其他功能，同样，Controller只负责业务逻辑的处理，不负责其他功能<br>最后向Model(数据库)请求数据，Model只负责数据库的<strong>CRUD</strong></p>
-<blockquote>
-<ul>
-<li>C =&gt; create</li>
-<li>R =&gt; read</li>
-<li>U =&gt; update</li>
-<li>D =&gt; delete</li>
-</ul>
-</blockquote>
-<p>所有模块都有且仅有一个功能，这是功能单一化的体现  </p>
-<h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><p><strong>MVVM</strong>的诞生是为了是前端更加方便地开发，因为MVVM提供了数据的<strong>双向绑定</strong>  </p>
-<p>千万不要以为MVVM有四个字母，它就有四个模块，其实MVVM分为：  </p>
-<blockquote>
-<ul>
-<li>M =&gt; Model 数据存储模块</li>
-<li>V =&gt; View 视图模块</li>
-<li>VM =&gt; ViewModel 连接M和V</li>
-</ul>
-</blockquote>
-<p>他们的关系是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+-------+             +------------------+             +-------+</span><br><span class="line">|       |             |                  |             |       |</span><br><span class="line">| View  | &lt;---------&gt; |     ViewModel    | ----------&gt; | Model |</span><br><span class="line">|       |             |                  | &lt;---------- |       |  </span><br><span class="line">+-------+             +------------------+             +-------+</span><br></pre></td></tr></table></figure>
-<p>View和Model的功能同上，ViewModel的作用是分离View和Model，如果View发起了对后端的请求，那么必须经过VM，也就是说VM是V连接M的桥梁<br>MVVM是将数据的双向绑定作为核心的，View上的数据变动直接影响Model中的数据，Model中数据的改变同样会反映在View中，例如Vue框架采用的就是这种思想</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/02/27/MVC与MVVM/">https://longgererer.github.io/2019/02/27/MVC与MVVM/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/02/27/MVC与MVVM/">February 27th 2019, 10:43:59 am</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/02/27/MVC与MVVM/">February 27th 2019, 12:59:17 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/28/浏览器的回流与重绘/">
+            
+                <span>浏览器的回流与重绘</span>
+        </a>
+        <div class="abstract-content">
+            写PC端页面的时候，样式可以做得非常花哨，酷炫也不会引起卡顿，但在移动端上受限于机能问题，如果无节制地使用各种CSS动画会导致页面卡顿，这是浏览器的回流与重绘造成的  
+浏览器的回流与重绘是什么？reflow：回流，比如说改变了某元素的宽高等会影响页面布局的属性，那么浏览器就会自动回流(重排)页面，所有受影响的元素都需要重新绘制。repaint：重绘，比如说改变了元素的样式风格，但不会改变页面的布局，那浏览器就会发生重绘  
+在浏览器中，不管是用JS还是CSS渲染页面都不可避免地要进行以下几个处理：  
+
+也就是： JS/CSS =&gt; style(样式) =&gt; Layout(...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="回流与重绘">回流与重绘</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/02/27/Webpack4学后总结/" title="Webpack4学后总结">
-                    <div class="nextTitle">Webpack4学后总结</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/02/26/LHS与RHS/" title="LHS与RHS">
-                    <div class="prevTitle">LHS与RHS</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -570,24 +467,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MVC"><span class="toc-number">1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MVVM"><span class="toc-number">2.</span> <span class="toc-text">MVVM</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -797,8 +676,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
