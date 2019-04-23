@@ -78,6 +78,8 @@
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -201,10 +203,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,34 +220,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/681135.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            lliiooiill的技术Blog.
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                好好学习，天天向上，遵纪守法，快乐生活
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -385,389 +372,10 @@ height:50vh;
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/浏览器的回流与重绘/">
-            
-                <span>浏览器的回流与重绘</span>
-        </a>
-        <div class="abstract-content">
-            写PC端页面的时候，样式可以做得非常花哨，酷炫也不会引起卡顿，但在移动端上受限于机能问题，如果无节制地使用各种CSS动画会导致页面卡顿，这是浏览器的回流与重绘造成的  
-浏览器的回流与重绘是什么？reflow：回流，比如说改变了某元素的宽高等会影响页面布局的属性，那么浏览器就会自动回流(重排)页面，所有受影响的元素都需要重新绘制。repaint：重绘，比如说改变了元素的样式风格，但不会改变页面的布局，那浏览器就会发生重绘  
-在浏览器中，不管是用JS还是CSS渲染页面都不可避免地要进行以下几个处理：  
-
-也就是： JS/CSS =&gt; style(样式) =&gt; Layout(...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="回流与重绘">回流与重绘</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/函数节流与函数防抖/">
-            
-                <span>函数节流与函数防抖</span>
-        </a>
-        <div class="abstract-content">
-            函数节流
-函数节流就是在指定时间间隔内只执行一次该函数
-
-举个栗子：滚动条滚动事件123window.addEventListener('scroll', function()&#123;    console.log('页面滚动了')&#125;, false)
-该代码的初衷是：用户每滑动一次滚动条，执行一次console.log(&#39;页面滚动了&#39;)，但事实是：  
-
-用户只滑动了一次滚动条，就多次触发了scroll事件，因为浏览器每隔一个很短的时间间隔就要判断滚动条的变化，如果执行函数内需要执行DOM操作，将会非常消耗资源，这个时候节流函数就派上用场了：12345678...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/09/Generator生成器/">
-            
-                <span>Generator生成器</span>
-        </a>
-        <div class="abstract-content">
-            Generator 基本用法Promise解决了异步嵌套的问题，ES6又推出了Generator函数，这是一个新的函数类型，也叫做生成器来看例子：
-123456789101112let x = 1;function a()&#123;    x ++;    b();    console.log(x);&#125;a();function b()&#123;    x ++;&#125;
-输出结果是什么？毫无疑问会是 3如果我把b()这条调用函数b的行为取消，那结果应该是 2，有没有方法可以做到在取消调用函数b之后，仍然可以得到 3 的结果呢？答案就是：Generator  
-1234...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Generator">Generator</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/07/Promise学后总结/">
-            
-                <span>Promise学后总结</span>
-        </a>
-        <div class="abstract-content">
-            Promise是异步编程的一种解决方案，它主要用于解决异步中的回调地狱问题所谓的回调地狱就类似于下面这样：12345678910111213function a()&#123;    function b()&#123;        function c() &#123;            function d() &#123;              console.log('123')            &#125;            d()        &#125;        c()    &#125;    b()&#125;a()
-在上述代码中，如果我想执...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Promise">Promise</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/JavaScript设计模式/">
-            
-                <span>JavaScript设计模式</span>
-        </a>
-        <div class="abstract-content">
-            随着前端学习的深入，开发者们的重心逐渐由怎么实现需求转变为如何写出高效，可维护，可读性强的代码那么JavaScript设计模式就显得尤为重要了，很多开发者都不知道设计模式的重要性，他们可能有了解过，但并没有将设计模式的思想体现在代码中最后写出的代码无法维护，后悔莫及，跳了几次坑之后才知道用设计模式，实在是不值得
-JavaScript有非常多的设计模式:工厂模式原型模式构造函数模式构造原型模式动态原型模式寄生构造函数模式稳妥构造函数模式
-工厂模式工厂模式是最常用的一种模式，工厂模式定义一个用于创建对象的接口，至于实例化与否，由子类决定，所以说该模式使一个类的实例化延迟到子类，子类可以重写接...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/27/Webpack4学后总结/">
-            
-                <span>Webpack4学后总结</span>
-        </a>
-        <div class="abstract-content">
-            
-找时间学了Webpack4，感受颇多，总结一下
-
-安装Webpack4注意: 在Webpack4之后，Webpack和Webpack-cli就分离了，网站很多教程都是Webpack3的，会导致很多人在执行命令的时候弹出没有安装Webpack-cli包  
-12npm install webpack -gnpm install webpack-cli -g
-在全局安装 Webpack 和 Webpack-cli ， g 是 global 的意思，代表全局另外， install 可以简写成 i ，效果一样的
-使用Webpack前必须要准备两个文件 package.json 和 webpac...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/27/MVC与MVVM/">
-            
-                <span>MVC与MVVM</span>
-        </a>
-        <div class="abstract-content">
-            MVCMVC在开发中是最常用，最经典的设计模式MVC分别代表：
-
-
-M =&gt; Model 数据存储模块
-V =&gt; View 视图模块
-C =&gt; Controller 逻辑处理模块
-
-
-他们的关系是这样的：
-1234567891011121314   客户端                  分发路由                 业务逻辑+---------+            +----------+            +----------+|         |            |          |            |          ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="MVC&MVVM">MVC&MVVM</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/LHS与RHS/">
-            
-                <span>LHS与RHS</span>
-        </a>
-        <div class="abstract-content">
-            在正式说明前，我们先看一个例子：
-12var a = 2console.log(a)
-
-这段代码声明了一个名为a的变量，然后通过console.log将a输出，最终后台输出的是 2  
-
-那么，console.log是如何得到a值的呢? 这里就涉及到了JS的查询机制  
-在JS中有两种查询方式：LHS 和 RHS，他们其实是Left Hand Side和Right Hand Side的缩写，意为左手边和右手边什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别
-LHS查询LHS查询的目的在于寻找变量的容器本身
-我们还是用a来打比方
-1var a = 2
-
-这里使用了L...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/lliiooiill.jpg">
-    <div class="profile-name">lliiooiill</div>
-    
-    <div class="profile-signature">
-        做一个儒雅随和的程序员
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:c2b139460q@163.com" class="iconfont-archer email" title="email"></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/Longgererer" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title="wechat">
-                  
-                  <img class="profile-qr" src="/assets/weChatlliiooiill.jpg">
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="//www.zhihu.com/people/lliiooiill/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="//segmentfault.com/u/longgererer" class="iconfont-archer segmentFault" target="_blank" title="segmentFault"></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="//www.baidu.com" target="_black">BAIDU</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="//www.google.com" target="_black">GOOGLE</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
