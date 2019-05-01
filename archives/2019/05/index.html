@@ -346,86 +346,19 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/04/28/this的指向/">
+        <a class="abstract-title" href="/2019/05/01/Object-creat/">
             
-                <span>this的指向</span>
+                <span>Object.create()</span>
         </a>
         <div class="abstract-content">
-            
-作为JS最复杂的几个机制之一，this的指向往往是很难判断的，经常会出现因为this指向不对而导致的问题
-
-以前我一直不明白this的机制到底是什么，直到看了《你不知道的JS》才算明白一些
-在弄清this的指向之前，要先知道为什么要用this，因为this这种难以判断的东西应该少用才是，为什么那么常用呢？
-123456789101112const obj = &#123;    name: 'Tom',    age: 16,    setInfo(attribute, value)&#123;        this.attribute = value    &#125;,    g...
+            Object.create()是ES5的一种创建对象的方法
+Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对象，这个对象无法进行委托。由于这个对象没有原型链，所以像instanceof这种操作符无法判断该对象的原型，因此会返回false。这些对象因为它们完全不受原型链干扰的特性，所以非常适合用来存储数据
+1234567let foo = &#123;    func: function() &#123;        console.log(1)    &#125;&#125;let bar = Object.create(foo)bar...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/23/DOM事件/">
-            
-                <span>DOM事件</span>
-        </a>
-        <div class="abstract-content">
-            DOM一共分为四个级别：DOM0级，DOM1级，DOM2级和DOM3级DOM事件有三种：DOM0级事件处理，DOM2级事件处理和DOM3级事件处理如下图：
-\
-DOM0级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script&gt;    function func() &#123;        console.log(1)    &#125;&lt;/script&gt;
-这是HTML的事件处理，是最早的一种事件处理方式，也是最不推荐的一种。因为标签内事件所触发的函数名称和JS中的函数有强烈的耦合性，一旦函数名...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/22/同步和异步/">
-            
-                <span>同步和异步</span>
-        </a>
-        <div class="abstract-content">
-            首先说说什么是同步，同步可以理解为在执行一个命令（例如函数）的时候，在没有得到返回结果之前，不会执行后续的命令，也就是说调用该命令的人必须主动等待该命令完成，才可执行后续操作。
-什么是异步呢？异步就是不需要等当前命令执行完得到返回值，直接执行下一个命令。 
-在JS中，本身是没有异步这个特性的，之所以有异步的说法，完全是因为JS运行在浏览器的环境上。
-我为什么这么说呢？因为浏览器在执行代码的过程中会将setTimeOut等命令看作是耗时命令，也就是说这些命令需要消耗一定的时间，很有可能会阻塞后续命令的执行（即使setTimeOut设置的是0ms），一旦发现耗时命令，浏览器便会将它推入队列中...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/01</span>
             </div>
             <!-- tags  -->
             
