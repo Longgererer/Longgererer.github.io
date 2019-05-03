@@ -346,107 +346,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/02/27/Webpack4学后总结/">
+        <a class="abstract-title" href="/2019/05/03/虚拟DOM和Diff算法/">
             
-                <span>Webpack4学后总结</span>
+                <span>虚拟DOM和Diff算法</span>
         </a>
         <div class="abstract-content">
-            
-找时间学了Webpack4，感受颇多，总结一下
-
-安装Webpack4注意: 在Webpack4之后，Webpack和Webpack-cli就分离了，网站很多教程都是Webpack3的，会导致很多人在执行命令的时候弹出没有安装Webpack-cli包  
-12npm install webpack -gnpm install webpack-cli -g
-在全局安装 Webpack 和 Webpack-cli ， g 是 global 的意思，代表全局另外， install 可以简写成 i ，效果一样的
-使用Webpack前必须要准备两个文件 package.json 和 webpac...
+            React有两个核心概念：虚拟DOM和Diff算法
+首先我们来看看什么是DOM：DOM意思是文档对象模型（Dcoument Object Model），它是一个结构化文本的抽象。对于Web开发者，这个文本是一段HTML代码，DOM也就被叫做HTML DOM。HTML的元素在DOM中变成了节点。DOM是浏览器中的概念，用JS对象表示页面上的元素，并提供了操作DOM对象的API
+那么，什么是虚拟DOM呢？
+虚拟DOM首先说一下，这个虚拟DOM不是React发明的，但是React用了它且免费提供。它是轻量的，是从浏览器特定（Browser-specific，这里意指特定的浏览器需要特定的实现）...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/27</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/27/MVC与MVVM/">
-            
-                <span>MVC与MVVM</span>
-        </a>
-        <div class="abstract-content">
-            MVCMVC在开发中是最常用，最经典的设计模式MVC分别代表：
-
-
-M =&gt; Model 数据存储模块
-V =&gt; View 视图模块
-C =&gt; Controller 逻辑处理模块
-
-
-他们的关系是这样的：
-1234567891011121314   客户端                  分发路由                 业务逻辑+---------+            +----------+            +----------+|         |            |          |            |          ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="MVC&MVVM">MVC&MVVM</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/LHS与RHS/">
-            
-                <span>LHS与RHS</span>
-        </a>
-        <div class="abstract-content">
-            在正式说明前，我们先看一个例子：
-12var a = 2console.log(a)
-
-这段代码声明了一个名为a的变量，然后通过console.log将a输出，最终后台输出的是 2  
-
-那么，console.log是如何得到a值的呢? 这里就涉及到了JS的查询机制  
-在JS中有两种查询方式：LHS 和 RHS，他们其实是Left Hand Side和Right Hand Side的缩写，意为左手边和右手边什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别
-LHS查询LHS查询的目的在于寻找变量的容器本身
-我们还是用a来打比方
-1var a = 2
-
-这里使用了L...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
     
 </div>
             
