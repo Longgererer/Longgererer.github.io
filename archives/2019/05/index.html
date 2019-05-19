@@ -346,6 +346,52 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/19/Vue组件详解/">
+            
+                <span>详解Vue组件化</span>
+        </a>
+        <div class="abstract-content">
+            组件化是Vue的一个核心思想，所谓的组件化就是将一个页面拆分成多个组件，每个组件依赖的Css、Js等资源都是独立的，组件和重复使用，也可以嵌套使用
+在一个由Vue搭建的项目中，App.vue是主组件，所有页面都在App.vue下进行切换，所有组件都是App.vue的子组件
+Vue的组件化我个人认为有如下三个重点：
+
+组件化通信
+父子组件间的通信
+父传子 
+子传父
+父组件触发子组件方法
+子组件触发父组件方法
+
+
+
+
+prvide &amp; inject
+element-ui 组件库
+
+组件化通信先来说说组件，在Vue项目中，除了主组件App.vue之外，其他组件都要放到component...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/12/axios学习笔记/">
             
                 <span>Axios学习笔记</span>
@@ -390,7 +436,7 @@ axios.get(url[,...
         </a>
         <div class="abstract-content">
             Vuex是一个专为Vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
-状态管理模式看下面的例子：1234567891011new Vue(&#123;    data()&#123;        return &#123;count: 0&#125;    &#125;,    template: `&lt;div @click=&quot;add&quot;&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,    methods: &#123;        ...
+状态管理模式看下面的例子：1234567891011new Vue(&#123;    data()&#123;        return &#123;count: 0&#125;    &#125;,    template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,    methods: &#123;        add()&#123...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -812,9 +858,20 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 18
         </div>
         <!-- search  -->
         
@@ -827,6 +884,11 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2019/05/19/Vue组件详解/">详解Vue组件化</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -920,21 +982,23 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
-    
         <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+    
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
