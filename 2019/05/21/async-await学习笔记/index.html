@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Webpack4学后总结 · lliiooiill的技术Blog</title>
+    <title>async/await学习笔记 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">lliiooiill的技术Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Webpack4学后总结</a>
+                <a href="#" class="post-name">async/await学习笔记</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Webpack4学后总结
+            async/await学习笔记
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">939</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/27</span>
+                    <span class="post-intro-time">2019/05/21</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,75 +401,50 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <blockquote>
-<p>找时间学了Webpack4，感受颇多，总结一下</p>
-</blockquote>
-<h1 id="安装Webpack4"><a href="#安装Webpack4" class="headerlink" title="安装Webpack4"></a>安装Webpack4</h1><p><strong>注意: 在Webpack4之后，Webpack和Webpack-cli就分离了</strong>，网站很多教程都是Webpack3的，会导致很多人在执行命令的时候弹出没有安装Webpack-cli包  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br><span class="line">npm install webpack-cli -g</span><br></pre></td></tr></table></figure>
-<p>在全局安装 Webpack 和 Webpack-cli ， g 是 global 的意思，代表全局<br>另外， install 可以简写成 i ，效果一样的</p>
-<p>使用Webpack前必须要准备两个文件 <strong>package.json</strong> 和 <strong>webpack.config.js</strong>   </p>
-<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>package.json这个文件用来管理你在本地安装的npm包<br>现在项目目录打开命令行，在命令行输入 <code>npm init</code> 创建package.json<br>之后会弹出一堆问题：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package name: project</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description:</span><br><span class="line">entry point: (index.js)</span><br><span class="line">test command:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author:</span><br><span class="line">license: (ISC)</span><br></pre></td></tr></table></figure>
-<blockquote>
+        <p>##介绍</p>
+<p>继<code>ES6</code>出现<code>promise</code>之后,再也不用担心回调地狱,但是<code>promise</code>也不是十全十美,<code>async/await</code>可以让异步代码看起来就像同步的一样,这就是要学习它的原因</p>
+<p>首先创建一个简单的 promise:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> data = &#123; <span class="attr">name</span>: <span class="string">"Tom"</span> &#125;;</span><br><span class="line">    resolve(data);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> p = getData();</span><br><span class="line">p.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"over"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>getData</code>返回一个新的<code>promise</code>实例,成功<code>resolve</code>之后返回<code>data</code>的值,上面的写法是用<code>ES6promise</code>的写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">await</span> getData());</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"over"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(go);</span><br><span class="line">go();</span><br></pre></td></tr></table></figure>
+<p><code>async</code>用于定义一个异步函数,该函数隐式的返回一个<code>Promise</code>,该<code>promise</code>的<code>reosolve</code>值就是函数<code>return</code>的值。(示例中<code>reosolve</code>值就是字符串<code>over</code>)</p>
+<p><code>await</code>必须在<code>async</code>定义的函数中使用,当函数执行的时候,一旦遇到<code>await</code>就会先返回,等到异步操作完成,再接着执行函数体内后面的语句</p>
+<p>可以看出用<code>async/await</code>写出来的代码,最明显的一点就是代码要比<code>promise</code>简洁</p>
+<p>第二个优势,<code>async/await</code>可以让<code>try/catch</code>既能处理同步错误也可以处理异步产生的错误,在一般情况下使用<code>try/catch</code>是不能够检测异步错误的,因为<code>try/catch</code>本身就是同步的,这也就是为什么说<code>async/await</code>看起来像同步的原因之一</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(<span class="keyword">await</span> getData())</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'over'</span></span><br><span class="line">  &#125; <span class="keyword">catch</span>(error) &#123;</span><br><span class="line">    cons</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有时候可能需要嵌套异步,也就是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> promise1().then(<span class="function"><span class="params">value1</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> promise2(value1).then(<span class="function"><span class="params">value2</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> promise3(value1, value2);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环嵌套看起来很让人不爽,一个解决的方法是使用<code>promise.all</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> promise1()</span><br><span class="line">    .then(<span class="function"><span class="params">value1</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> promise.all([value1, promise2(value1)]);</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function">(<span class="params">value1, value2</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> promise3(value1, value2);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但这样做可读性未免也太差了,而且将<code>promise.all</code>本身的作用是用来将多个<code>Promise</code>实例包装起来,这样直接和<code>value1</code>一起使用也太奇怪了</p>
+<p>最好的方法是使用<code>async/await</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> value1 = <span class="keyword">await</span> promise1();</span><br><span class="line">  <span class="keyword">const</span> value2 = <span class="keyword">await</span> promise2(value1);</span><br><span class="line">  <span class="keyword">return</span> promise3(value1, value2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>async/await</code>可以让异步代码变得“同步”,但是会使异步代码不再明显,识别异步代码可能要花一些功夫</p>
+<h2 id="深入理解"><a href="#深入理解" class="headerlink" title="深入理解"></a>深入理解</h2><p><code>async</code>函数的返回值是一个<code>promise</code>对象:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"hello"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> a = test();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+<p>返回值出乎意料,是一个<code>promise</code>对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Promise &#123;&lt;resolved&gt;: &quot;hello&quot;&#125;</span><br></pre></td></tr></table></figure>
+<p>可以得出一个结论：<code>async</code>函数返回的是一个<code>promise</code>对象,如果在函数中<code>return</code>一个直接量,<code>async</code>会把这个值通过<code>promise.resolve()</code>封装成<code>promise</code>对象,如果没有返回值输出的则是<code>Promise.resolve(undefined)</code></p>
+<p>我们知道<code>await</code>不能在<code>async</code>函数外使用,所以当无法使用<code>await</code>获取返回值的时候还是要用<code>then</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test().then(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果没有<code>await</code>,那么<code>async</code>函数会立即执行,并返回一个<code>promise</code>对象,这和一个返回<code>promise</code>对象的普通函数没有区别</p>
+<p><code>await</code>等待的是一个表达式,计算结果是<code>promise</code>或者其他值,<code>await</code>等待的实际上是一个返回值,它可以用于任意表达式的返回结果，根据结果分两种情况：</p>
 <ul>
-<li>package name =&gt; 项目名称</li>
-<li>version =&gt; 项目版本号</li>
-<li>description =&gt; 项目描述</li>
-<li>entry point =&gt; 入口文件</li>
-<li>test command =&gt; 当你运行<code>npm run test</code>时运行的命令</li>
-<li>git repository =&gt; 你的git仓库地址</li>
-<li>keywords =&gt; 是一个字符串数组，放便于查找</li>
-<li>author =&gt; 作者</li>
-<li>license =&gt; 许可证，国内一般用MIT许可</li>
+<li>如果<code>await</code>最后等到的不是一个<code>promise</code>对象，那么<code>await</code>的运算结果就是表达式返回的东西</li>
+<li>如果<code>await</code>最后等到的是一个<code>promise</code>对象，那么他会等待<code>promise</code>的状态变成<code>resolve</code>，然后得到<code>resolve</code>的值，作为<code>await</code>表达式的运算结果</li>
 </ul>
-</blockquote>
-<p>这里我只填了 package name 为 project<br>最后它会告诉你：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;package.json&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Is this OK? (yes)</span><br></pre></td></tr></table></figure>
-<p>现在文件就已经创建好了，打开它，发现内容就是上述代码</p>
-<p>现在我们尝试安装一个npm包：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install ejs --save</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>–save表示将包名和版本储存在package.json的dependencies字段中  </li>
-<li>如果是–save-dev表示将包名和版本储存在package.json的devDependencies字段中  </li>
-<li>dependencies是运行时所依赖的包，devDependencies是开发时所依赖的包  </li>
-<li>如果直接npm install ejs，就是在dependencies字段下</li>
-</ul>
-</blockquote>
-<p>装完之后你会发现文件夹中多了一个node_modules文件夹，里面是你所安装的包，将来这个文件夹删了也没关系，可以使用<code>npm install</code>命令来重新安装项目的所有依赖  </p>
-<h2 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h2><blockquote>
-<p>Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的webpack.config.js文件，这个文件是一个 node.js 模块，返回一个 json 格式的配置信息对象</p>
-</blockquote>
-<p>在文件夹手动创建一个webpack.config.js文件<br>在里面输入以下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&quot;path&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    devtool: &apos;eval-source-map&apos;,</span><br><span class="line">    mode: &apos;production&apos;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        app: &quot;index.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(__dirname, &quot;public&quot;),</span><br><span class="line">        filename: &quot;bundle.js&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>devtool =&gt; 表示项目所用调试工具，有很多，我就不说了，但这仅1仅是方便调试，最后打包生成的js文件是非常大的，所以该字段可以删除</li>
-<li>mode =&gt; 用来告知webpack使用相应模式的内置优化，有两个选项：production 和 development , 就是生产模式和开发模式,production环境要求更小的代码量以加快网页的加载速度,development主要是为了开启热加载，路由重定向等功能</li>
-<li>entry =&gt; 表示入口文件路径，可以指定多个文件，同样会打包成多个文件  </li>
-<li>output =&gt; 表示出口文件，也就是打包之后的文件信息   </li>
-<li>path =&gt; 表示打包文件的输出路径（绝对路径）</li>
-<li>filename =&gt; 表示打包文件的名称  </li>
-</ul>
-</blockquote>
-<h3 id="webpack配置多个入口文件"><a href="#webpack配置多个入口文件" class="headerlink" title="webpack配置多个入口文件"></a>webpack配置多个入口文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">    app1: path.resolve(__dirname, <span class="string">"src/js/home.js"</span>),</span><br><span class="line">    app2: path.resolve(__dirname, <span class="string">"src/js/content.js"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样就实现了打包多个入口文件的配置，打包好之后webpack会根据字段名的不同命名打包好的文件</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><blockquote>
-<ol>
-<li>任何json文件，包括package.json,代码中都不能含有注释，可以在文件前面和后面加注释，但不能在中间</li>
-<li>package.json中的scripts字段存放的是脚本例如<code>&quot;scripts&quot;:{&quot;build&quot;:&quot;webpack --mode development&quot;}</code>，那么可以在命令行中输入<code>npm run build</code>相当于执行<code>webpack --mode development</code>命令，更加方便</li>
-<li>package.json中的”name”字段不要和任何包名相同，否则安装该包的时候会报错</li>
-</ol>
-</blockquote>
+<p><strong><font color="gold">警告</font></strong></p>
+<hr>
+<p><code>await</code>命令后面的<code>Promise</code>对象，运行结果可能是<code>rejected</code>，所以最好把<code>await</code>命令放在<code>try...catch</code>代码块中。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/02/27/Webpack4学后总结/">https://longgererer.github.io/2019/02/27/Webpack4学后总结/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/02/27/Webpack4学后总结/">February 27th 2019, 6:08:51 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/02/27/Webpack4学后总结/">March 22nd 2019, 8:54:47 pm</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">https://longgererer.github.io/2019/05/21/async-await学习笔记/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">May 21st 2019, 12:47:31 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">May 22nd 2019, 1:47:27 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -477,17 +452,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/03/04/JavaScript设计模式/" title="JavaScript设计模式">
-                    <div class="nextTitle">JavaScript设计模式</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/02/27/MVC与MVVM/" title="MVC与MVVM">
-                    <div class="prevTitle">MVC与MVVM</div>
+                <a href="/2019/05/19/Vue路由详解/" title="Vue路由详解">
+                    <div class="prevTitle">Vue路由详解</div>
                 </a>
             
         </li>
@@ -614,7 +584,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Webpack4"><span class="toc-number">1.</span> <span class="toc-text">安装Webpack4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json"><span class="toc-number">1.1.</span> <span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-config-js"><span class="toc-number">1.2.</span> <span class="toc-text">webpack.config.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack配置多个入口文件"><span class="toc-number">1.2.1.</span> <span class="toc-text">webpack配置多个入口文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.3.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深入理解"><span class="toc-number">1.</span> <span class="toc-text">深入理解</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
