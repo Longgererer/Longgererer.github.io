@@ -264,9 +264,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">366</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,7 +401,22 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <p><strong>广度优先算法</strong>（BFS）是一种图形搜索算法，<code>BFS</code>是从根节点开始，沿着树的宽度遍历树的节点，如果所有节点都被访问了，算法就会终止</p>
+<p>其遍历顺序如下:<br><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Breadth-first_tree.svg" alt="img"></p>
+<p><code>BFS</code>是一种盲目搜索法，也就是说，它不会考虑结果的可能地址，而是彻底地搜索整张图</p>
+<p>所有因为展开节点而得到的子节点都会被放置在一个先进先出的队列中，一般情况下，其邻居节点尚未被检验过的节点会被放置在一个被称为<code>open</code>的容器中，检验过的就会放在<code>closed</code>容器中</p>
+<p>加入有如下一段 html，需要用广度优先遍历，要求输出每个元素节点的<code>tagName</code>和<code>className</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"root"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"sidebar"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"menu"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">"post"</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"copyright"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>依照广度优先遍历算法我们可以得出这样的思路：</p>
+<p><div id="flowchart-0" class="flow-chart"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: 获取根节点
+e=>end: 遍历结束
+op=>operation: 顺序遍历子节点
+cond=>condition: 是否存在子节点?
+st->cond
+cond(yes)->op
+cond(no)->e
+op(left)->cond(left)</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
+
     </article>
     <!-- license  -->
     
@@ -403,7 +424,7 @@ height:50vh;
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
             </p><p>原文链接：<a href="https://longgererer.github.io/2019/05/24/深度优先遍历和广度优先遍历/">https://longgererer.github.io/2019/05/24/深度优先遍历和广度优先遍历/</a>
             </p><p>发表日期：<a href="https://longgererer.github.io/2019/05/24/深度优先遍历和广度优先遍历/">May 24th 2019, 10:03:22 am</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/24/深度优先遍历和广度优先遍历/">May 24th 2019, 10:03:22 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/24/深度优先遍历和广度优先遍历/">May 24th 2019, 12:11:06 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -936,6 +957,8 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

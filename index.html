@@ -364,7 +364,12 @@ height:50vh;
                 <span>深度优先遍历和广度优先遍历</span>
         </a>
         <div class="abstract-content">
-            
+            广度优先算法（BFS）是一种图形搜索算法，BFS是从根节点开始，沿着树的宽度遍历树的节点，如果所有节点都被访问了，算法就会终止
+其遍历顺序如下:
+BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地址，而是彻底地搜索整张图
+所有因为展开节点而得到的子节点都会被放置在一个先进先出的队列中，一般情况下，其邻居节点尚未被检验过的节点会被放置在一个被称为open的容器中，检验过的就会放在closed容器中
+加入有如下一段 html，需要用广度优先遍历，要求输出每个元素节点的tagName和className
+1234567891011&lt;div class="root"&gt;  &lt...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -372,6 +377,12 @@ height:50vh;
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/24</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
+    
+</div>
             
         </div>
     </article>
@@ -423,10 +434,9 @@ height:50vh;
                 <span>async/await学习笔记</span>
         </a>
         <div class="abstract-content">
-            ##介绍
-继ES6出现promise之后,再也不用担心回调地狱,但是promise也不是十全十美,async/await可以让异步代码看起来就像同步的一样,这就是要学习它的原因
+            介绍继ES6出现promise之后,再也不用担心回调地狱,但是promise也不是十全十美,async/await可以让异步代码看起来就像同步的一样,这就是要学习它的原因
 首先创建一个简单的 promise:
-1234567891011function getData() &#123;  return new Promise(function(resolve) &#123;    let data = &#123; name: "Tom" &#125;;    resolve(data);  &#125;);&#125;let p = getData();p.then(data =...
+1234567891011function getData() &#123;  return new Promise(function(resolve) &#123;    let data = &#123; name: "Tom" &#125;;    resolve(data);  &#125;);&#125;let p = getData();p.then(data =&gt...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1297,6 +1307,8 @@ axios.get(url[,...
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

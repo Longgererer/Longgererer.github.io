@@ -401,8 +401,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>##介绍</p>
-<p>继<code>ES6</code>出现<code>promise</code>之后,再也不用担心回调地狱,但是<code>promise</code>也不是十全十美,<code>async/await</code>可以让异步代码看起来就像同步的一样,这就是要学习它的原因</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>继<code>ES6</code>出现<code>promise</code>之后,再也不用担心回调地狱,但是<code>promise</code>也不是十全十美,<code>async/await</code>可以让异步代码看起来就像同步的一样,这就是要学习它的原因</p>
 <p>首先创建一个简单的 promise:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> data = &#123; <span class="attr">name</span>: <span class="string">"Tom"</span> &#125;;</span><br><span class="line">    resolve(data);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> p = getData();</span><br><span class="line">p.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"over"</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><code>getData</code>返回一个新的<code>promise</code>实例,成功<code>resolve</code>之后返回<code>data</code>的值,上面的写法是用<code>ES6promise</code>的写法</p>
@@ -444,7 +443,7 @@ height:50vh;
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
             </p><p>原文链接：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">https://longgererer.github.io/2019/05/21/async-await学习笔记/</a>
             </p><p>发表日期：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">May 21st 2019, 12:47:31 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">May 22nd 2019, 1:47:27 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/21/async-await学习笔记/">May 24th 2019, 10:52:07 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -589,7 +588,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#深入理解"><span class="toc-number">1.</span> <span class="toc-text">深入理解</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深入理解"><span class="toc-number">2.</span> <span class="toc-text">深入理解</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -982,6 +981,8 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
