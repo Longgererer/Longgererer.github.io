@@ -78,6 +78,8 @@
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
     
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -201,10 +203,8 @@
 </head>
 
     
-        <body class="home-body">
     
-    
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
@@ -220,34 +220,21 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/681135.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            lliiooiill的技术Blog.
-            <!-- 文章页  -->
-            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
-            
-            
-                好好学习，天天向上，遵纪守法，快乐生活
-            
-            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
@@ -359,326 +346,55 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/05/07/TypeScript学习指南/">
+        <a class="abstract-title" href="/2019/07/04/grid网格布局/">
             
-                <span>TypeScript学习指南</span>
+                <span>grid网格布局</span>
         </a>
         <div class="abstract-content">
-            在学习TypeScript之前，要了解的是：TypeScript是JavaScript的超集，是JavaScript预处理语言，主要提供了类型系统和对 ES6 的支持
-为什么要学习TypeScript？
+            
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/04/全面理解CSS媒体查询/">
+            
+                <span>全面理解CSS媒体查询</span>
+        </a>
+        <div class="abstract-content">
+            
+CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
 
-可以在编译阶段就发现大部分错误
-增强了编辑器和 IDE 的功能，包括代码补全、接口提示、跳转到定义、重构等
-即使完全用js语法写ts文件也不会出问题
-即使不显式的定义类型，也能够自动做出类型推论
-即使 TypeScript 编译报错，也可以生成 JavaScript 文件
-
-
-开始学习安装TypeScript运行如下命令：123npm i typescript -gtsc --init...
+媒体查询的基本语法单独使用1234567891011121314151617181920@media screen &#123;  .container &#123;    width: 600px;  &#125;&#125;@media screen, tv &#123;  .container &#123;    width: 600px;  &#125;&#125;@media (min-width: 600px) &#123;  .container &#123;    display: none;  &#125...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/07</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/04</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="TypeScript">TypeScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/03/虚拟DOM和Diff算法/">
-            
-                <span>虚拟DOM和Diff算法</span>
-        </a>
-        <div class="abstract-content">
-            React有两个核心概念：虚拟DOM和Diff算法
-首先我们来看看什么是DOM：DOM意思是文档对象模型（Dcoument Object Model），它是一个结构化文本的抽象。对于Web开发者，这个文本是一段HTML代码，DOM也就被叫做HTML DOM。HTML的元素在DOM中变成了节点。DOM是浏览器中的概念，用JS对象表示页面上的元素，并提供了操作DOM对象的API
-那么，什么是虚拟DOM呢？
-虚拟DOM首先说一下，这个虚拟DOM不是React发明的，但是React用了它且免费提供。它是轻量的，是从浏览器特定（Browser-specific，这里意指特定的浏览器需要特定的实现）...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/02/函数柯里化/">
-            
-                <span>函数柯里化</span>
-        </a>
-        <div class="abstract-content">
-            什么是柯里化呢？在数学和计算机科学中，柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术
-柯里化为实现多参函数提供一个递归降解的思路，就是将接受多个参数的函数转换成只接收一个参数的函数，并且返回一个新函数，这个新函数会接受剩下的参数
-在Javascript中，柯里化是怎样的呢？举个栗子：123456function add(num1, num2) &#123;    return num1 + num2&#125;//假设有一个curry函数可以实现下面的功能let func = curry(1)console.log(func(2))//3
-如何实现这个函数呢？1...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/01/Object-creat/">
-            
-                <span>Object.create()</span>
-        </a>
-        <div class="abstract-content">
-            Object.create()是ES5的一种创建对象的方法
-Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对象，这个对象无法进行委托。由于这个对象没有原型链，所以像instanceof这种操作符无法判断该对象的原型，因此会返回false。这些对象因为它们完全不受原型链干扰的特性，所以非常适合用来存储数据
-1234567let foo = &#123;    func: function() &#123;        console.log(1)    &#125;&#125;let bar = Object.create(foo)bar...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/28/this的指向/">
-            
-                <span>this的指向</span>
-        </a>
-        <div class="abstract-content">
-            
-作为JS最复杂的几个机制之一，this的指向往往是很难判断的，经常会出现因为this指向不对而导致的问题
-
-以前我一直不明白this的机制到底是什么，直到看了《你不知道的JS》才算明白一些
-在弄清this的指向之前，要先知道为什么要用this，因为this这种难以判断的东西应该少用才是，为什么那么常用呢？
-123456789101112const obj = &#123;    name: 'Tom',    age: 16,    setInfo(attribute, value)&#123;        this.attribute = value    &#125;,    g...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/23/DOM事件/">
-            
-                <span>DOM事件</span>
-        </a>
-        <div class="abstract-content">
-            DOM一共分为四个级别：DOM0级，DOM1级，DOM2级和DOM3级DOM事件有三种：DOM0级事件处理，DOM2级事件处理和DOM3级事件处理如下图：
-
-DOM0级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script&gt;    function func() &#123;        console.log(1)    &#125;&lt;/script&gt;
-这是HTML的事件处理，是最早的一种事件处理方式，也是最不推荐的一种。因为标签内事件所触发的函数名称和JS中的函数有强烈的耦合性，一旦函数名称...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/22/同步和异步/">
-            
-                <span>同步和异步</span>
-        </a>
-        <div class="abstract-content">
-            首先说说什么是同步，同步可以理解为在执行一个命令（例如函数）的时候，在没有得到返回结果之前，不会执行后续的命令，也就是说调用该命令的人必须主动等待该命令完成，才可执行后续操作。
-什么是异步呢？异步就是不需要等当前命令执行完得到返回值，直接执行下一个命令。 
-在JS中，本身是没有异步这个特性的，之所以有异步的说法，完全是因为JS运行在浏览器的环境上。
-我为什么这么说呢？因为浏览器在执行代码的过程中会将setTimeOut等命令看作是耗时命令，也就是说这些命令需要消耗一定的时间，很有可能会阻塞后续命令的执行（即使setTimeOut设置的是0ms），一旦发现耗时命令，浏览器便会将它推入队列中...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/浏览器的回流与重绘/">
-            
-                <span>浏览器的回流与重绘</span>
-        </a>
-        <div class="abstract-content">
-            写PC端页面的时候，样式可以做得非常花哨，酷炫也不会引起卡顿，但在移动端上受限于机能问题，如果无节制地使用各种CSS动画会导致页面卡顿，这是浏览器的回流与重绘造成的  
-浏览器的回流与重绘是什么？reflow：回流，比如说改变了某元素的宽高等会影响页面布局的属性，那么浏览器就会自动回流(重排)页面，所有受影响的元素都需要重新绘制。repaint：重绘，比如说改变了元素的样式风格，但不会改变页面的布局，那浏览器就会发生重绘  
-在浏览器中，不管是用JS还是CSS渲染页面都不可避免地要进行以下几个处理：  
-
-也就是： JS/CSS =&gt; style(样式) =&gt; Layout(...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="回流与重绘">回流与重绘</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/函数节流与函数防抖/">
-            
-                <span>函数节流与函数防抖</span>
-        </a>
-        <div class="abstract-content">
-            函数节流
-函数节流就是在指定时间间隔内只执行一次该函数
-
-举个栗子：滚动条滚动事件123window.addEventListener('scroll', function()&#123;    console.log('页面滚动了')&#125;, false)
-该代码的初衷是：用户每滑动一次滚动条，执行一次console.log(&#39;页面滚动了&#39;)，但事实是：  
-
-用户只滑动了一次滚动条，就多次触发了scroll事件，因为浏览器每隔一个很短的时间间隔就要判断滚动条的变化，如果执行函数内需要执行DOM操作，将会非常消耗资源，这个时候节流函数就派上用场了：12345678...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/09/Generator生成器/">
-            
-                <span>Generator生成器</span>
-        </a>
-        <div class="abstract-content">
-            Generator 基本用法Promise解决了异步嵌套的问题，ES6又推出了Generator函数，这是一个新的函数类型，也叫做生成器来看例子：
-123456789101112let x = 1;function a()&#123;    x ++;    b();    console.log(x);&#125;a();function b()&#123;    x ++;&#125;
-输出结果是什么？毫无疑问会是 3如果我把b()这条调用函数b的行为取消，那结果应该是 2，有没有方法可以做到在取消调用函数b之后，仍然可以得到 3 的结果呢？答案就是：Generator  
-1234...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Generator">Generator</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
     
 </div>
             
@@ -687,117 +403,8 @@ DOM0级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script&
     
     <!-- paginator  -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &#62;</a>
-    </nav>
-    
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src="/avatar/lliiooiill.jpg">
-    <div class="profile-name">lliiooiill</div>
-    
-    <div class="profile-signature">
-        做一个儒雅随和的程序员
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:c2b139460q@163.com" class="iconfont-archer email" title="email"></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/Longgererer" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-            
-                <span class="iconfont-archer wechat" title="wechat">
-                  
-                  <img class="profile-qr" src="/assets/weChatlliiooiill.jpg">
-                </span>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="//www.zhihu.com/people/lliiooiill/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="//segmentfault.com/u/longgererer" class="iconfont-archer segmentFault" target="_blank" title="segmentFault"></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href="//www.baidu.com" target="_black">BAIDU</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href="//www.google.com" target="_black">GOOGLE</a>
-                    </span>
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
