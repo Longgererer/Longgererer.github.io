@@ -346,6 +346,75 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/07/08/JS内存管理/">
+            
+                <span>JS内存管理</span>
+        </a>
+        <div class="abstract-content">
+            JS 的内存管理对大部分前端人员来说可能很陌生，因为 JS 这门语言会在变量不再使用的时候自动释放内存，这让很多开发者认为完全不用关心内存管理，这是错误的想法
+JS 内存空间分为栈(stack)、堆(heap)、池(一般也会归类为栈中)。 其中栈存放变量，堆存放复杂对象，池存放常量
+我们来看一个例子
+12let a = 20;let b = a; // a=?
+12345let a = &#123;  b: 1&#125;;let c = a;c.b = 2; // a.b=?
+在栈内存中的数据发生复制行为时，系统会自动为新的变量分配一个新值。var b = a 执行之后，a 与 b 虽...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/06/14种JavaScript设计模式/">
+            
+                <span>14种JavaScript设计模式</span>
+        </a>
+        <div class="abstract-content">
+            看了 《JavaScript 设计模式与开发实践》 一书，深有感触，想总结一下
+单例模式
+单例模式顾名思义就是只需要一个对象就够了，比如弹窗，就算点击多次按钮也只会跳出一次弹窗
+
+这就需要一个变量判断弹窗对象是否已经创建过，如果创建过则直接返回之前创建的对象
+但是还有一个问题，这个按钮我也许永远不会点，那么就没有必要在页面加载时就创建好，只需要点击按钮的时候在创建就好了，也就是惰性单例
+1234567891011121314151617let loginBtn = document.getElementById("login");loginBtn.onclick = function()...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/06</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/07/04/grid网格布局/">
             
                 <span>grid网格布局</span>
@@ -798,9 +867,49 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 27
         </div>
         <!-- search  -->
         
@@ -813,6 +922,16 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/JS内存管理/">JS内存管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href="/2019/07/06/14种JavaScript设计模式/">14种JavaScript设计模式</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -944,27 +1063,27 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
+    
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
-    
         <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
-    
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
-    
-        <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+    
         <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
+        <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
