@@ -346,6 +346,76 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/24/深度优先遍历和广度优先遍历/">
+            
+                <span>广度优先算法和深度优先算法</span>
+        </a>
+        <div class="abstract-content">
+            广度优先算法广度优先算法（BFS）是一种图形搜索算法，BFS是从根节点开始，沿着树的宽度遍历树的节点，如果所有节点都被访问了，算法就会终止
+其遍历顺序如下:
+BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地址，而是彻底地搜索整张图
+所有因为展开节点而得到的子节点都会被放置在一个先进先出的队列中，一般情况下，其邻居节点尚未被检验过的节点会被放置在一个被称为open的容器中，检验过的就会放在closed容器中
+加入有如下一段 html，需要用广度优先遍历，要求输出每个元素节点的tagName和className
+1234567891011&lt;div class="root"&gt...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/22/前端面试题汇总/">
+            
+                <span>一些重要的前端面试题目</span>
+        </a>
+        <div class="abstract-content">
+            闭包先来看一道和for循环有关的题目
+123456for (var i = 0; i &lt; 5; i++) &#123;  setTimeout(function() &#123;    console.log(i);  &#125;, 1000);&#125;console.log(i);
+
+要求给出输出的结果
+
+了解var和异步机制的同学应该很容易就知道输出的结果，答案是： 5、5、5、5、5、5
+这是又有一个问题，既然是输出 6 个五，因为计时器的原因肯定不能一次性全部输出，那么输出的顺序（时间间隔）是怎么样的呢？
+熟悉计数器工作机制的同学知道答案是： 先输出一个 5，过一秒之...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/21/async-await学习笔记/">
             
                 <span>async/await学习笔记</span>
@@ -395,7 +465,8 @@ Vue Router的两个重点：
 
 
 
-路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：1234567891011121314import Vue from 'vue'import Router from 'vue-router'import Test from '../c...
+路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
+1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -441,7 +512,7 @@ Vue的组件化我个人认为有如下三个重点：
 prvide &amp; inject
 element-ui 组件库
 
-组件化通信先来说说组件，在Vue项目中，除了主组件App.vue之外，其他组件都要放到components...
+组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -470,16 +541,20 @@ element-ui 组件库
                 <span>Axios学习笔记</span>
         </a>
         <div class="abstract-content">
-            Axios是一个基于promise的HTTP库，所以学习Axios之前需要先学习promise，Axios可以应用在浏览器和node.js中
-安装npm1$ npm install axios
-or yarn1$ yarn add axios
-or CDN1&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;
-引入axios1import axios from 'axios'
-APIaxios有如下几个API
+            Axios是一个基于 promise 的 HTTP 库，所以学习Axios之前需要先学习promise，Axios可以应用在浏览器和node.js中
+安装npm
+1$ npm install axios
+or yarn
+1$ yarn add axios
+or CDN
+1&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;
+引入 axios
+1import axios from "axios";
+APIaxios 有如下几个 API
 
 
 axios.request(config)
-axios.get(url[,...
+axi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -509,7 +584,8 @@ axios.get(url[,...
         </a>
         <div class="abstract-content">
             Vuex是一个专为Vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
-状态管理模式看下面的例子：1234567891011new Vue(&#123;    data()&#123;        return &#123;count: 0&#125;    &#125;,    template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,    methods: &#123;        add()&#123...
+状态管理模式看下面的例子：
+1234567891011new Vue(&#123;  data() &#123;    return &#123; count: 0 &#125;;  &#125;,  template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,  methods: &#123;    add() &#123;      thi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -538,17 +614,18 @@ axios.get(url[,...
                 <span>TypeScript学习指南</span>
         </a>
         <div class="abstract-content">
-            在学习TypeScript之前，要了解的是：TypeScript是JavaScript的超集，是JavaScript预处理语言，主要提供了类型系统和对 ES6 的支持
-为什么要学习TypeScript？
+            在学习 TypeScript 之前，要了解的是：TypeScript 是 JavaScript 的超集，是 JavaScript 预处理语言，主要提供了类型系统和对 ES6 的支持
+为什么要学习 TypeScript？
 
 可以在编译阶段就发现大部分错误
 增强了编辑器和 IDE 的功能，包括代码补全、接口提示、跳转到定义、重构等
-即使完全用js语法写ts文件也不会出问题
+即使完全用 js 语法写 ts 文件也不会出问题
 即使不显式的定义类型，也能够自动做出类型推论
 即使 TypeScript 编译报错，也可以生成 JavaScript 文件
 
 
-开始学习安装TypeScript运行如下命令：123npm i typescript -gtsc --init...
+开始学习安装 TypeScript运行如下命令：
+123npm i typescrip...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -611,8 +688,9 @@ axios.get(url[,...
         <div class="abstract-content">
             什么是柯里化呢？在数学和计算机科学中，柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术
 柯里化为实现多参函数提供一个递归降解的思路，就是将接受多个参数的函数转换成只接收一个参数的函数，并且返回一个新函数，这个新函数会接受剩下的参数
-在Javascript中，柯里化是怎样的呢？举个栗子：123456function add(num1, num2) &#123;    return num1 + num2&#125;//假设有一个curry函数可以实现下面的功能let func = curry(1)console.log(func(2))//3
-如何实现这个函数呢？1...
+在 Javascript 中，柯里化是怎样的呢？举个栗子：
+123456function add(num1, num2) &#123;  return num1 + num2;&#125;//假设有一个curry函数可以实现下面的功能let func = curry(1);console.log(func(2)); //3
+如何实现这个...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -630,75 +708,10 @@ axios.get(url[,...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/01/Object-creat/">
-            
-                <span>Object.create()</span>
-        </a>
-        <div class="abstract-content">
-            Object.create()是ES5的一种创建对象的方法
-Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对象，这个对象无法进行委托。由于这个对象没有原型链，所以像instanceof这种操作符无法判断该对象的原型，因此会返回false。这些对象因为它们完全不受原型链干扰的特性，所以非常适合用来存储数据
-1234567let foo = &#123;    func: function() &#123;        console.log(1)    &#125;&#125;let bar = Object.create(foo)bar...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/28/this的指向/">
-            
-                <span>this的指向</span>
-        </a>
-        <div class="abstract-content">
-            
-作为JS最复杂的几个机制之一，this的指向往往是很难判断的，经常会出现因为this指向不对而导致的问题
-
-以前我一直不明白this的机制到底是什么，直到看了《你不知道的JS》才算明白一些
-在弄清this的指向之前，要先知道为什么要用this，因为this这种难以判断的东西应该少用才是，为什么那么常用呢？
-123456789101112const obj = &#123;    name: 'Tom',    age: 16,    setInfo(attribute, value)&#123;        this.attribute = value    &#125;,    g...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/page/3/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/2019/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1176,9 +1189,37 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1191,6 +1232,16 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1353,19 +1404,19 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
         <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
     
-        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     

@@ -414,35 +414,44 @@ height:50vh;
 </ul>
 </li>
 </ul>
-<h2 id="路由跳转"><a href="#路由跳转" class="headerlink" title="路由跳转"></a>路由跳转</h2><p>在<code>Vue</code>创建的项目中，可以选择是否使用<code>vue-router</code>，如果使用，那么项目中会多一个<code>router</code>文件夹，里面有个文件夹<code>index.js</code>，它的结构是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> Test <span class="keyword">from</span> <span class="string">'../components/test.vue'</span></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Test'</span>,</span><br><span class="line">      component: Test</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="路由跳转"><a href="#路由跳转" class="headerlink" title="路由跳转"></a>路由跳转</h2><p>在<code>Vue</code>创建的项目中，可以选择是否使用<code>vue-router</code>，如果使用，那么项目中会多一个<code>router</code>文件夹，里面有个文件夹<code>index.js</code>，它的结构是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">"vue-router"</span>;</span><br><span class="line"><span class="keyword">import</span> Test <span class="keyword">from</span> <span class="string">"../components/test.vue"</span>;</span><br><span class="line">Vue.use(Router);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">"/"</span>,</span><br><span class="line">      name: <span class="string">"Test"</span>,</span><br><span class="line">      component: Test</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>项目中用到的所有路由都可以放到这个文件中，当然，如果路由太多也可以分成多个文件导入。</p>
 <p>值得注意的是，在创建的<code>router</code>对象中，如果不配置<code>mode</code>，就会使用默认的<code>hash</code>模式，该模式下会将路径格式化为<code>#</code>开头</p>
 <p>添加<code>mode: &#39;history&#39;</code>之后将使用<code>HTML5 history</code>模式，该模式下没有<code>#</code>前缀，而且可以使用 <code>pushState</code>和 <code>replaceState</code>来管理记录。</p>
 <p>在<code>App.vue</code>中， <code>&lt;router-view&gt;</code> 是用来渲染通过路由映射过来的组件，当路径更改时，<code>&lt;router-view&gt;</code> 中的内容也会发生更改</p>
-<p>嵌套一个二级路由：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Test'</span>,</span><br><span class="line">      component: Test,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">'first'</span>,</span><br><span class="line">          name: <span class="string">'First'</span>,</span><br><span class="line">          component: First</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>嵌套一个二级路由：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">"/"</span>,</span><br><span class="line">      name: <span class="string">"Test"</span>,</span><br><span class="line">      component: Test,</span><br><span class="line">      children: [</span><br><span class="line">        &#123;</span><br><span class="line">          path: <span class="string">"first"</span>,</span><br><span class="line">          name: <span class="string">"First"</span>,</span><br><span class="line">          component: First</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>以<code>/</code>开头的路径通常为根路径，所以其子路由也不需要加上<code>/</code></p>
 <p>通常情况下可以使用<code>&lt;router-link&gt;</code>来实现导航的功能,比如导航栏，在编译之后，<code>&lt;router-link&gt;</code>会被渲染成<code>&lt;a&gt;</code>标签，<code>to</code>会被渲染成<code>href</code>，<code>&lt;router-link&gt;</code>被点击的时候<code>url</code>会改变，所以其实可以将<code>&lt;router-link&gt;</code>完全看成<code>&lt;a&gt;</code>来使用</p>
-<p>页面间经常要传递参数，比如从登陆页面进入到主页就需要用户的<code>ID</code>，可以添加动态参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    path: <span class="string">'/home/:id'</span>,</span><br><span class="line">    component: Home</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>之后可以使用<code>$route.params.id</code>来获取传过来的<code>ID</code><br>但推荐使用<code>params</code>对象来传递参数，这个时候<code>path</code>是不生效的，要用<code>name</code>代替：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    name: <span class="string">'name'</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    params: &#123;</span><br><span class="line">      id: <span class="string">'123'</span>,</span><br><span class="line">      name: <span class="string">'...'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在跳转路由之前可能还要做其他判断，这个时候可以绑定一个方法，再使用<code>this.$router.push</code>完成跳转：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"goHome"</span>&gt;</span>home<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>页面间经常要传递参数，比如从登陆页面进入到主页就需要用户的<code>ID</code>，可以添加动态参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'/home/:id'</span>,</span><br><span class="line">    component: Home</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后可以使用<code>$route.params.id</code>来获取传过来的<code>ID</code><br>但推荐使用<code>params</code>对象来传递参数，这个时候<code>path</code>是不生效的，要用<code>name</code>代替：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    name: <span class="string">'name'</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    params: &#123;</span><br><span class="line">      id: <span class="string">'123'</span>,</span><br><span class="line">      name: <span class="string">'...'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在跳转路由之前可能还要做其他判断，这个时候可以绑定一个方法，再使用<code>this.$router.push</code>完成跳转：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"goHome"</span>&gt;</span>home<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">goHome() &#123;</span><br><span class="line">  <span class="keyword">this</span>.$router.push(&#123;<span class="attr">path</span>: <span class="string">'/home'</span>&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>也叫做导航守卫，只要用来通过跳转或者取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p>
-<h3 id="全局前置守卫"><a href="#全局前置守卫" class="headerlink" title="全局前置守卫"></a>全局前置守卫</h3><p>可以使用<code>router.beforeEach</code>注册一个全局前置守卫：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="全局前置守卫"><a href="#全局前置守卫" class="headerlink" title="全局前置守卫"></a>全局前置守卫</h3><p>可以使用<code>router.beforeEach</code>注册一个全局前置守卫：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123; ... &#125;)</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫 <code>resolve</code>完之前一直处于等待中。</p>
-<p>to,from,next三个参数都是必要的</p>
+<p>to,from,next 三个参数都是必要的</p>
 <blockquote>
 <ul>
 <li>to: 即将要进入的目标 路由对象</li>
 <li>from:  当前导航正要离开的路由</li>
-<li>next：一定要调用该方法来 resolve 这个钩子，如果不写next()或者next(false)，页面路由不会跳转，也就是页面被阻止在当前页面了</li>
+<li>next：一定要调用该方法来 resolve 这个钩子，如果不写 next()或者 next(false)，页面路由不会跳转，也就是页面被阻止在当前页面了</li>
 </ul>
 </blockquote>
-<h3 id="独享守卫"><a href="#独享守卫" class="headerlink" title="独享守卫"></a>独享守卫</h3><p>独享守卫就是将路由钩子函数写在我们的某个具体路由对象里面：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'/'</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    beforeEnter: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="独享守卫"><a href="#独享守卫" class="headerlink" title="独享守卫"></a>独享守卫</h3><p>独享守卫就是将路由钩子函数写在我们的某个具体路由对象里面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">"/"</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    beforeEnter: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 <h3 id="全局解析守卫"><a href="#全局解析守卫" class="headerlink" title="全局解析守卫"></a>全局解析守卫</h3><p><code>router.beforeResolve</code>是<code>Vue 2.5.0</code>新增的方法，在导航被确认之前，同时在所有组件内守卫和异步路由组件被解析之后，解析守卫就被调用。</p>
-<h3 id="全局后置钩子"><a href="#全局后置钩子" class="headerlink" title="全局后置钩子"></a>全局后置钩子</h3><p>全局后置钩子和守卫不同的是，这些钩子不会接受<code>next</code>函数也不会改变导航本身：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = &#123;</span><br><span class="line">  template: <span class="string">`...`</span>,</span><br><span class="line">  beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">    <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouteUpdate (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouteLeave (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="全局后置钩子"><a href="#全局后置钩子" class="headerlink" title="全局后置钩子"></a>全局后置钩子</h3><p>全局后置钩子和守卫不同的是，这些钩子不会接受<code>next</code>函数也不会改变导航本身：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="组件内守卫"><a href="#组件内守卫" class="headerlink" title="组件内守卫"></a>组件内守卫</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = &#123;</span><br><span class="line">  template: <span class="string">`...`</span>,</span><br><span class="line">  beforeRouteEnter(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">    <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouteUpdate(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouteLeave(to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>beforeRouteEnter</code>守卫不能访问<code>this</code>，因为守卫在导航确认前被调用,因此即将登场的新组件还没被创建。</p>
-<p>不过，你可以通过传一个回调给<code>next</code>来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  next(<span class="function"><span class="params">vm</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不过，你可以通过传一个回调给<code>next</code>来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">  next(<span class="function"><span class="params">vm</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h2><blockquote>
 <ol>
 <li>导航被触发。</li>
@@ -467,7 +476,7 @@ height:50vh;
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
             </p><p>原文链接：<a href="https://longgererer.github.io/2019/05/19/Vue路由详解/">https://longgererer.github.io/2019/05/19/Vue路由详解/</a>
             </p><p>发表日期：<a href="https://longgererer.github.io/2019/05/19/Vue路由详解/">May 19th 2019, 9:14:47 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/19/Vue路由详解/">May 19th 2019, 9:15:32 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/05/19/Vue路由详解/">August 6th 2019, 6:52:17 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -997,9 +1006,37 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1012,6 +1049,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1174,19 +1221,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
         <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
     
-        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     

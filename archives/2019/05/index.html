@@ -465,7 +465,8 @@ Vue Router的两个重点：
 
 
 
-路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：1234567891011121314import Vue from 'vue'import Router from 'vue-router'import Test from '../c...
+路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
+1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -511,7 +512,7 @@ Vue的组件化我个人认为有如下三个重点：
 prvide &amp; inject
 element-ui 组件库
 
-组件化通信先来说说组件，在Vue项目中，除了主组件App.vue之外，其他组件都要放到components...
+组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -540,16 +541,20 @@ element-ui 组件库
                 <span>Axios学习笔记</span>
         </a>
         <div class="abstract-content">
-            Axios是一个基于promise的HTTP库，所以学习Axios之前需要先学习promise，Axios可以应用在浏览器和node.js中
-安装npm1$ npm install axios
-or yarn1$ yarn add axios
-or CDN1&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;
-引入axios1import axios from 'axios'
-APIaxios有如下几个API
+            Axios是一个基于 promise 的 HTTP 库，所以学习Axios之前需要先学习promise，Axios可以应用在浏览器和node.js中
+安装npm
+1$ npm install axios
+or yarn
+1$ yarn add axios
+or CDN
+1&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;
+引入 axios
+1import axios from "axios";
+APIaxios 有如下几个 API
 
 
 axios.request(config)
-axios.get(url[,...
+axi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -579,7 +584,8 @@ axios.get(url[,...
         </a>
         <div class="abstract-content">
             Vuex是一个专为Vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
-状态管理模式看下面的例子：1234567891011new Vue(&#123;    data()&#123;        return &#123;count: 0&#125;    &#125;,    template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,    methods: &#123;        add()&#123...
+状态管理模式看下面的例子：
+1234567891011new Vue(&#123;  data() &#123;    return &#123; count: 0 &#125;;  &#125;,  template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,  methods: &#123;    add() &#123;      thi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -608,17 +614,18 @@ axios.get(url[,...
                 <span>TypeScript学习指南</span>
         </a>
         <div class="abstract-content">
-            在学习TypeScript之前，要了解的是：TypeScript是JavaScript的超集，是JavaScript预处理语言，主要提供了类型系统和对 ES6 的支持
-为什么要学习TypeScript？
+            在学习 TypeScript 之前，要了解的是：TypeScript 是 JavaScript 的超集，是 JavaScript 预处理语言，主要提供了类型系统和对 ES6 的支持
+为什么要学习 TypeScript？
 
 可以在编译阶段就发现大部分错误
 增强了编辑器和 IDE 的功能，包括代码补全、接口提示、跳转到定义、重构等
-即使完全用js语法写ts文件也不会出问题
+即使完全用 js 语法写 ts 文件也不会出问题
 即使不显式的定义类型，也能够自动做出类型推论
 即使 TypeScript 编译报错，也可以生成 JavaScript 文件
 
 
-开始学习安装TypeScript运行如下命令：123npm i typescript -gtsc --init...
+开始学习安装 TypeScript运行如下命令：
+123npm i typescrip...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -681,8 +688,9 @@ axios.get(url[,...
         <div class="abstract-content">
             什么是柯里化呢？在数学和计算机科学中，柯里化是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术
 柯里化为实现多参函数提供一个递归降解的思路，就是将接受多个参数的函数转换成只接收一个参数的函数，并且返回一个新函数，这个新函数会接受剩下的参数
-在Javascript中，柯里化是怎样的呢？举个栗子：123456function add(num1, num2) &#123;    return num1 + num2&#125;//假设有一个curry函数可以实现下面的功能let func = curry(1)console.log(func(2))//3
-如何实现这个函数呢？1...
+在 Javascript 中，柯里化是怎样的呢？举个栗子：
+123456function add(num1, num2) &#123;  return num1 + num2;&#125;//假设有一个curry函数可以实现下面的功能let func = curry(1);console.log(func(2)); //3
+如何实现这个...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1181,9 +1189,37 @@ axios.get(url[,...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1196,6 +1232,16 @@ axios.get(url[,...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1358,19 +1404,19 @@ axios.get(url[,...
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
         <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
     
-        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     

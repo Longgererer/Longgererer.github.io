@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>lliiooiill的技术Blog</title>
+    <title>Window对象属性详解 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的技术Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Window对象属性详解</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Window对象属性详解
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,119 +399,158 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/函数节流与函数防抖/">
-            
-                <span>函数节流与函数防抖</span>
-        </a>
-        <div class="abstract-content">
-            函数节流
-函数节流就是在指定时间间隔内只执行一次该函数
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>学了那么久的 <code>js</code>，有必要了解一些实用的原生 <code>API</code> 了</p>
+<h2 id="window-属性"><a href="#window-属性" class="headerlink" title="window 属性"></a>window 属性</h2><h3 id="closed"><a href="#closed" class="headerlink" title="closed"></a>closed</h3><p>此属性返回一个布尔值，用于判断指定窗口是否关闭，常和 <code>window.open()</code> 方法一起使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newWindow = <span class="built_in">window</span>.open(<span class="string">""</span>);</span><br><span class="line">newWindow.close();</span><br><span class="line"><span class="keyword">if</span> (newWindow.closed) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"window closed"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>控制台将输出 <code>window closed</code></p>
+<p>如果直接在当前页面上执行 <code>window.closed</code> 返回值为 <code>false</code>，因为当前窗口是打开的</p>
+<h3 id="document"><a href="#document" class="headerlink" title="document"></a>document</h3><p>此属性是对 <code>Document</code> 对象的只读引用，平常使用都是直接省略 <code>window</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以获取新窗口中的Document</span></span><br><span class="line"><span class="keyword">const</span> newWindow = <span class="built_in">window</span>.open(<span class="string">""</span>);</span><br><span class="line">newWindow.document.write(<span class="string">"1"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="frames"><a href="#frames" class="headerlink" title="frames"></a>frames</h3><p>该选项返回一个数组，数组包含当前窗口中所有的 <code>iframe</code></p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https://www.baidu.com/"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"https://www.baidu.com/"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.frames[<span class="number">0</span>].location = <span class="string">"https://www.google.com/"</span>;</span><br></pre></td></tr></table></figure>
+<p><code>window.frames[0]</code> 将获取第一个 <code>iframe</code>，更改其 <code>location</code> 属性将重定向到一个新的页面</p>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>改属性为一个对象，包含下面常用属性和方法</p>
+<ul>
+<li><p>length<br>返回历史列表中的网址数</p>
+</li>
+<li><p>back()<br>加载历史列表中的上一个 <code>url</code>（后退）</p>
+</li>
+<li><p>forward()<br>加载历史列表中的下一个 <code>url</code>（前进）</p>
+</li>
+<li><p>go(number/url)<br>加载历史列表中的一个具体页面</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">history.go(<span class="number">-1</span>); <span class="comment">// 相当于history.back()</span></span><br><span class="line">history.go(<span class="number">1</span>); <span class="comment">// 相当于history.forward()</span></span><br><span class="line">history.go(<span class="number">-2</span>);</span><br><span class="line">history.go(<span class="string">"https://www.google.com/"</span>); <span class="comment">// 也可以使用url字符串做参数，但前提是url必须存在于历史列表中</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="innerWidth-amp-innerHeight"><a href="#innerWidth-amp-innerHeight" class="headerlink" title="innerWidth&amp;innerHeight"></a>innerWidth&amp;innerHeight</h3><p>可以通过：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> winWidth = <span class="built_in">window</span>.innerWidth;</span><br><span class="line"><span class="keyword">const</span> winHeight = <span class="built_in">window</span>.innerHeight;</span><br></pre></td></tr></table></figure>
+<p>来获取窗口的文档显示区的宽高（不包括浏览器工具栏和滚动条）</p>
+<p>这两个属性不是只读的，可以修改 <code>innerWidth</code> 和 <code>innerHeight</code> 来改变窗口大小</p>
+<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p>该属性允许在浏览器中存储键值对数据，用于长久保存浏览器的数据，过期时间为永久，除非手动删除，否则数据将会一直保存在本地</p>
+<p><code>localStorage</code> 是<strong>只读</strong>的</p>
+<p>在浏览器中支持 <code>localStorage</code> 大小一般为<strong>5M</strong>，在不同浏览器中限制大小会有所不同</p>
+<p><code>localStorage</code> 的值类型限定为 <code>String</code> 类型，所以存储对象类型的时候需要先进行转换</p>
+<p><code>localStorage</code> 有下面两种写入方法：</p>
+<ul>
+<li><code>storage[&quot;a&quot;]=1</code> 或 <code>storage.a=1</code></li>
+<li><code>storage.setItem(&quot;a&quot;,3)</code></li>
+</ul>
+<p><code>localStorage</code> 的获取：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = localStorage.getItem(<span class="string">"a"</span>);</span><br></pre></td></tr></table></figure>
+<p><code>localStorage</code> 的删除：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(<span class="string">"a"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><h4 id="location-属性"><a href="#location-属性" class="headerlink" title="location 属性"></a>location 属性</h4><p>假设有这样一个 <code>url</code>：<code>https://localhost:4040/index.html?a=1#fragment</code></p>
+<ul>
+<li><p>hash<br>返回一个 <code>url</code> 的锚部分（从#开始）<br><code>location.hash // fragment</code></p>
+</li>
+<li><p>host<br>返回主机名和端口<br><code>location.host // localhost:4040</code></p>
+</li>
+<li><p>hostname<br>返回主机名<br><code>location.hostname // localhost</code></p>
+</li>
+<li><p>href<br>返回完整的 <code>url</code><br><code>location.href // https://localhost:4040/index.html?a=1#fragment</code></p>
+</li>
+<li><p>pathname<br>返回 <code>url</code> 路径名<br><code>location.pathname // /index.html</code></p>
+</li>
+<li><p>port<br>返回端口号<br><code>location.port // 4040</code></p>
+</li>
+<li><p>protocol<br>返回 <code>url</code> 协议<br><code>location.protocol // https:</code></p>
+</li>
+<li><p>search<br>返回 <code>url</code> 查询部分<br><code>location.search // ?a=1</code></p>
+</li>
+</ul>
+<h4 id="location-方法"><a href="#location-方法" class="headerlink" title="location 方法"></a>location 方法</h4><ul>
+<li><p>location.assign(URL)<br>加载一个新的文档</p>
+</li>
+<li><p>location.reload()<br>重新载入当前文档</p>
+</li>
+<li><p>location.replace(url)<br>载入新文档来替换当前页面</p>
+</li>
+</ul>
+<h3 id="opener"><a href="#opener" class="headerlink" title="opener"></a>opener</h3><p>改属性返回创建此窗口的窗口的引用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newWindow = <span class="built_in">window</span>.open(<span class="string">""</span>);</span><br><span class="line">newWindow.opener.document.write(<span class="string">"1"</span>);</span><br></pre></td></tr></table></figure>
+<p><code>newWindow.opener</code> 指向的是当前窗口，也就是 <code>newWindow</code> 的原窗口</p>
+<h3 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h3><p>这个属性是一个对象，包含有关客户端显示屏幕的信息</p>
+<ul>
+<li><p>availHeight<br>返回屏幕的高度（不包括 windows 底部的任务栏，和浏览器本身窗口大小无关）</p>
+</li>
+<li><p>availWidth<br>返回屏幕宽度</p>
+</li>
+<li><p>height<br>返回屏幕的总高度（包括任务栏）</p>
+</li>
+<li><p>width<br>返回屏幕的总宽度</p>
+</li>
+</ul>
+<h3 id="screenLeft-amp-screenTop"><a href="#screenLeft-amp-screenTop" class="headerlink" title="screenLeft&amp;screenTop"></a>screenLeft&amp;screenTop</h3><p>返回窗口相对于屏幕的 <code>x</code> 和 <code>y</code> 坐标（左上角），值为 <code>Number</code> 类型</p>
+<h3 id="screenX-amp-screenY"><a href="#screenX-amp-screenY" class="headerlink" title="screenX&amp;screenY"></a>screenX&amp;screenY</h3><p>和 <code>screenLeft</code>，<code>screenTop</code> 是一样的作用，只是 <code>IE</code> 不兼容 <code>screenX</code> 和 <code>screenTop</code> 这两个属性</p>
+<h3 id="pageXOffset-amp-pageYOffset"><a href="#pageXOffset-amp-pageYOffset" class="headerlink" title="pageXOffset&amp;pageYOffset"></a>pageXOffset&amp;pageYOffset</h3><p><code>pageXOffset</code> 和 <code>pageYOffset</code> 属性返回文档在窗口左上角水平和垂直方向滚动的像素</p>
+<h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h3><p>改属性用于创建一个本地存储的键值对，但和 <code>localStorage</code> 不同的是，在会话窗口关闭的时候会删除这些数据</p>
+<p>和 <code>localStorage</code> 一样，大部分浏览器将存储上线设置为<strong>5M</strong>，存储的值也必须为字符串</p>
+<p>保存数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(<span class="string">"key"</span>, <span class="string">"value"</span>);</span><br></pre></td></tr></table></figure>
+<p>读取数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = sessionStorage.getItem(<span class="string">"key"</span>);</span><br></pre></td></tr></table></figure>
+<p>删除指定数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.removeItem(<span class="string">"key"</span>);</span><br></pre></td></tr></table></figure>
+<p>删除所有数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.clear();</span><br></pre></td></tr></table></figure>
+<h2 id="window-方法"><a href="#window-方法" class="headerlink" title="window 方法"></a>window 方法</h2><h3 id="confirm"><a href="#confirm" class="headerlink" title="confirm()"></a>confirm()</h3><p>该方法显示一个带有取消和确认按钮的对话框</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bol = confirm(<span class="string">"提示..."</span>);</span><br><span class="line">bol &amp;&amp; <span class="built_in">console</span>.log(<span class="string">"按下了确定"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="getComputedStyle"><a href="#getComputedStyle" class="headerlink" title="getComputedStyle()"></a>getComputedStyle()</h3><p>该方法返回一个对象，用于获取一个元素的 <code>css</code> 样式</p>
+<p>接受两个参数，一个是元素，一个是伪类，如果没有伪类可以忽略或者传递 <code>null</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ele = <span class="built_in">document</span>.getElementById(<span class="string">"test"</span>);</span><br><span class="line"><span class="keyword">const</span> bgStyle = <span class="built_in">window</span></span><br><span class="line">  .getComputedStyle(ele, <span class="literal">null</span>)</span><br><span class="line">  .getPropertyValue(<span class="string">"background-color"</span>);</span><br></pre></td></tr></table></figure>
+<p>上述代码可以获取元素的背景颜色</p>
+<h3 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h3><p>打开一个新的浏览器窗口或者查找一个已命名的窗口</p>
+<p>接受四个参数：</p>
+<ul>
+<li><code>url</code></li>
+<li>可选参数，指定 <code>target</code> 或者窗口名称，默认为 <code>_blank</code> 加载到一个新的窗口</li>
+<li>可选参数，一个逗号分隔列表，支持很多值，就不写出来了</li>
+<li>可选参数，为布尔值，如果为 <code>true</code> 则替换浏览历史中的当前条目，<code>false</code> 则在浏览历史中创建新的条目</li>
+</ul>
 
-举个栗子：滚动条滚动事件
-1234567window.addEventListener(  "scroll",  function() &#123;    console.log("页面滚动了");  &#125;,  false);
-该代码的初衷是：用户每滑动一次滚动条，执行一次console.log(&#39;页面滚动了&#39;)，但事实是：
-
-用户只滑动了一次滚动条，就多次触发了scroll事件，因为浏览器每隔一个很短的时间间隔就要判断滚动条的变化，如果执行函数内需要执行 DOM 操作，将会非常消耗资源，这个时候节流函数就...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/JavaScript设计模式/">
-            
-                <span>JavaScript设计模式</span>
-        </a>
-        <div class="abstract-content">
-            随着前端学习的深入，开发者们的重心逐渐由怎么实现需求转变为如何写出高效，可维护，可读性强的代码那么 JavaScript 设计模式就显得尤为重要了，很多开发者都不知道设计模式的重要性，他们可能有了解过，但并没有将设计模式的思想体现在代码中最后写出的代码无法维护，后悔莫及，跳了几次坑之后才知道用设计模式，实在是不值得
-JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模式构造原型模式动态原型模式寄生构造函数模式稳妥构造函数模式
-工厂模式工厂模式是最常用的一种模式，工厂模式定义一个用于创建对象的接口，至于实例化与否，由子类决定，所以说该模式使一个类的实例化延迟到子类，子类可以...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/08/20/Window对象属性详解/">https://longgererer.github.io/2019/08/20/Window对象属性详解/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/08/20/Window对象属性详解/">August 20th 2019, 11:02:00 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/08/20/Window对象属性详解/">August 21st 2019, 9:51:28 am</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/LHS与RHS/">
-            
-                <span>LHS与RHS</span>
-        </a>
-        <div class="abstract-content">
-            在正式说明前，我们先看一个例子：
-12var a = 2;console.log(a);
-
-这段代码声明了一个名为 a 的变量，然后通过 console.log 将 a 输出，最终后台输出的是 2
-
-那么，console.log 是如何得到 a 值的呢? 这里就涉及到了 JS 的查询机制
-在 JS 中有两种查询方式：LHS 和 RHS，他们其实是Left Hand Side和Right Hand Side的缩写，意为左手边和右手边什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别
-LHS 查询LHS 查询的目的在于寻找变量的容器本身
-我们还是用 a 来打比方
-1va...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/08/03/Vue技术内幕/" title="Vue技术内幕">
+                    <div class="prevTitle">Vue技术内幕</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/tags/JS原理/">&#60; PREV</a><a class="page-number" href="/tags/JS原理/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -543,6 +643,24 @@ LHS 查询LHS 查询的目的在于寻找变量的容器本身
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#window-属性"><span class="toc-number">1.</span> <span class="toc-text">window 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#closed"><span class="toc-number">1.1.</span> <span class="toc-text">closed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#document"><span class="toc-number">1.2.</span> <span class="toc-text">document</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#frames"><span class="toc-number">1.3.</span> <span class="toc-text">frames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history"><span class="toc-number">1.4.</span> <span class="toc-text">history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#innerWidth-amp-innerHeight"><span class="toc-number">1.5.</span> <span class="toc-text">innerWidth&amp;innerHeight</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage"><span class="toc-number">1.6.</span> <span class="toc-text">localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location"><span class="toc-number">1.7.</span> <span class="toc-text">location</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#location-属性"><span class="toc-number">1.7.1.</span> <span class="toc-text">location 属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#location-方法"><span class="toc-number">1.7.2.</span> <span class="toc-text">location 方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#opener"><span class="toc-number">1.8.</span> <span class="toc-text">opener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#screen"><span class="toc-number">1.9.</span> <span class="toc-text">screen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#screenLeft-amp-screenTop"><span class="toc-number">1.10.</span> <span class="toc-text">screenLeft&amp;screenTop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#screenX-amp-screenY"><span class="toc-number">1.11.</span> <span class="toc-text">screenX&amp;screenY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pageXOffset-amp-pageYOffset"><span class="toc-number">1.12.</span> <span class="toc-text">pageXOffset&amp;pageYOffset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage"><span class="toc-number">1.13.</span> <span class="toc-text">sessionStorage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#window-方法"><span class="toc-number">2.</span> <span class="toc-text">window 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#confirm"><span class="toc-number">2.1.</span> <span class="toc-text">confirm()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getComputedStyle"><span class="toc-number">2.2.</span> <span class="toc-text">getComputedStyle()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#open"><span class="toc-number">2.3.</span> <span class="toc-text">open()</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1232,6 +1350,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

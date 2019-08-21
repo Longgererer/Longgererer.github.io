@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">873</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">883</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -402,55 +402,55 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p>在正式说明前，我们先看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>这段代码声明了一个名为a的变量，然后通过console.log将a输出，最终后台输出的是 2  </p>
+<p>这段代码声明了一个名为 a 的变量，然后通过 console.log 将 a 输出，最终后台输出的是 2</p>
 </blockquote>
-<p>那么，console.log是如何得到a值的呢? 这里就涉及到了JS的查询机制  </p>
-<p>在JS中有两种查询方式：<strong>LHS</strong> 和 <strong>RHS</strong>，他们其实是<strong>Left Hand Side</strong>和<strong>Right Hand Side</strong>的缩写，意为左手边和右手边<br>什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别</p>
-<h2 id="LHS查询"><a href="#LHS查询" class="headerlink" title="LHS查询"></a>LHS查询</h2><p>LHS查询的目的在于寻找变量的容器本身</p>
-<p>我们还是用a来打比方</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>那么，console.log 是如何得到 a 值的呢? 这里就涉及到了 JS 的查询机制</p>
+<p>在 JS 中有两种查询方式：<strong>LHS</strong> 和 <strong>RHS</strong>，他们其实是<strong>Left Hand Side</strong>和<strong>Right Hand Side</strong>的缩写，意为左手边和右手边<br>什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别</p>
+<h2 id="LHS-查询"><a href="#LHS-查询" class="headerlink" title="LHS 查询"></a>LHS 查询</h2><p>LHS 查询的目的在于寻找变量的容器本身</p>
+<p>我们还是用 a 来打比方</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>这里使用了LHS查询，找到a容器，并将2 “装” 进去，也就是赋值给它  </p>
+<p>这里使用了 LHS 查询，找到 a 容器，并将 2 “装” 进去，也就是赋值给它</p>
 </blockquote>
-<p>疑问来了：这行代码中a不是刚声明就赋值了么，为什么还要LHS去寻找a容器呢?  </p>
-<p>正如问题所说，a刚声明就赋值了，这里就有一个非常值得注意的地方：<strong>声明和赋值是两个操作</strong></p>
-<p>JS编译器会将 <code>var a = 2</code> 分成两部分处理：</p>
-<p><code>var a</code><br><code>a = 2</code>  </p>
-<p>编译器在遇到 <code>var a</code> 的时候首先会查询当前作用域是否已经存在一个名为a的变量，若是，则忽略该声明，若不是，则当前作用域会创建变量a<br>然后遇到 <code>a = 2</code> 如果当前作用域存在变量a，进行赋值操作，若不存在变量a，则沿着作用域链进行查找  </p>
-<p>如果最终找到了a，便赋值给它，如果没有，反手就抛出一个异常</p>
+<p>疑问来了：这行代码中 a 不是刚声明就赋值了么，为什么还要 LHS 去寻找 a 容器呢?</p>
+<p>正如问题所说，a 刚声明就赋值了，这里就有一个非常值得注意的地方：<strong>声明和赋值是两个操作</strong></p>
+<p>JS 编译器会将 <code>var a = 2</code> 分成两部分处理：</p>
+<p><code>var a</code><br><code>a = 2</code></p>
+<p>编译器在遇到 <code>var a</code> 的时候首先会查询当前作用域是否已经存在一个名为 a 的变量，若是，则忽略该声明，若不是，则当前作用域会创建变量 a<br>然后遇到 <code>a = 2</code> 如果当前作用域存在变量 a，进行赋值操作，若不存在变量 a，则沿着作用域链进行查找</p>
+<p>如果最终找到了 a，便赋值给它，如果没有，反手就抛出一个异常</p>
 <blockquote>
-<p>实际上，就算没有前面的声明，JS引擎也不会抛出异常，因为在<strong>非严格模式下</strong>，注意，是非严格模式下，LHS查询如果查到顶层作用域还没有找到变量a，会自动在顶层作用域创建变量a来交给引擎处理  </p>
+<p>实际上，就算没有前面的声明，JS 引擎也不会抛出异常，因为在<strong>非严格模式下</strong>，注意，是非严格模式下，LHS 查询如果查到顶层作用域还没有找到变量 a，会自动在顶层作用域创建变量 a 来交给引擎处理</p>
 </blockquote>
-<h2 id="RHS查询"><a href="#RHS查询" class="headerlink" title="RHS查询"></a>RHS查询</h2><p>RHS查询的目的在于找到容器存放的值</p>
+<h2 id="RHS-查询"><a href="#RHS-查询" class="headerlink" title="RHS 查询"></a>RHS 查询</h2><p>RHS 查询的目的在于找到容器存放的值</p>
 <p>接上面代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>这里使用RHS查询到变量a并获取a的值然后输出（前提是当前作用域确实有a变量，没有则沿着作用域向上查找直到顶下层作用域）</p>
+<p>这里使用 RHS 查询到变量 a 并获取 a 的值然后输出（前提是当前作用域确实有 a 变量，没有则沿着作用域向上查找直到顶下层作用域）</p>
 </blockquote>
-<p>如果顶层作用域仍然找不到a呢，会不会和LHS一样在顶层作用域创建一个呢?答案是不会，引擎会直接抛出异常（无论是不是严格模式）：</p>
+<p>如果顶层作用域仍然找不到 a 呢，会不会和 LHS 一样在顶层作用域创建一个呢?答案是不会，引擎会直接抛出异常（无论是不是严格模式）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught ReferenceError: a is not defined</span><br></pre></td></tr></table></figure>
-<p>要是你在浏览器看到类似”ReferenceError”这样的错误，就说明作用域判别失败了，如果看到类似”TypeError”这样的错误，说明作用域判别成功，但你对其执行的操作是不合理的，比如对一个非函数属性做函数调用  </p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这里有一道题，如果你看得出那些地方用了LHS，那些地方用了RHS说明你已经掌握了它们</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = a</span><br><span class="line">    <span class="built_in">console</span>.log(a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<p>想看答案么?  </p>
-<p>三处用了LHS查询，四处用了RHS查询：  </p>
-<p><strong>LHS查询</strong></p>
+<p>要是你在浏览器看到类似”ReferenceError”这样的错误，就说明作用域判别失败了，如果看到类似”TypeError”这样的错误，说明作用域判别成功，但你对其执行的操作是不合理的，比如对一个非函数属性做函数调用</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这里有一道题，如果你看得出那些地方用了 LHS，那些地方用了 RHS 说明你已经掌握了它们</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a;</span><br><span class="line">  <span class="built_in">console</span>.log(a + b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>想看答案么?</p>
+<p>三处用了 LHS 查询，四处用了 RHS 查询：</p>
+<p><strong>LHS 查询</strong></p>
 <blockquote>
 <ul>
-<li>var c = foo(2) (c的赋值)</li>
-<li>var b = a (b的赋值)</li>
-<li>a = 2 (这里有一个隐式赋值，将2传给函数，函数传参是按值传递，会将2赋给a)</li>
+<li>var c = foo(2) (c 的赋值)</li>
+<li>var b = a (b 的赋值)</li>
+<li>a = 2 (这里有一个隐式赋值，将 2 传给函数，函数传参是按值传递，会将 2 赋给 a)</li>
 </ul>
 </blockquote>
-<p><strong>RHS查询</strong>  </p>
+<p><strong>RHS 查询</strong></p>
 <blockquote>
 <ul>
-<li>foo(2) (foo的调用)</li>
-<li>var b = a (a的调用)</li>
-<li>console.log(a + b) (a的调用)</li>
-<li>console.log(a + b) (b的调用)</li>
+<li>foo(2) (foo 的调用)</li>
+<li>var b = a (a 的调用)</li>
+<li>console.log(a + b) (a 的调用)</li>
+<li>console.log(a + b) (b 的调用)</li>
 </ul>
 </blockquote>
 
@@ -461,7 +461,7 @@ height:50vh;
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
             </p><p>原文链接：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">https://longgererer.github.io/2019/02/26/LHS与RHS/</a>
             </p><p>发表日期：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">February 26th 2019, 10:23:26 am</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">March 5th 2019, 11:49:44 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">August 6th 2019, 6:53:45 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -601,7 +601,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LHS查询"><span class="toc-number">1.</span> <span class="toc-text">LHS查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RHS查询"><span class="toc-number">2.</span> <span class="toc-text">RHS查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LHS-查询"><span class="toc-number">1.</span> <span class="toc-text">LHS 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RHS-查询"><span class="toc-number">2.</span> <span class="toc-text">RHS 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -986,9 +986,37 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1001,6 +1029,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1163,19 +1201,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
         <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
     
-        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     

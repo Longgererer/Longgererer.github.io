@@ -346,24 +346,22 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/函数节流与函数防抖/">
+        <a class="abstract-title" href="/2019/08/20/Window对象属性详解/">
             
-                <span>函数节流与函数防抖</span>
+                <span>Window对象属性详解</span>
         </a>
         <div class="abstract-content">
-            函数节流
-函数节流就是在指定时间间隔内只执行一次该函数
-
-举个栗子：滚动条滚动事件
-1234567window.addEventListener(  "scroll",  function() &#123;    console.log("页面滚动了");  &#125;,  false);
-该代码的初衷是：用户每滑动一次滚动条，执行一次console.log(&#39;页面滚动了&#39;)，但事实是：
-
-用户只滑动了一次滚动条，就多次触发了scroll事件，因为浏览器每隔一个很短的时间间隔就要判断滚动条的变化，如果执行函数内需要执行 DOM 操作，将会非常消耗资源，这个时候节流函数就...
+            学了那么久的 js，有必要了解一些实用的原生 API 了
+window 属性closed此属性返回一个布尔值，用于判断指定窗口是否关闭，常和 window.open() 方法一起使用：
+12345const newWindow = window.open("");newWindow.close();if (newWindow.closed) &#123;  console.log("window closed");&#125;
+控制台将输出 window closed
+如果直接在当前页面上执行 window.closed 返回值为 false，因为当前窗口是打开的
+document此属性...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/20</span>
             </div>
             <!-- tags  -->
             
@@ -382,63 +380,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/JavaScript设计模式/">
+        <a class="abstract-title" href="/2019/08/03/Vue技术内幕/">
             
-                <span>JavaScript设计模式</span>
+                <span>Vue技术内幕</span>
         </a>
         <div class="abstract-content">
-            随着前端学习的深入，开发者们的重心逐渐由怎么实现需求转变为如何写出高效，可维护，可读性强的代码那么 JavaScript 设计模式就显得尤为重要了，很多开发者都不知道设计模式的重要性，他们可能有了解过，但并没有将设计模式的思想体现在代码中最后写出的代码无法维护，后悔莫及，跳了几次坑之后才知道用设计模式，实在是不值得
-JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模式构造原型模式动态原型模式寄生构造函数模式稳妥构造函数模式
-工厂模式工厂模式是最常用的一种模式，工厂模式定义一个用于创建对象的接口，至于实例化与否，由子类决定，所以说该模式使一个类的实例化延迟到子类，子类可以...
+            输出Vue 是采用 rollup 做打包工具，flow 做数据类型检测的
+在 script/config.js 中可以看到 Vue 有三种不同的构建输出：UMD、CommonJS 以及 ES Module
+比如：
+12345678910111213141516171819202122const build = &#123;  "web-runtime-cjs-dev": &#123;    entry: resolve("web/entry-runtime.js"),    dest: resolve("dist/vue.runtime.common.dev.js"),    forma...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/03</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/02/26/LHS与RHS/">
-            
-                <span>LHS与RHS</span>
-        </a>
-        <div class="abstract-content">
-            在正式说明前，我们先看一个例子：
-12var a = 2;console.log(a);
-
-这段代码声明了一个名为 a 的变量，然后通过 console.log 将 a 输出，最终后台输出的是 2
-
-那么，console.log 是如何得到 a 值的呢? 这里就涉及到了 JS 的查询机制
-在 JS 中有两种查询方式：LHS 和 RHS，他们其实是Left Hand Side和Right Hand Side的缩写，意为左手边和右手边什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别
-LHS 查询LHS 查询的目的在于寻找变量的容器本身
-我们还是用 a 来打比方
-1va...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
     
 </div>
             
@@ -446,10 +407,6 @@ LHS 查询LHS 查询的目的在于寻找变量的容器本身
     </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/tags/JS原理/">&#60; PREV</a><a class="page-number" href="/tags/JS原理/">1</a><span class="page-number current">2</span>
-    </nav>
     
 </main>
             <!-- profile -->

@@ -402,41 +402,50 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p>首先说说什么是同步，同步可以理解为在执行一个命令（例如函数）的时候，在没有得到返回结果之前，不会执行后续的命令，也就是说调用该命令的人必须主动等待该命令完成，才可执行后续操作。</p>
-<p>什么是异步呢？异步就是不需要等当前命令执行完得到返回值，直接执行下一个命令。 </p>
-<p>在JS中，本身是没有异步这个特性的，之所以有异步的说法，完全是因为JS运行在浏览器的环境上。</p>
-<p>我为什么这么说呢？因为浏览器在执行代码的过程中会将<code>setTimeOut</code>等命令看作是耗时命令，也就是说这些命令需要消耗一定的时间，很有可能会阻塞后续命令的执行（即使<code>setTimeOut</code>设置的是0ms），一旦发现耗时命令，浏览器便会将它推入队列中，等待非耗时命令完成之后再执行队列中的事件，详细过程可以看看这张图：</p>
+<p>什么是异步呢？异步就是不需要等当前命令执行完得到返回值，直接执行下一个命令。</p>
+<p>在 JS 中，本身是没有异步这个特性的，之所以有异步的说法，完全是因为 JS 运行在浏览器的环境上。</p>
+<p>我为什么这么说呢？因为浏览器在执行代码的过程中会将<code>setTimeOut</code>等命令看作是耗时命令，也就是说这些命令需要消耗一定的时间，很有可能会阻塞后续命令的执行（即使<code>setTimeOut</code>设置的是 0ms），一旦发现耗时命令，浏览器便会将它推入队列中，等待非耗时命令完成之后再执行队列中的事件，详细过程可以看看这张图：</p>
 <p><img src="https://robinchen.me/uploads/tech/javascript/javascript-event-loop.png" alt="1.jpg"></p>
-<p>在上图中，<code>Heap</code>（堆）和<code>stack</code>（栈）是主线程运行时所产生的  </p>
+<p>在上图中，<code>Heap</code>（堆）和<code>stack</code>（栈）是主线程运行时所产生的</p>
 <blockquote>
 <ol>
-<li>所有同步代码都在主线程执行，叫做执行栈  </li>
-<li>栈中的代码调用各种webAPI，在<code>Callback queue</code>（任务队列）中加入各种事件  </li>
-<li>只有将主线程的同步代码全部执行完毕，才会执行任务队列中的事件  </li>
+<li>所有同步代码都在主线程执行，叫做执行栈</li>
+<li>栈中的代码调用各种 webAPI，在<code>Callback queue</code>（任务队列）中加入各种事件</li>
+<li>只有将主线程的同步代码全部执行完毕，才会执行任务队列中的事件</li>
 <li><code>event loop</code>（事件循环）会将队列中的第一个是事件拿出并放到主线程上运行，重复此过程，直到队列中的事件也全部运行完毕</li>
 </ol>
 </blockquote>
-<p>如果搞明白了，那下面这道题应该很轻松就能答对<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">0</span>)</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">    &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>)</span><br><span class="line"><span class="string">``</span><span class="string">``</span> </span><br><span class="line">上述代码的运行结果是什么呢？</span><br><span class="line"></span><br><span class="line">答案是： <span class="string">`2、6、0、3、1、4、5`</span>  </span><br><span class="line">为什么呢？我们来分析一下：  </span><br><span class="line">&gt; 首先，浏览器检测到耗时命令setTimeout，将它推入任务队列  </span><br><span class="line">&gt; 输出<span class="number">2</span>  </span><br><span class="line">&gt; 浏览器检测到第二个耗时命令setTimeout，将它推入任务队列   </span><br><span class="line">&gt; 输出<span class="number">6</span>  </span><br><span class="line">&gt; 主线程命令全部执行完毕，读取任务队列中的事件，将对应的异步任务推到主线程开始执行  </span><br><span class="line">&gt; 输出<span class="number">0</span>，又检测到了setTimeout，将它推入任务队列  </span><br><span class="line">&gt; 输出<span class="number">3</span>，再次检测到了setTimeout，将它推入任务队列  </span><br><span class="line">&gt; 输出<span class="number">1</span>  </span><br><span class="line">&gt; 输出<span class="number">4</span>，检测到了setTimeout，将它推入任务队列  </span><br><span class="line">&gt; 输出<span class="number">5</span>  </span><br><span class="line"></span><br><span class="line">**注意**  </span><br><span class="line">浏览器检测到耗时命令时会将它推入到任务队列，但是真正推入到队列中的只是回调函数，比如：  </span><br><span class="line"><span class="string">``</span><span class="string">``</span>javascript</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<p>如果搞明白了，那下面这道题应该很轻松就能答对<br>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">0</span>);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">    &#125;, <span class="number">0</span>);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+<p>上述代码的运行结果是什么呢？</p>
+<p>答案是： <code>2、6、0、3、1、4、5</code><br>为什么呢？我们来分析一下：</p>
+<blockquote>
+<p>首先，浏览器检测到耗时命令 setTimeout，将它推入任务队列<br>输出 2<br>浏览器检测到第二个耗时命令 setTimeout，将它推入任务队列<br>输出 6<br>主线程命令全部执行完毕，读取任务队列中的事件，将对应的异步任务推到主线程开始执行<br>输出 0，又检测到了 setTimeout，将它推入任务队列<br>输出 3，再次检测到了 setTimeout，将它推入任务队列<br>输出 1<br>输出 4，检测到了 setTimeout，将它推入任务队列<br>输出 5</p>
+</blockquote>
+<p><strong>注意</strong><br>浏览器检测到耗时命令时会将它推入到任务队列，但是真正推入到队列中的只是回调函数，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
 <p>推入到任务队列的是<code>setTimeout</code>中的函数而不是整个<code>setTimeout</code></p>
 <h3 id="event-loop"><a href="#event-loop" class="headerlink" title="event loop"></a>event loop</h3><p>主线程从”任务队列”中读取事件，这个过程是循环不断的，所以整个的这种运行机制又称为<code>Event Loop</code>（事件循环）</p>
-<p>事实上，任务队列的事件又分为宏任务和微任务，什么是宏任务和微任务呢？先来一个栗子感受一下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    resolve()</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>)</span><br></pre></td></tr></table></figure></p>
+<p>事实上，任务队列的事件又分为宏任务和微任务，什么是宏任务和微任务呢？先来一个栗子感受一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  resolve();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">6</span>);</span><br></pre></td></tr></table></figure>
 <p>猜猜输出顺序是怎样的？</p>
 <p>答案是： <code>2、3、6、4、5、1</code><br>又开始懵逼了，为什么呢？<code>promise</code>难道不是异步么，为什么不是在<code>setTimeout</code>之后执行呢？</p>
 <p>其实<code>new Promise</code>本身并不是异步，也就是说，里面的函数是立即执行的，但是<code>then</code>是异步的</p>
-<p>那么为什么then还是比setTimeout先执行呢？</p>
-<p>因为promise.then是微任务，而不是宏任务，宏任务需要等到所有微任务都执行完才能执行  </p>
-<p><img src="https://mengera88.github.io/images/eventqueue2.png" alt="2.jpg"><br>常见的宏任务：  </p>
+<p>那么为什么 then 还是比 setTimeout 先执行呢？</p>
+<p>因为 promise.then 是微任务，而不是宏任务，宏任务需要等到所有微任务都执行完才能执行</p>
+<p><img src="https://mengera88.github.io/images/eventqueue2.png" alt="2.jpg"><br>常见的宏任务：</p>
 <blockquote>
 <p>I/O<br>setTimeout<br>setInterval<br>setImmediate<br>requestAnimationFrame</p>
 </blockquote>
-<p>常见的微任务：  </p>
+<p>常见的微任务：</p>
 <blockquote>
 <p>process.nextTick<br>MutationObserver<br>Promise.then catch finally</p>
 </blockquote>
-<p><strong>备注</strong><br>JS是单线程的，但是浏览器有多个线程：</p>
+<p><strong>备注</strong><br>JS 是单线程的，但是浏览器有多个线程：</p>
 <blockquote>
-<p>JavaScript引擎线程<br>界面(GUI)渲染线程<br>Http请求线程<br>浏览器事件触发线程<br>定时触发线程  </p>
+<p>JavaScript 引擎线程<br>界面(GUI)渲染线程<br>Http 请求线程<br>浏览器事件触发线程<br>定时触发线程</p>
 </blockquote>
-<p><strong>JavaScript引擎线程</strong></p>
+<p><strong>JavaScript 引擎线程</strong></p>
 <p><code>Javascript</code>引擎，也可以称为<code>JS</code>内核，主要负责处理<code>Javascript</code>脚本程序，例如<code>V8</code>引擎。<code>Javascript</code>引擎线程理所当然是负责解析<code>Javascript</code>脚本，运行代码。</p>
 <p><strong>界面(GUI)渲染线程</strong></p>
 <p><code>GUI</code>渲染线程负责渲染浏览器界面<code>HTML</code>元素,当界面需要重绘(<code>Repaint</code>)或由于某种操作引发回流(<code>reflow</code>)时,该线程就会执行。在<code>Javascript</code>引擎运行脚本期间,<code>GUI</code>渲染线程都是处于挂起状态的,也就是说被”冻结”了。</p>
@@ -444,7 +453,7 @@ height:50vh;
 <p>浏览器定时计数器并不是由<code>JavaScript</code>引擎计数的, 因为<code>JavaScript</code>引擎是单线程的, 如果处于阻塞线程状态就会影响记计时的准确, 因此通过单独线程来计时并触发定时是更为合理的方案。</p>
 <p><strong>事件触发线程</strong></p>
 <p>当一个事件被触发时该线程会把事件添加到待处理队列的队尾，等待<code>JS</code>引擎的处理。这些事件可以是当前执行的代码块如定时任务、也可来自浏览器内核的其他线程如鼠标点击、<code>AJAX</code>异步请求等，但由于<code>JS</code>的单线程关系所有这些事件都得排队等待<code>JS</code>引擎处理。</p>
-<p><strong>Http请求线程</strong></p>
+<p><strong>Http 请求线程</strong></p>
 <p>在<code>XMLHttpRequest</code>在连接后是通过浏览器新开一个线程请求， 将检测到状态变更时，如果设置有回调函数，异步线程就产生状态变更事件放到<code>JavaScript</code>引擎的处理队列中等待处理。</p>
 <p><strong>注意！！！</strong><br><code>GUI</code> 渲染线程 与 <code>JavaScript</code>引擎线程互斥！由于<code>JavaScript</code>是可操纵<code>DOM</code>的，如果在修改这些元素属性同时渲染界面（即<code>JavaScript</code>线程和<code>UI</code>线程同时运行），那么渲染线程前后获得的元素数据就可能不一致了。因此为了防止渲染出现不可预期的结果，浏览器设置<code>GUI</code>渲染线程与<code>JavaScript</code>引擎为互斥的关系，当<code>JavaScript</code>引擎执行时<code>GUI</code>线程会被挂起，<code>GUI</code>更新会被保存在一个队列中等到引擎线程空闲时立即被执行。</p>
 
@@ -455,7 +464,7 @@ height:50vh;
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
             </p><p>原文链接：<a href="https://longgererer.github.io/2019/04/22/同步和异步/">https://longgererer.github.io/2019/04/22/同步和异步/</a>
             </p><p>发表日期：<a href="https://longgererer.github.io/2019/04/22/同步和异步/">April 22nd 2019, 3:02:58 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/04/22/同步和异步/">April 23rd 2019, 11:29:56 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/04/22/同步和异步/">August 6th 2019, 6:54:53 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -985,9 +994,37 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 30
+        Total : 32
         </div>
         <!-- search  -->
         
@@ -1000,6 +1037,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1162,19 +1209,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
         <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
     
-        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
