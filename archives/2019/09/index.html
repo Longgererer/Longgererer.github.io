@@ -346,29 +346,61 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/07/14/专插本C语言笔记/">
+        <a class="abstract-title" href="/2019/09/22/React生命周期/">
             
-                <span>专插本C语言笔记</span>
+                <span>React生命周期</span>
         </a>
         <div class="abstract-content">
-            历史背景C 语言最早是由贝尔实验室的 Dennis Ritchie 为了 UNIX 的辅助开发而编写的，它是在 B 语言的基础上开发出来的，具有硬件无关性和可移植性
-为了进一步规范 C 语言的硬件无关性，1987 年，美国国家标准协会（ANSI）根据 C 语言问世以来各种版本对 C 语言的发展和扩充，制定了新的标准，称为 ANSI C
-特点
-简洁紧凑、灵活方便
-C 语言有 37 个关键字，9 种控制语句，程序书写形式自由，主要用小写字母表示，压缩了一切不必要的成分。实际上，C 是一个很小的内核语言，只包括极少的与硬件有关的成分，C 语言不直接提供输入和输出语句、有关文件操作的语句和动态内...
+            React16.3 的生命周期如图所示：
+
+相对于之前的生命周期少了 componentWillMount, componentWillReceiveProps, componentWillUpdate 这三个阶段，但实际上这三个生命周期都还在，只是马上就要删除了，因为实在是没有什么用
+在创建时首先会运行构造函数 constructor
+123456class Father extends React.Component &#123;  constructor(props) &#123;    super(props)    //...  &#125;&#125;
+接下来执行 getDe...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/14</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="C语言">C语言</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
     
 </div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/09/08/Context/">
+            
+                <span>React Context</span>
+        </a>
+        <div class="abstract-content">
+            Context 的意思是上下文，许多 React 组件都是通过 Context 来完成的，比如 react-redux 的 &lt;Provider /&gt;
+&lt;Provider /&gt; 通过 Context 提供一个全局的 store，通过 Context 在组件中分发 Drag 和 Drop 事件
+作用Context 的作用是这样的：
+当你不想在组件树中通过逐层传递的方式传递 props 的时候，可以使用 Context 来实现跨越层级的传递
+正常情况下我们通过 props 来将属性传递给深层组件
+
+有了 Context，我们不再需要那么麻烦的操作：
+
+使用 Contex...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/08</span>
+            </div>
+            <!-- tags  -->
             
         </div>
     </article>
