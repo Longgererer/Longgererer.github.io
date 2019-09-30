@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LHS与RHS · lliiooiill的技术Blog</title>
+    <title>React工程目录详解 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">lliiooiill的技术Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">LHS与RHS</a>
+                <a href="#" class="post-name">React工程目录详解</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            LHS与RHS
+            React工程目录详解
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">883</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/02/26</span>
+                    <span class="post-intro-time">2019/09/29</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,67 +401,69 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>在正式说明前，我们先看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这段代码声明了一个名为 a 的变量，然后通过 console.log 将 a 输出，最终后台输出的是 2</p>
-</blockquote>
-<p>那么，console.log 是如何得到 a 值的呢? 这里就涉及到了 JS 的查询机制</p>
-<p>在 JS 中有两种查询方式：<strong>LHS</strong> 和 <strong>RHS</strong>，他们其实是<strong>Left Hand Side</strong>和<strong>Right Hand Side</strong>的缩写，意为左手边和右手边<br>什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别</p>
-<h2 id="LHS-查询"><a href="#LHS-查询" class="headerlink" title="LHS 查询"></a>LHS 查询</h2><p>LHS 查询的目的在于寻找变量的容器本身</p>
-<p>我们还是用 a 来打比方</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里使用了 LHS 查询，找到 a 容器，并将 2 “装” 进去，也就是赋值给它</p>
-</blockquote>
-<p>疑问来了：这行代码中 a 不是刚声明就赋值了么，为什么还要 LHS 去寻找 a 容器呢?</p>
-<p>正如问题所说，a 刚声明就赋值了，这里就有一个非常值得注意的地方：<strong>声明和赋值是两个操作</strong></p>
-<p>JS 编译器会将 <code>var a = 2</code> 分成两部分处理：</p>
-<p><code>var a</code><br><code>a = 2</code></p>
-<p>编译器在遇到 <code>var a</code> 的时候首先会查询当前作用域是否已经存在一个名为 a 的变量，若是，则忽略该声明，若不是，则当前作用域会创建变量 a<br>然后遇到 <code>a = 2</code> 如果当前作用域存在变量 a，进行赋值操作，若不存在变量 a，则沿着作用域链进行查找</p>
-<p>如果最终找到了 a，便赋值给它，如果没有，反手就抛出一个异常</p>
-<blockquote>
-<p>实际上，就算没有前面的声明，JS 引擎也不会抛出异常，因为在<strong>非严格模式下</strong>，注意，是非严格模式下，LHS 查询如果查到顶层作用域还没有找到变量 a，会自动在顶层作用域创建变量 a 来交给引擎处理</p>
-</blockquote>
-<h2 id="RHS-查询"><a href="#RHS-查询" class="headerlink" title="RHS 查询"></a>RHS 查询</h2><p>RHS 查询的目的在于找到容器存放的值</p>
-<p>接上面代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这里使用 RHS 查询到变量 a 并获取 a 的值然后输出（前提是当前作用域确实有 a 变量，没有则沿着作用域向上查找直到顶下层作用域）</p>
-</blockquote>
-<p>如果顶层作用域仍然找不到 a 呢，会不会和 LHS 一样在顶层作用域创建一个呢?答案是不会，引擎会直接抛出异常（无论是不是严格模式）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught ReferenceError: a is not defined</span><br></pre></td></tr></table></figure>
-<p>要是你在浏览器看到类似”ReferenceError”这样的错误，就说明作用域判别失败了，如果看到类似”TypeError”这样的错误，说明作用域判别成功，但你对其执行的操作是不合理的，比如对一个非函数属性做函数调用</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这里有一道题，如果你看得出那些地方用了 LHS，那些地方用了 RHS 说明你已经掌握了它们</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a;</span><br><span class="line">  <span class="built_in">console</span>.log(a + b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-<p>想看答案么?</p>
-<p>三处用了 LHS 查询，四处用了 RHS 查询：</p>
-<p><strong>LHS 查询</strong></p>
-<blockquote>
-<ul>
-<li>var c = foo(2) (c 的赋值)</li>
-<li>var b = a (b 的赋值)</li>
-<li>a = 2 (这里有一个隐式赋值，将 2 传给函数，函数传参是按值传递，会将 2 赋给 a)</li>
-</ul>
-</blockquote>
-<p><strong>RHS 查询</strong></p>
-<blockquote>
-<ul>
-<li>foo(2) (foo 的调用)</li>
-<li>var b = a (a 的调用)</li>
-<li>console.log(a + b) (a 的调用)</li>
-<li>console.log(a + b) (b 的调用)</li>
-</ul>
-</blockquote>
+        <p>使用 create-react-app 创建的项目目录如下：</p>
+<p><img src="https://i.loli.net/2019/09/29/duCDZ5thPI1N9Fz.jpg" alt="截图未命名.jpg"></p>
+<p>可以看到目录中是没有项目配置文件的，因为项目的配置文件是默认在底层配置的，如果想在顶层配置，则需要执行 eject 将配置文件弹出到顶层，这个过程是不可逆的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn eject</span><br></pre></td></tr></table></figure>
+<p>注意：<strong>再执行 eject 之前不可以更改项目文件，否则会报错</strong></p>
+<p>执行完后目录中多了 config 和 script 文件夹</p>
+<p><img src="https://i.loli.net/2019/09/29/qnBvCZxyOUEriJ5.jpg" alt="截图未命名.jpg"></p>
+<p>现在开始分析工程目录：</p>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p>config 目录下放的是项目配置文件</p>
+<p><img src="https://i.loli.net/2019/09/29/QNHeMomJlcWLdZ5.jpg" alt="截图未命名.jpg"></p>
+<h3 id="env-js"><a href="#env-js" class="headerlink" title="env.js"></a>env.js</h3><p>env.js 文件获取客户端的环境，一般有生产环境和开发环境两种</p>
+<p>所以 env.js 的主要目的在于读取 env 配置文件并将 env 的配置信息给到全局变量 process.env</p>
+<h3 id="modules-js"><a href="#modules-js" class="headerlink" title="modules.js"></a>modules.js</h3><p>modules.js 文件毫无疑问就是用来获取项目所需 module 的</p>
+<h3 id="path-js"><a href="#path-js" class="headerlink" title="path.js"></a>path.js</h3><p>path.js 主要作用是来格式化路径，还有配置提供给项目的各种路径，包括构建路径，public 路径等等</p>
+<h3 id="pnpTs-js"><a href="#pnpTs-js" class="headerlink" title="pnpTs.js"></a>pnpTs.js</h3><p>pnpTs.js 文件的作用就是将一些安装了的 modules 暴露，以便 import 引入</p>
+<h3 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a>webpack.config.js</h3><p>这个一看就知道是 webpack 的配置文件</p>
+<p>下面说一下这个文件的常用配置：</p>
+<h4 id="getStyleLoaders"><a href="#getStyleLoaders" class="headerlink" title="getStyleLoaders"></a>getStyleLoaders</h4><p>getStyleLoaders 方法中定义了一些样式文件方法，如 style-loader,css-loader,postcss-loader，用于导入 css</p>
+<h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><p>module 中可以配置样式私有化</p>
+<p>首先要安装 react-css-modules,然后 module 中有这么个对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: cssRegex,</span><br><span class="line">  exclude: cssModuleRegex,</span><br><span class="line">  use: getStyleLoaders(&#123;</span><br><span class="line">    importLoaders: <span class="number">1</span>,</span><br><span class="line">    sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">// Don't consider CSS imports dead code even if the</span></span><br><span class="line">  <span class="comment">// containing package claims to have no side effects.</span></span><br><span class="line">  <span class="comment">// Remove this when webpack adds a warning or an error for this.</span></span><br><span class="line">  <span class="comment">// See https://github.com/webpack/webpack/issues/6571</span></span><br><span class="line">  sideEffects: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 getStyleLoaders 传入对象中配置 <code>modules: true</code> 就可以实现 css 样式私有化</p>
+<p>如果不想要 css 私有化，而是要 sass 私有化，那么就在 sass 中写上 <code>modules: true</code>就可以了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: sassRegex,</span><br><span class="line">  exclude: sassModuleRegex,</span><br><span class="line">  use: getStyleLoaders(</span><br><span class="line">    &#123;</span><br><span class="line">      importLoaders: <span class="number">2</span>,</span><br><span class="line">      sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">      modules: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'sass-loader'</span></span><br><span class="line">  ),</span><br><span class="line">  <span class="comment">// Don't consider CSS imports dead code even if the</span></span><br><span class="line">  <span class="comment">// containing package claims to have no side effects.</span></span><br><span class="line">  <span class="comment">// Remove this when webpack adds a warning or an error for this.</span></span><br><span class="line">  <span class="comment">// See https://github.com/webpack/webpack/issues/6571</span></span><br><span class="line">  sideEffects: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="public"><a href="#public" class="headerlink" title="public"></a>public</h2><p>在来看下面的文件：</p>
+<p><img src="https://i.loli.net/2019/09/30/tl7nq6xfA9jzOJZ.jpg" alt="截图未命名.jpg"></p>
+<p>public 文件夹主要是用于存放一些静态文件，比如图片，还有不需要进行打包的 css，js 文件等</p>
+<h2 id="script"><a href="#script" class="headerlink" title="script"></a>script</h2><p>script 文件夹主要是包含了构建项目所需的命令，还有单元测试文件</p>
+<h2 id="src"><a href="#src" class="headerlink" title="src"></a>src</h2><p>src 是最重要的部分，也是我们项目的主要操作文件夹，一般 src 目录结构类似于下面这样：</p>
+<p><img src="https://i.loli.net/2019/09/30/UV1PZLpnkxysOtG.jpg" alt="截图未命名.jpg"></p>
+<h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><p>api 文件夹用来放置项目所需的一些公共的 api</p>
+<h3 id="common"><a href="#common" class="headerlink" title="common"></a>common</h3><p>common 文件夹顾名思义就是一个放公共样式和方法的文件夹</p>
+<h3 id="components"><a href="#components" class="headerlink" title="components"></a>components</h3><p>components 用来放置项目组件</p>
+<h3 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h3><p>pages 文件夹用来放置项目的一个个页面</p>
+<h3 id="router"><a href="#router" class="headerlink" title="router"></a>router</h3><p>router 文件夹用来放置路由，通常文件夹里面有一个 index.js</p>
+<h3 id="store"><a href="#store" class="headerlink" title="store"></a>store</h3><p>store 用来进行状态管理，如果项目不需要 redux，那么可以忽略这个文件夹</p>
+<p>store 文件夹下面一般包含这四个文件：</p>
+<p><img src="https://i.loli.net/2019/09/30/y7qxo3iDsTFGfQn.jpg" alt="截图未命名.jpg"></p>
+<h4 id="actionType-js"><a href="#actionType-js" class="headerlink" title="actionType.js"></a>actionType.js</h4><p>actionType 存放 action 的类型：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CHANGE_INPUT = <span class="string">'changeInput'</span></span><br><span class="line"><span class="keyword">const</span> ADD_ITEM = <span class="string">'addItem'</span></span><br><span class="line"><span class="keyword">const</span> DELETE_ITEM = <span class="string">'deleteItem'</span></span><br><span class="line"><span class="keyword">const</span> GET_LIST = <span class="string">'getList'</span></span><br><span class="line"><span class="keyword">const</span> GET_MY_LIST = <span class="string">'getMyList'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST, GET_MY_LIST &#125;</span><br></pre></td></tr></table></figure>
+<p>将类型值储存为变量可以防止再打错类型的时候快速找到错误</p>
+<h4 id="actionCreator-js"><a href="#actionCreator-js" class="headerlink" title="actionCreator.js"></a>actionCreator.js</h4><p>actionCreator 用来生成一个个的 action，举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  CHANGE_INPUT,</span><br><span class="line">  ADD_ITEM,</span><br><span class="line">  DELETE_ITEM,</span><br><span class="line">  GET_LIST,</span><br><span class="line">  GET_MY_LIST</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'./actionType'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> changeInputAction = <span class="function"><span class="params">value</span> =&gt;</span> (&#123;</span><br><span class="line">  type: CHANGE_INPUT,</span><br><span class="line">  value</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> addItemAction = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  type: ADD_ITEM</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> deleteItemAction = <span class="function"><span class="params">index</span> =&gt;</span> (&#123;</span><br><span class="line">  type: DELETE_ITEM,</span><br><span class="line">  index</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getListAction = <span class="function"><span class="params">data</span> =&gt;</span> (&#123;</span><br><span class="line">  type: GET_LIST,</span><br><span class="line">  data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getMyListAction = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  type: GET_MY_LIST</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  changeInputAction,</span><br><span class="line">  addItemAction,</span><br><span class="line">  deleteItemAction,</span><br><span class="line">  getListAction,</span><br><span class="line">  getMyListAction</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="reducer-js"><a href="#reducer-js" class="headerlink" title="reducer.js"></a>reducer.js</h4><p>reducer 文件用来接收 state 和 action 并返回一个新的 state：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST &#125; <span class="keyword">from</span> <span class="string">'./actionType'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> defaultStore = &#123;</span><br><span class="line">  inputValue: <span class="string">''</span>,</span><br><span class="line">  list: []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = defaultStore, action) =&gt; &#123;</span><br><span class="line">  <span class="comment">// Reducer里只能接收state，不能改变state</span></span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> CHANGE_INPUT:</span><br><span class="line">      <span class="keyword">return</span> changeInput(state, action)</span><br><span class="line">    <span class="keyword">case</span> ADD_ITEM:</span><br><span class="line">      <span class="keyword">return</span> addItem(state, action)</span><br><span class="line">    <span class="keyword">case</span> DELETE_ITEM:</span><br><span class="line">      <span class="keyword">return</span> deleteItem(state, action)</span><br><span class="line">    <span class="keyword">case</span> GET_LIST:</span><br><span class="line">      <span class="keyword">return</span> getList(state, action)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeInput</span>(<span class="params">state, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> newState = deepAssign(state)</span><br><span class="line">  newState.inputValue = action.value</span><br><span class="line">  <span class="keyword">return</span> newState</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepAssign</span>(<span class="params">state</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(state))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//其他方法略</span></span><br></pre></td></tr></table></figure>
+<h4 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h4><p>index 文件是用来配置开发工具和中间件，然后创建 store 的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore, applyMiddleware, compose &#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducer'</span></span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">'redux-thunk'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> composeEnhancer =</span><br><span class="line">  <span class="keyword">typeof</span> <span class="built_in">window</span> === <span class="string">'object'</span> &amp;&amp; <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__</span><br><span class="line">    ? <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(&#123;&#125;)</span><br><span class="line">    : compose</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> enhancer = composeEnhancer(applyMiddleware(thunk))</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer, enhancer)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>我们在平时写路经的时候，有些东西可以省略不写</p>
+<p>比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/index.js'</span></span><br></pre></td></tr></table></figure>
+<p>因为我们引入的是 <code>js</code> 文件，而 import 方法默认先查找名为 index 的 js 文件，所以不写 <code>.js</code> 也可以：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/index'</span></span><br></pre></td></tr></table></figure>
+<p>当我们将引入的路径写成文件夹路径的时候，首先会查看 store 文件夹下有没有 package.json，没有就再看有没有 index.js 文件，如果有就引入 index.js 文件，所以这里 index 也可以省略不写了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store'</span></span><br></pre></td></tr></table></figure>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">https://longgererer.github.io/2019/02/26/LHS与RHS/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">February 26th 2019, 10:23:26 am</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/02/26/LHS与RHS/">August 6th 2019, 6:53:45 pm</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/09/29/React工程目录详解/">https://longgererer.github.io/2019/09/29/React工程目录详解/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/09/29/React工程目录详解/">September 29th 2019, 5:33:56 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/09/29/React工程目录详解/">September 30th 2019, 5:59:54 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -469,13 +471,13 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/02/27/MVC与MVVM/" title="MVC与MVVM">
-                    <div class="nextTitle">MVC与MVVM</div>
-                </a>
-            
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/09/28/对象深拷贝和浅拷贝/" title="对象深拷贝和浅拷贝">
+                    <div class="prevTitle">对象深拷贝和浅拷贝</div>
+                </a>
             
         </li>
     </ul>
@@ -601,7 +603,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LHS-查询"><span class="toc-number">1.</span> <span class="toc-text">LHS 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RHS-查询"><span class="toc-number">2.</span> <span class="toc-text">RHS 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#config"><span class="toc-number">1.</span> <span class="toc-text">config</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#env-js"><span class="toc-number">1.1.</span> <span class="toc-text">env.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modules-js"><span class="toc-number">1.2.</span> <span class="toc-text">modules.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-js"><span class="toc-number">1.3.</span> <span class="toc-text">path.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pnpTs-js"><span class="toc-number">1.4.</span> <span class="toc-text">pnpTs.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-config-js"><span class="toc-number">1.5.</span> <span class="toc-text">webpack.config.js</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getStyleLoaders"><span class="toc-number">1.5.1.</span> <span class="toc-text">getStyleLoaders</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#module"><span class="toc-number">1.5.2.</span> <span class="toc-text">module</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#public"><span class="toc-number">2.</span> <span class="toc-text">public</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#script"><span class="toc-number">3.</span> <span class="toc-text">script</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#src"><span class="toc-number">4.</span> <span class="toc-text">src</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#api"><span class="toc-number">4.1.</span> <span class="toc-text">api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#common"><span class="toc-number">4.2.</span> <span class="toc-text">common</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#components"><span class="toc-number">4.3.</span> <span class="toc-text">components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pages"><span class="toc-number">4.4.</span> <span class="toc-text">pages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router"><span class="toc-number">4.5.</span> <span class="toc-text">router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#store"><span class="toc-number">4.6.</span> <span class="toc-text">store</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#actionType-js"><span class="toc-number">4.6.1.</span> <span class="toc-text">actionType.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#actionCreator-js"><span class="toc-number">4.6.2.</span> <span class="toc-text">actionCreator.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reducer-js"><span class="toc-number">4.6.3.</span> <span class="toc-text">reducer.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#index-js"><span class="toc-number">4.6.4.</span> <span class="toc-text">index.js</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">5.</span> <span class="toc-text">其他</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
