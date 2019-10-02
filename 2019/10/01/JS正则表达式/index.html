@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>全面理解CSS媒体查询 · lliiooiill的技术Blog</title>
+    <title>JS正则表达式 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">lliiooiill的技术Blog.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">全面理解CSS媒体查询</a>
+                <a href="#" class="post-name">JS正则表达式</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            全面理解CSS媒体查询
+            JS正则表达式
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="正则表达式">正则表达式</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">221</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.8k</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/04</span>
+                    <span class="post-intro-time">2019/10/01</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,21 +401,216 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <blockquote>
-<p>CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局</p>
-</blockquote>
-<h2 id="媒体查询的基本语法"><a href="#媒体查询的基本语法" class="headerlink" title="媒体查询的基本语法"></a>媒体查询的基本语法</h2><h3 id="单独使用"><a href="#单独使用" class="headerlink" title="单独使用"></a>单独使用</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen, tv &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">600px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="嵌套使用"><a href="#嵌套使用" class="headerlink" title="嵌套使用"></a>嵌套使用</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen &#123;</span><br><span class="line">  @<span class="keyword">media</span> (min-width: <span class="number">600px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.container</span> &#123;</span><br><span class="line">      <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="否定"><a href="#否定" class="headerlink" title="否定"></a>否定</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> not tv &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 否定 tv and (min-width: 600px) */</span></span><br><span class="line">@<span class="keyword">media</span> not tv and (min-width: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* not hover: hover 或者 not pointer: coarse */</span></span><br><span class="line">@<span class="keyword">media</span> not (hover: hover), not (pointer: coarse) &#123;</span><br><span class="line">  <span class="selector-tag">font-size</span>: 20<span class="selector-tag">px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 小于等于600执行 */</span></span><br><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 大于等于600执行 */</span></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 大于等于300并且小于等于600执行 */</span></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">300px</span>) and (max-width: <span class="number">600px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>在 <code>JS</code> 中，正则表达式与其他对象类型相似，有两种方式创建正则表达式：</p>
+<ul>
+<li>正则表达式字面量</li>
+<li>创建 <code>RegExp</code> 对象实例</li>
+</ul>
+<p>在使用字面量的时候正则表达式用 <code>/</code> 分割：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/text/</span></span><br></pre></td></tr></table></figure>
+<p>如果创建 <code>RegExp</code> 对象实例则可以省略掉：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'test'</span>)</span><br></pre></td></tr></table></figure>
+<p>在实际开发中推荐使用字面量的方式创建正则表达式，当需要在运行时动态创建字符串来构建正则表达式的时候使用构造函数的方式</p>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>正则表达式中有 5 个修饰符：</p>
+<ul>
+<li>i<ul>
+<li>对大小写不敏感，例如<code>/test/i</code>，可以匹配 <code>test</code>、<code>Test</code> 等等</li>
+</ul>
+</li>
+<li>g<ul>
+<li>查找所有匹配项，不会再找到第一个匹配项之后就停止查找</li>
+</ul>
+</li>
+<li>m<ul>
+<li>允许多行匹配，对获取 <code>textarea</code> 元素 <code>value</code> 值很有用</li>
+</ul>
+</li>
+<li>y<ul>
+<li>开启粘连匹配，正则表达式执行粘连匹配时试图从最后一个匹配的位置开始</li>
+</ul>
+</li>
+<li>u<ul>
+<li>允许使用 <code>Unicode</code> 点转义字符（<code>\u{...}</code>）</li>
+</ul>
+</li>
+</ul>
+<p>在定义字面量的时候修饰符写在后面：<code>/test/ig</code></p>
+<p>在使用构造函数的时候将修饰符作为第二个参数传给构造函数：<code>new RegExp(&#39;test&#39;, &#39;ig&#39;)</code></p>
+<h2 id="匹配字符集"><a href="#匹配字符集" class="headerlink" title="匹配字符集"></a>匹配字符集</h2><p>通常我们不需要像 <code>/test/ig</code> 这样匹配字符串，只想匹配一组有限的字符集中的字符，所以可以将我们希望匹配的字符集放在 <code>[]</code> 中</p>
+<p><code>[abc]</code> 表示我们希望匹配 <code>a、b、c</code> 中任意一个字符</p>
+<p>如果想反过来匹配除了 <code>a、b、c</code> 外其他字符，可以这样：<code>[^abc]</code></p>
+<p>如果想匹配的字符太多，可以使用 <code>-</code> ：<code>[a-m]</code> 匹配 <code>a</code> 到 <code>m</code> 中所有字符</p>
+<p>如果除了 <code>a-m</code> 之间的字符，还想匹配 <code>z</code>，可以加个逗号：<code>[a-m,z]</code> 就可以了</p>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>我们知道有很多操作符，比如 <code>$</code>、<code>^</code> 等等，如果使用正则表达式匹配这些字符而又不会被当成操作符呢？</p>
+<p>使用转义字符就可以了：<code>\$</code> 匹配一个 <code>$</code> 字符</p>
+<h2 id="起止符号"><a href="#起止符号" class="headerlink" title="起止符号"></a>起止符号</h2><p>如 <code>^test</code> 匹配的是 <code>test</code> 出现在字符串的开头</p>
+<p><code>$</code> 表示字符串的结束：<code>test$</code> 匹配的是 <code>test</code> 出现在字符串的末尾</p>
+<h2 id="重复出现"><a href="#重复出现" class="headerlink" title="重复出现"></a>重复出现</h2><p>假如你想匹配任意数量的相同字符可以试试以下几种方式：</p>
+<ul>
+<li>?<ul>
+<li>（指定字符可以出现 0 或 1 次）在字符串后面加 ?，<code>t?est</code> 可以同时匹配 <code>test</code> 和 <code>est</code></li>
+</ul>
+</li>
+<li>+<ul>
+<li>（指定字符必须出现 1 或多次），<code>/t+est/</code> 可匹配 <code>test、ttest、tttest</code> 等</li>
+</ul>
+</li>
+<li>*<ul>
+<li>（指定字符出现 0 次或 1 次或多次），如 <code>t*est</code> 可以匹配 <code>test、ttest、est</code> 等</li>
+</ul>
+</li>
+<li>{}<ul>
+<li>使用{}指定重复次数，<code>t{4}est</code> 就是匹配 <code>ttttest</code></li>
+<li>还可以指定重复次数范围，<code>t{4,10}est</code> 匹配的是 4 到 10 个连续的 <code>t</code> 接上 <code>est</code></li>
+<li>还可以指定开放区间，<code>t{4,}est</code> 可以指定 4 或更多个连续的 <code>t</code> 接上 <code>est</code></li>
+</ul>
+</li>
+</ul>
+<p>这些运算符都可以是贪婪或者非贪婪的，默认是贪婪模式，可以匹配所有可能的字符，在运算符后面加?，比如 <code>a+?</code> 会使得运算为非贪婪模式，只进行最小限度的匹配</p>
+<p>比如一个字符串 <code>aaa</code>，<code>/a+?/</code> 只会匹配一个 <code>a</code>，而 <code>/a+/</code> 会匹配三个 <code>a</code></p>
+<h2 id="预定义字符集"><a href="#预定义字符集" class="headerlink" title="预定义字符集"></a>预定义字符集</h2><table>
+<thead>
+<tr>
+<th>预定义元字符</th>
+<th>匹配的字符串</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>空格</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行符</td>
+</tr>
+<tr>
+<td>\cA:\cZ</td>
+<td>控制字符</td>
+</tr>
+<tr>
+<td>\u0000:\uFFFF</td>
+<td>十六进制 <code>Unicode</code> 码</td>
+</tr>
+<tr>
+<td>\x00:\xFF</td>
+<td>十六进制 <code>ASCII</code> 码</td>
+</tr>
+<tr>
+<td>.</td>
+<td>匹配除换行字符(<code>\n</code>、<code>\r</code>、<code>\u2028</code> 和<code>\u2029</code>)之外的任意字符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配任意十进制数字，等价于<code>[0-9]</code></td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配除了十进制数字外的任意字符，等价于<code>[^0-9]</code></td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配任何字母，数字和下划线，等价于<code>[A-Za-z0-9_]</code></td>
+</tr>
+<tr>
+<td>\W</td>
+<td>匹配除了字母，数字和下划线之外的字符，等价于<code>[^a-za-z0-9_]</code></td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意空白字符（包括空格，制表符，换页符等等）</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配除了空白字符外的任意字符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词边界</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界(单词内部)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>如果想对一组术语使用操作符，可以用圆括号进行分组，这与数学表达式类似，<code>/(ab)+/</code> 匹配多个连续的 <code>ab</code> 字符串</p>
+<h2 id="或"><a href="#或" class="headerlink" title="或"></a>或</h2><p>|表示或，<code>/a|b/</code> 可以匹配 <code>a</code> 或者 <code>b</code>，<code>/(ab)+|(cd)+/</code> 可以匹配一个或多个 <code>ab</code> 或 <code>cd</code></p>
+<h2 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h2><p>例如正则表达式 <code>/^([dtn])a\1/</code> 匹配的内容是以字母 <code>d，t，n</code> 开头，其后连续字母 <code>a</code>，在连接第一个分组中捕获的内容</p>
+<p>一个非常重要的一点是：上面这个匹配规则并不与 <code>/[dtn]a[dtn]/</code> 相同，因为 <code>a</code> 后面连接的字母并不是任意的 <code>b，t，n</code> 而必须是与第一个匹配结果完全相同的才行，所以 <code>\1</code> 的结果只有在运行的时候才能确定</p>
+<p>在匹配标签元素的时候，反向引用是很有用的：</p>
+<p><code>/&lt;(\w+)&gt;(.+)&lt;\/\1&gt;/</code> 这个正则表达式可以匹配像 <code>&lt;h1&gt;123&lt;/h1&gt;</code> 这样简单的元素，如果没有反向引用，也许就无法匹配了，因为根本没办法知道与起始标记相匹配的结束标记是什么</p>
+<h2 id="正则表达式的编译"><a href="#正则表达式的编译" class="headerlink" title="正则表达式的编译"></a>正则表达式的编译</h2><p>不管是通过字面量还是构造函数创建的正则表达式，都可以使用 <code>test</code> 方法来编译：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reg1 = <span class="regexp">/test/gi</span></span><br><span class="line"><span class="keyword">const</span> reg2 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'test'</span>, <span class="string">'ig'</span>)</span><br><span class="line"><span class="keyword">const</span> contentText = <span class="string">'dtaysdasdteststest'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(reg1.test(contentText))</span><br><span class="line"><span class="built_in">console</span>.log(reg2.test(contentText))</span><br></pre></td></tr></table></figure>
+<p>下面来举个根据标签名查找元素的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"span1"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findClassByTagName</span>(<span class="params">className, tagName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> eleArr = <span class="built_in">document</span>.getElementsByTagName(tagName || <span class="string">'*'</span>)</span><br><span class="line">  <span class="keyword">const</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">`(^|\\s)<span class="subst">$&#123;className&#125;</span>(\\s|$)`</span>)</span><br><span class="line">  <span class="keyword">const</span> results = []</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, ele; (ele = eleArr[i++]); ) &#123;</span><br><span class="line">    <span class="keyword">if</span> (regex.test(ele.className)) results.push(ele)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> results</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="捕获匹配片段"><a href="#捕获匹配片段" class="headerlink" title="捕获匹配片段"></a>捕获匹配片段</h2><p>举个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span> <span class="attr">style</span>=<span class="string">"transform:translateY(15px);"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getTranslateY</span>(<span class="params">ele</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> transformValue = ele.style.transform</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (transformValue) &#123;</span><br><span class="line">    <span class="keyword">const</span> match = transformValue.match(<span class="regexp">/translateY\(([^\)]+)\)/</span>)</span><br><span class="line">    <span class="keyword">return</span> match ? match[<span class="number">1</span>] : <span class="string">''</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">''</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getTranslateY(div1)) <span class="comment">// 15px</span></span><br></pre></td></tr></table></figure>
+<p>在正则表达式中使用圆括号定义捕获，使用 <code>match</code> 方法匹配时，使用局部正则表达式可以返回一个数组，数组中包含了全部匹配内容以及操作中的全部捕获结果</p>
+<h2 id="使用全局表达式进行匹配"><a href="#使用全局表达式进行匹配" class="headerlink" title="使用全局表达式进行匹配"></a>使用全局表达式进行匹配</h2><p>在 <code>match</code> 方法中使用局部表达式是可以正确的返回捕获结果的，但如果使用 <code>g</code> 修饰符，那么返回的就不仅是第一个匹配结果，而是全部的匹配结果，但是不会返回捕获的结果</p>
+<p>可以使用 <code>exec</code> 方法，可以对一个正则表达式多次调用 <code>exec</code> 方法，每次调用可以返回下一个匹配的结果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> html = <span class="string">'&lt;div class="test"&gt;&lt;b&gt;hello&lt;/b&gt;&lt;i&gt;world&lt;/i&gt;&lt;/div&gt;'</span></span><br><span class="line"><span class="keyword">const</span> tag = <span class="regexp">/&lt;(\/?)(\w+)([^&gt;]*?)&gt;/g</span></span><br><span class="line"><span class="keyword">let</span> match,</span><br><span class="line">  num = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> ((match = tag.exec(html)) !== <span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(match.length)</span><br><span class="line">  num++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num)</span><br></pre></td></tr></table></figure>
+<p>首先我们来看一下这里的正则表达式：<code>/&lt;(\/?)(\w+)([^&gt;]*?)&gt;/g</code></p>
+<p><code>(\/?)</code> 是匹配 0 到 1 个 <code>/</code>，<code>(\w+)</code> 匹配一到无限个任意字母数字和下划线，<code>([^&gt;]*?)</code> 匹配的是除了 <code>&gt;</code> 之外的其他字符，比如在这里就匹配到了：<code>class=&quot;test&quot;</code>，其实就是匹配标签中的属性</p>
+<p>这样一共调用了 6 次 <code>exec</code> 方法，因为一共匹配到了六个标签，因为我们使用了 3 对圆括号，所以每次调用 <code>exec</code> 返回的数组长度为 4，比如第一次调用 <code>exec</code> 返回的数组是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="string">'&lt;div class="test"&gt;'</span>, <span class="string">''</span>, <span class="string">'div'</span>, <span class="string">' class="test"'</span>]</span><br></pre></td></tr></table></figure>
+<p>第一个元素是匹配到的整个字符串，后面三个才是匹捕获的字符串</p>
+<h2 id="捕获的引用"><a href="#捕获的引用" class="headerlink" title="捕获的引用"></a>捕获的引用</h2><p>可以使用反向引用来匹配 <code>HTML</code> 标记内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> html = <span class="string">'&lt;b class="hello"&gt;hello&lt;/b&gt;&lt;i&gt;world&lt;/i&gt;'</span></span><br><span class="line"><span class="keyword">const</span> pattern = <span class="regexp">/&lt;(\w+)([^&gt;]*)&gt;(.*?)&lt;\/\1&gt;/g</span></span><br><span class="line"><span class="keyword">const</span> match = pattern.exec(html)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(match)</span><br></pre></td></tr></table></figure>
+<p>这里 <code>\1</code> 指向的是表达式中的 <strong>第一个捕获</strong> ，在本例中捕获到的是标记的名称，使用第一个捕获的内容匹配对应的结束标记，但这种先给发是有缺点的，当标签中又嵌套了一个相同的标签，那就会匹配到错误的结果了</p>
+<p>我们还可以使用字符串的 <code>replace</code> 方法对替代字符串内获取捕获，而不是使用反向引用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'fontFamily'</span>.replace(<span class="regexp">/([A-Z])/g</span>, <span class="string">'-$1'</span>).toLowerCase()) <span class="comment">// font-family</span></span><br></pre></td></tr></table></figure>
+<p>在这段代码中，第一个捕获的值（大写字母 F）通过替代字符（<code>$1</code>）进行引用，这种方式可以实现在不知道替代值时定义替换规则，直到匹配运行之前还不知道需要替代的值</p>
+<h2 id="未捕获分组"><a href="#未捕获分组" class="headerlink" title="未捕获分组"></a>未捕获分组</h2><p>在正则表达式中圆括号不仅表示捕获，也表示分组，但是当一个分组过多的正则表达式就会产生很多不必要的捕获</p>
+<p>假如有下面一个正则表达式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pattern = <span class="regexp">/((well-)+)play/</span></span><br></pre></td></tr></table></figure>
+<p>在这里，前缀 <code>well-</code> 可以在 <code>play</code> 前面出现一次或者多次，并且捕获整个前缀，这个表达式需要两对圆括号，但显然我们只需要捕获一个就好了，于是可以改成：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pattern = <span class="regexp">/((?:well-)+)play/</span></span><br></pre></td></tr></table></figure>
+<p>这样写只有外层圆括号会创建捕获，内层圆括号变成一个被动子表达式</p>
+<h2 id="利用函数进行替换"><a href="#利用函数进行替换" class="headerlink" title="利用函数进行替换"></a>利用函数进行替换</h2><p>正则表达式同样也可以应用在 <code>replace</code> 方法中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'dsdadadg'</span>.replace(<span class="regexp">/[a-z]/g</span>, <span class="string">'x'</span>)</span><br></pre></td></tr></table></figure>
+<p>返回的结果是 <code>xxxxxxxg</code>，当然，这绝不是 <code>replace</code> 最终重要的特性，而且支持替换函数作为参数，当第二个参数为函数的时候，对每一个匹配到的值都会调用一遍</p>
+<ul>
+<li>全文匹配</li>
+<li>匹配时的捕获</li>
+<li>在原始字符串匹配的索引</li>
+<li>源字符串</li>
+<li>从函数返回的值作为替换值</li>
+</ul>
+<p>这在运行的时候提供了巨大的余地来判断应该替换的字符串，包括匹配的信息，比如将 <code>-</code> 连接的单词替换为驼峰式字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> upperLetter = <span class="function">(<span class="params">all, letter</span>) =&gt;</span> letter.toUpperCase()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'upper-letter'</span>.replace(<span class="regexp">/-(\w)/g</span>, upperLetter)) <span class="comment">// upperLetter</span></span><br></pre></td></tr></table></figure>
+<h2 id="正则表达式常见应用"><a href="#正则表达式常见应用" class="headerlink" title="正则表达式常见应用"></a>正则表达式常见应用</h2><h3 id="匹配换行"><a href="#匹配换行" class="headerlink" title="匹配换行"></a>匹配换行</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> html = <span class="string">'&lt;b&gt;hello&lt;/b&gt;\n&lt;i&gt;world&lt;/i&gt;'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/.*/</span>.exec(html)[<span class="number">0</span>]) <span class="comment">// &lt;b&gt;hello&lt;/b&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/[\S\s]*/</span>.exec(html)[<span class="number">0</span>]) <span class="comment">// &lt;b&gt;hello&lt;/b&gt;\n&lt;i&gt;world&lt;/i&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/(?:.|\s)/</span>.exec(html)[<span class="number">0</span>]) <span class="comment">// &lt;b&gt;hello&lt;/b&gt;\n&lt;i&gt;world&lt;/i&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里我们使用了三种方法，第一种方法匹配失败，后两种成功，<code>/(?:.|\s)/</code> 使用 <code>.</code> 匹配除换行外所有字符，通过 <code>\s</code> 匹配所有字符包括换行，集合的结果是所有字符，当然 <code>/[\S\s]*/</code> 因为简洁高效被认为是最优解</p>
+<h3 id="匹配-Unicode-字符"><a href="#匹配-Unicode-字符" class="headerlink" title="匹配 Unicode 字符"></a>匹配 Unicode 字符</h3><p>想要匹配 Unicode 字符很简单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> matchAll = <span class="regexp">/[\w\u0080-\uFFFF_-]+/</span></span><br></pre></td></tr></table></figure>
+<p>除了使用 <code>\w</code> 匹配正常的字符之外，还要使用 <code>\u0080-\uFFFF</code> 匹配 <code>\u0080</code> 以上的全部字符</p>
+
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/07/04/全面理解CSS媒体查询/">https://longgererer.github.io/2019/07/04/全面理解CSS媒体查询/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/07/04/全面理解CSS媒体查询/">July 4th 2019, 8:29:17 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/07/04/全面理解CSS媒体查询/">July 4th 2019, 9:48:05 pm</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/10/01/JS正则表达式/">https://longgererer.github.io/2019/10/01/JS正则表达式/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/10/01/JS正则表达式/">October 1st 2019, 3:12:23 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/10/01/JS正则表达式/">October 2nd 2019, 8:13:23 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -423,17 +618,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/07/04/grid网格布局/" title="grid网格布局">
-                    <div class="nextTitle">grid网格布局</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/06/21/用JS实现最短路径算法/" title="用JS实现最短路径算法">
-                    <div class="prevTitle">用JS实现最短路径算法</div>
+                <a href="/2019/09/29/React工程目录详解/" title="React工程目录详解">
+                    <div class="prevTitle">React工程目录详解</div>
                 </a>
             
         </li>
@@ -560,7 +750,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#媒体查询的基本语法"><span class="toc-number">1.</span> <span class="toc-text">媒体查询的基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#单独使用"><span class="toc-number">1.1.</span> <span class="toc-text">单独使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套使用"><span class="toc-number">1.2.</span> <span class="toc-text">嵌套使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#否定"><span class="toc-number">1.3.</span> <span class="toc-text">否定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#范围查询"><span class="toc-number">1.4.</span> <span class="toc-text">范围查询</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#修饰符"><span class="toc-number">1.</span> <span class="toc-text">修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配字符集"><span class="toc-number">2.</span> <span class="toc-text">匹配字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转义字符"><span class="toc-number">3.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#起止符号"><span class="toc-number">4.</span> <span class="toc-text">起止符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复出现"><span class="toc-number">5.</span> <span class="toc-text">重复出现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预定义字符集"><span class="toc-number">6.</span> <span class="toc-text">预定义字符集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分组"><span class="toc-number">7.</span> <span class="toc-text">分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#或"><span class="toc-number">8.</span> <span class="toc-text">或</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向引用"><span class="toc-number">9.</span> <span class="toc-text">反向引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式的编译"><span class="toc-number">10.</span> <span class="toc-text">正则表达式的编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#捕获匹配片段"><span class="toc-number">11.</span> <span class="toc-text">捕获匹配片段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用全局表达式进行匹配"><span class="toc-number">12.</span> <span class="toc-text">使用全局表达式进行匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#捕获的引用"><span class="toc-number">13.</span> <span class="toc-text">捕获的引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未捕获分组"><span class="toc-number">14.</span> <span class="toc-text">未捕获分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#利用函数进行替换"><span class="toc-number">15.</span> <span class="toc-text">利用函数进行替换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式常见应用"><span class="toc-number">16.</span> <span class="toc-text">正则表达式常见应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配换行"><span class="toc-number">16.1.</span> <span class="toc-text">匹配换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#匹配-Unicode-字符"><span class="toc-number">16.2.</span> <span class="toc-text">匹配 Unicode 字符</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
