@@ -346,26 +346,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/03/09/Generator生成器/">
+        <a class="abstract-title" href="/2019/02/26/LHS与RHS/">
             
-                <span>Generator生成器</span>
+                <span>LHS与RHS</span>
         </a>
         <div class="abstract-content">
-            Generator 基本用法Promise 解决了异步嵌套的问题，ES6 又推出了 Generator 函数，这是一个新的函数类型，也叫做生成器来看例子：
-123456789101112let x = 1;function a() &#123;  x++;  b();  console.log(x);&#125;a();function b() &#123;  x++;&#125;
-输出结果是什么？毫无疑问会是 3如果我把 b()这条调用函数 b 的行为取消，那结果应该是 2，有没有方法可以做到在取消调用函数 b 之后，仍然可以得到 3 的结果呢？答案就是：Generator
-12345...
+            在正式说明前，我们先看一个例子：
+12var a = 2;console.log(a);
+
+这段代码声明了一个名为 a 的变量，然后通过 console.log 将 a 输出，最终后台输出的是 2
+
+那么，console.log 是如何得到 a 值的呢? 这里就涉及到了 JS 的查询机制
+在 JS 中有两种查询方式：LHS 和 RHS，他们其实是Left Hand Side和Right Hand Side的缩写，意为左手边和右手边什么意思呢?就是一个赋值操作的左边和右边，下面我详细的介绍一下它俩的区别
+LHS 查询LHS 查询的目的在于寻找变量的容器本身
+我们还是用 a 来打比方
+1va...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/09</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/02/26</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Generator">Generator</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
     
 </div>
             
@@ -373,6 +379,10 @@
     </article>
     
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2019/page/4/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/3/">3</a><a class="page-number" href="/archives/2019/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
     
 </main>
             <!-- profile -->
