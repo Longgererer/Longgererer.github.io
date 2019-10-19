@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="lliiooiill">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="lliiooiill">
+    
+    <meta name="keywords" content="IT 技术 JS 前端 互联网 网页 - hexo - 'hexo-theme' - 'hexo-blog'">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Vue3.0解析 · lliiooiill的技术Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的技术Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue3.0解析</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">lliiooiill的技术Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Vue3.0解析
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">3.7k</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/10/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Vue3.0 使用 <code>composition api</code> 多个方法进行组合使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="keyword">const</span> state = Vue.reactive(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(state)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 Vue3.0 中，<code>setup</code> 方法类似于 <code>created</code>，只会执行一次</p>
+<p>输出结果是一个 <code>proxy</code> 对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Proxy</span>&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure>
+<p><code>setup</code> 方法中 <code>return</code> 的对象会作为渲染的上下文来代替 <code>data</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="keyword">const</span> state = Vue.reactive(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;)</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      state</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在其他属性中这样调用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="keyword">const</span> state = Vue.reactive(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;)</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      state</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`&lt;div&gt;<span class="subst">$&#123;state.a&#125;</span>&lt;/div&gt;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，如果想使用以前的 <code>data</code> 写法，也是可以的</p>
+<p>假设想给 <code>template</code> 加上事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    <span class="keyword">const</span> state = Vue.reactive(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onchange</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      state.a = <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      state,</span><br><span class="line">      onchange</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`&lt;div @click="onchange"&gt;<span class="subst">$&#123;state.a&#125;</span>&lt;/div&gt;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 <code>setup</code> 中定义一个函数并 <code>return</code> 回来，就可以完成对事件的绑定</p>
+<p>Vue3.0 中还可以写一些公用的方法，在以前这些公用方法都是作为外部 <code>js</code> 引入或者是添加到 <code>Vue</code> 的原型上，但是这些方法都不太好，现在 Vue3.0 添加了 <code>Hook</code> 功能，使用 use 开头定义的函数都被识别为 <code>Hook</code> 函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">usePosition</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> position = Vue.reactive(&#123;</span><br><span class="line">    x: <span class="number">0</span>,</span><br><span class="line">    y: <span class="number">0</span></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    position.x = e.pageX</span><br><span class="line">    position.y = e.pageY</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Vue.onMounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'mousemove'</span>, update)</span><br><span class="line">  &#125;)</span><br><span class="line">  Vue.onUnmounted(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">'mousemove'</span>, update)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> position</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在这里定义了一个公用方法 <code>usePosition</code>，然后使用 <code>Vue.reactive</code> 创建一个响应式对象 <code>position</code></p>
+<p>随后定义一个 <code>update</code> 方法来更新 <code>x</code> 和 <code>y</code></p>
+<p>然后定义了两个生命周期函数 <code>onMounted</code> 和 <code>onUnmounted</code>，当鼠标移动的时候执行 <code>update</code> 方法更新鼠标位置，卸载的时候移除方法</p>
+<p>但是这两个生命周期不属于任何一个 <code>Vue</code> 实例，哪个实例使用了 <code>usePosition</code>，<code>onMounted</code> 和 <code>onUnmounted</code> 就属于这个实例的生命周期</p>
+<p>我们知道在 Vue3.0 之前，<code>Vue</code> 是这样实现数据响应式原理的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缓存数组原型</span></span><br><span class="line"><span class="keyword">let</span> oldArrayPrototype = <span class="built_in">Array</span>.prototype</span><br><span class="line"><span class="comment">// 继承数组原型</span></span><br><span class="line"><span class="keyword">let</span> proto = <span class="built_in">Object</span>.create(oldArrayPrototype)[</span><br><span class="line">  (<span class="string">'push'</span>, <span class="string">'shift'</span>, <span class="string">'unshift'</span>)</span><br><span class="line">].forEach(<span class="function"><span class="params">method</span> =&gt;</span> &#123;</span><br><span class="line">  proto[method] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//函数劫持 把函数进行重写 内部 继续调用老的方法</span></span><br><span class="line">    updateView() <span class="comment">// 切片编程</span></span><br><span class="line">    oldArrayPrototype[method].call(<span class="keyword">this</span>, ...arguments)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// observer</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">observer</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 判断类型是否不是对象，或者为null</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> target !== <span class="string">'object'</span> || target == <span class="literal">null</span>) <span class="keyword">return</span> target</span><br><span class="line">  <span class="comment">// 如果是数组</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(target)) &#123;</span><br><span class="line">    <span class="comment">// 拦截数组 给数组的方法进行了重写</span></span><br><span class="line">    <span class="comment">// 兼容写法，防止浏览器没有target.__proto__</span></span><br><span class="line">    <span class="built_in">Object</span>.setPrototypeOf(target, proto)</span><br><span class="line">    <span class="comment">// target.__proto__ = proto;</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; target.length; i++) &#123;</span><br><span class="line">      observer(target[i])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 如果不是数组，一定是对象</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> target) &#123;</span><br><span class="line">      defineReactive(target, key, target[key])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">target, key, value</span>) </span>&#123;</span><br><span class="line">  observer(value) <span class="comment">// 递归 我就将这个对象 继续拦截</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(target, key, &#123;</span><br><span class="line">    <span class="keyword">get</span>() &#123;</span><br><span class="line">      <span class="comment">// get 中会进行依赖收集</span></span><br><span class="line">      <span class="keyword">return</span> value</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>(newValue) &#123;</span><br><span class="line">      <span class="comment">// 如果新值和旧值不一样</span></span><br><span class="line">      <span class="keyword">if</span> (newValue !== value) &#123;</span><br><span class="line">        observer(newValue)</span><br><span class="line">        updateView()</span><br><span class="line">        value = newValue</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也就是说 <code>Vue2</code> 是使用 <code>getter</code> 和 <code>setter</code> 来实现响应式数据的</p>
+<p>这种方式有一些缺点，一开始无论数据有多少层，都会先来一次递归，影响性能，数组改变 <code>length</code> 无法监听得到，对象不存在的属性不能够被拦截</p>
+<p>Vue3.0 是使用 <code>Proxy</code> 来实现响应式数据的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> proxy = Vue.reactive(&#123; <span class="attr">name</span>: <span class="string">'zf'</span> &#125;)</span><br><span class="line"><span class="comment">// 副作用</span></span><br><span class="line">Vue.effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(proxy.name)</span><br><span class="line">&#125;)</span><br><span class="line">proxy.name = <span class="string">'jw'</span></span><br></pre></td></tr></table></figure>
+<p>这里定义了一个响应式数据 <code>{ name: &#39;zf&#39; }</code>，然后使用 <code>effect</code>渲染试图，<code>effect</code> 的意思是副作用，比如说数据变化了，需要干一些其他事情，比如更新视图，进行 AJAX 请求等等</p>
+<p>上面的代码一共输出了两次 <code>proxy.name</code>，因为 <code>effect</code> 在一开始就会执行一次来渲染视图，之后数据更新还会执行 <code>effect</code></p>
+<p><code>reactive</code> 方法要做的只有一个就是创建响应式对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reactive</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 创建响应式对象</span></span><br><span class="line">  <span class="keyword">return</span> createReativeObject(target)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>createReativeObject</code> 首先要判断数据是否为对象，先把判断对象的方法抽出来方便复用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> val === <span class="string">'object'</span> &amp;&amp; val !== <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReativeObject</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!isObject(target)) &#123;</span><br><span class="line">    <span class="comment">// 如果当前不是对象 直接返回即可</span></span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后创建一个代理，传递两个参数代理对象和拦截方法的集合：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observed = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, baseHandler)</span><br></pre></td></tr></table></figure>
+<p>我们要拦截的方法有 <code>get</code>，<code>set</code> 和 <code>deleteProperty</code>（源码中劫持了五个）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> baseHandler = &#123;</span><br><span class="line">  <span class="keyword">get</span>() &#123;&#125;,</span><br><span class="line">  <span class="keyword">set</span>() &#123;&#125;,</span><br><span class="line">  deleteProperty() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>get</code> 方法需要接收几个参数：</p>
+<ul>
+<li>target：对象</li>
+<li>key：对象的键</li>
+<li>receiver：代理后的对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span>(target, key, receiver)&#123;</span><br><span class="line">  <span class="comment">// proxy + reflect 反射</span></span><br><span class="line">  <span class="comment">// Reflect（反射）实际上</span></span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">Reflect</span>.get(target,key,receiver)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而 <code>set</code> 方法除了这三个参数之外还要传递一个 <code>value</code> 值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(target, key, value, receiver)&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">Reflect</span>.set(target, key, value, receiver)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>deleteProperty</code> 方法接受两个参数，目标对象和索引：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deleteProperty() &#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="built_in">Reflect</span>.deleteProperty(target, key)</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Reflect</code> 的优点是不会报错，有返回值，会替代掉 <code>Object</code> 上的方法，除了能代理对象，<code>Reflect</code> 还能代理数组</p>
+<p>上面的代码虽然可以实现响应式数据，但仅限于数据只有一层的时候才有效，无法进行深层响应，所以需要使用递归：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span>(target, key, receiver)&#123;</span><br><span class="line">  <span class="comment">// proxy + reflect 反射</span></span><br><span class="line">  <span class="comment">// Reflect（反射）实际上</span></span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">Reflect</span>.get(target,key,receiver)</span><br><span class="line">  <span class="keyword">return</span> isObject(result) ? reactive(result) : result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>和 Vue2 不一样的是，虽然 <code>reactive</code> 也使用了递归，但是是在必要的时候（对象嵌套）才会开始递归，而不是默认递归</p>
+<p>现在还有一个问题，就是出现下面的情况：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">let</span> proxy = reactive(obj)</span><br><span class="line">reactive(obj)</span><br><span class="line">reactive(obj)</span><br><span class="line">reactive(obj)</span><br><span class="line">reactive(proxy) <span class="comment">// 已经代理的的对象再次代理造成重复代理</span></span><br></pre></td></tr></table></figure>
+<p>我们先定义了一个对象 <code>obj</code>，然后使用 <code>reactive</code> 将对象改变成响应式对象，但是如果多次将一个对象进行这样的操作，那么就会 <code>new</code> 多个 <code>proxy</code>，所以应该加一个判断机制，判断当前对象是否已经被代理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> toProxy = <span class="keyword">new</span> <span class="built_in">WeakMap</span>() <span class="comment">// 弱引用映射表 es6  放置的是 原对象:代理过的对象</span></span><br><span class="line"><span class="keyword">let</span> toRaw = <span class="keyword">new</span> <span class="built_in">WeakMap</span>() <span class="comment">// 被代理过的对象:原对象  es6语法</span></span><br><span class="line"></span><br><span class="line">toProxy.set(target, observed) <span class="comment">// target是源对象，observed是代理过的对象</span></span><br><span class="line">toRaw.set(observed, target) <span class="comment">// observed是代理过的对象，target是源对象</span></span><br></pre></td></tr></table></figure>
+<p>这样在代理之前调用 <code>toProxy.get</code> 和 <code>toRaw.get</code> 方法查看对象是否已经被代理，和对象是否是代理之后的对象(<code>const proxy = reactive(obj)</code>)</p>
+<p>当然 <code>proxy</code> 也有一定的缺点，就是兼容性差，IE11 以上才支持</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> proxy = reactive(arr)</span><br><span class="line">proxy.push(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>我们定义了一个数组并且将数组传给 <code>reactive</code> 进行代理，然后再调用代理后对象的方法 <code>push</code> 一个元素进去，在这个过程中实际上调用到了两次代理的 <code>set</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(target, key, value, receiver) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value)</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>set</code> 输出：<code>3 4</code> 和 <code>length 4</code></p>
+<p>之所以调用了两次是因为先要将数组的下标为 3 对应的元素改为 4，再将数组的 <code>length</code> 值改为 4，所以实际上进行了两次 <code>set</code></p>
+<p>所以要判断改的是属性还是新增属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(target, key, value, receiver) &#123;</span><br><span class="line">  <span class="keyword">let</span> hadKey = hasOwn(target, key) <span class="comment">// 判断这个属性 以前有没有</span></span><br><span class="line">  <span class="keyword">if</span>(!hadKey)&#123;</span><br><span class="line">    <span class="comment">// 新增属性</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 判断属性</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样看上去没有问题，但是数组进行 <code>push</code> 的时候就已经将 <code>length</code> 值自动改成 4 了，没有必要再去修改，所以这里要加一个判断，判断新值旧值是否相等，屏蔽无意义的修改</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!hadKey) &#123;</span><br><span class="line">  <span class="comment">// 新增属性</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldValue !== value) &#123;</span><br><span class="line">  <span class="comment">// 表示属性更改过了，和原来的值不一样</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 判断属性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Vue3.0 还有一个重要的机制是依赖收集：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">const</span> proxy = reactive(obj)</span><br><span class="line">effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(proxy.a)</span><br><span class="line">&#125;)</span><br><span class="line">proxy.a = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>之前我们讲过 <code>effect</code> 的作用，<code>effect</code> 会在初始化的时候执行一次，在数据改变的时候再次执行，那么 <code>effect</code> 函数是如何实现的呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">effect</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> effect = createReactiveEffect(fn) <span class="comment">// 创建一个响应式函数</span></span><br><span class="line">  effect() <span class="comment">// 默认先执行一次</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReactiveEffect</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> effect = functtion()&#123;</span><br><span class="line">    <span class="keyword">return</span> run(effect, fn) <span class="comment">// 运行，执行fn，将这个effect存到栈中</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> activeEffectStacks = [] <span class="comment">// 栈型结果</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">effect, fn</span>)</span>&#123; <span class="comment">// 运行fn并且将fn给push到栈中</span></span><br><span class="line">  activeEffectStacks.push(effect)</span><br><span class="line">  fn()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>fn</code> 就是传递的箭头函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(proxy.a)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在执行 <code>fn</code> 函数的时候，需要获取 <code>proxy.a</code> 的值，所以要调用代理的 <code>get</code> 方法，一调用 <code>get</code> 方法就可以把数组中的 <code>effect</code> 方法拿到来执行这个方法，所以在 <code>activeEffectStacks</code> 中要做的事情就是将 <code>proxy.a</code> 和 <code>fn</code> 关联起来，所以：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span>(target, key, receiver) &#123;</span><br><span class="line">  <span class="comment">// proxy + reflect 反射</span></span><br><span class="line">  <span class="keyword">let</span> result = <span class="built_in">Reflect</span>.get(target, key, receiver)</span><br><span class="line">  <span class="comment">// result 是当前获取到的值</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 收集依赖 订阅 把当前的key 和 这个effect 对应起来</span></span><br><span class="line"></span><br><span class="line">  track(target, key) <span class="comment">// 如果目标上的 这个key 变化了 重新让数组中的effect执行即可</span></span><br><span class="line">  <span class="keyword">return</span> isObject(result) ? reactive(result) : result <span class="comment">// 是个递归</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>track</code> 大致长这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">track</span>(<span class="params">target, key</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果target中的key变化了，就执行数组中的方法，但是如果这个key没有使用effect方法依赖，那么就不需要执行，所以要先做判断</span></span><br><span class="line">  <span class="keyword">let</span> effect = activeEffectStacks[activeEffectStacks.length - <span class="number">1</span>]</span><br><span class="line">  <span class="keyword">if</span> (effect) &#123;</span><br><span class="line">    <span class="comment">// effect存在说明有对应关系，才会创建关联</span></span><br><span class="line">    <span class="keyword">let</span> depsMap = targetsMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (!depsMap) &#123;</span><br><span class="line">      <span class="comment">// 如果targetsMap不存在这个键，就新创建一个映射表</span></span><br><span class="line">      targetsMap.set(target, (depsMap = <span class="keyword">new</span> <span class="built_in">Map</span>()))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> deps = depsMap.get(key) <span class="comment">// 如果deps不存在就创建一个默认值Set</span></span><br><span class="line">    <span class="keyword">if</span> (!deps) &#123;</span><br><span class="line">      depsMap.set(key, (deps = <span class="keyword">new</span> <span class="built_in">Set</span>()))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!deps.has(effect)) &#123;</span><br><span class="line">      deps.add(effect)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接着来看代理的 <code>set</code> 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(target, key, value, receiver) &#123;</span><br><span class="line">  <span class="comment">// [1,2,3,4]</span></span><br><span class="line">  <span class="comment">// 怎么去 识别是改属性 还是 新增属性</span></span><br><span class="line">  <span class="keyword">let</span> hadKey = hasOwn(target, key) <span class="comment">// 判断这个属性 以前有没有</span></span><br><span class="line">  <span class="keyword">let</span> oldValue = target[key]</span><br><span class="line">  <span class="keyword">let</span> res = <span class="built_in">Reflect</span>.set(target, key, value, receiver)</span><br><span class="line">  <span class="keyword">if</span> (!hadKey) &#123;</span><br><span class="line">    trigger(target, <span class="string">'add'</span>, key)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldValue !== value) &#123;</span><br><span class="line">    <span class="comment">// 这里表述属性 更改过了</span></span><br><span class="line">    trigger(target, <span class="string">'set'</span>, key)</span><br><span class="line">  &#125; <span class="comment">// 为了屏蔽 无意义的修改</span></span><br><span class="line">  <span class="comment">// 如果设置没成功 如果这个对象不可以被更改 writable</span></span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>trigger</code> 来进行属性的添加和修改：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params">target, type, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> depsMap = targetsMap.get(target)</span><br><span class="line">  <span class="keyword">if</span> (depsMap) &#123;</span><br><span class="line">    <span class="keyword">let</span> deps = depsMap.get(key)</span><br><span class="line">    <span class="keyword">if</span> (deps) &#123;</span><br><span class="line">      <span class="comment">// 将当前key 对应的effect 依次执行</span></span><br><span class="line">      deps.forEach(<span class="function"><span class="params">effect</span> =&gt;</span> &#123;</span><br><span class="line">        effect()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之所以使用 <code>forEach</code>，是因为 <code>activeEffectStacks</code> 的结构是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  target: &#123;</span><br><span class="line">    key: [fn, fn, fn]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之所以 <code>key</code> 包含的是一个数组，是因为 <code>effect</code> 可以调用多次：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(proxy.a)</span><br><span class="line">&#125;)</span><br><span class="line">effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(proxy.a)</span><br><span class="line">&#125;)</span><br><span class="line">effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(proxy.a)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>如果 <code>proxy.a</code> 改变将会执行三次 <code>console.log</code></p>
+<p><code>reactive</code> 全部代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue3.0 响应式原理</span></span><br><span class="line"><span class="comment">// 1.) 2.0 默认会递归 2).数组改变length 是无效的 3） 对象不存在的属性不能被拦截</span></span><br><span class="line"><span class="comment">// 判断是不是对象</span></span><br><span class="line"><span class="comment">// proxy  兼容性差 ie11 不兼容</span></span><br><span class="line"><span class="keyword">let</span> toProxy = <span class="keyword">new</span> <span class="built_in">WeakMap</span>() <span class="comment">// 弱引用映射表 es6  放置的是 原对象:代理过的对象</span></span><br><span class="line"><span class="keyword">let</span> toRaw = <span class="keyword">new</span> <span class="built_in">WeakMap</span>() <span class="comment">// 被代理过的对象:原对象  es6语法</span></span><br><span class="line"><span class="comment">// mdn每个api 都过一遍</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> val === <span class="string">'object'</span> &amp;&amp; val !== <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwn</span>(<span class="params">target, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> target.hasOwnProperty(key)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1.响应式的核心方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reactive</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 创建响应式对象</span></span><br><span class="line">  <span class="keyword">return</span> createReativeObject(target)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建响应式对象的</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReativeObject</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!isObject(target)) &#123;</span><br><span class="line">    <span class="comment">// 如果当前不是对象 直接返回即可</span></span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> proxy = toProxy.get(target) <span class="comment">// 如果已经代理过了 就将代理过的结果返回即可</span></span><br><span class="line">  <span class="keyword">if</span> (proxy) &#123;</span><br><span class="line">    <span class="keyword">return</span> proxy</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (toRaw.has(target)) &#123;</span><br><span class="line">    <span class="comment">// 放置代理的过的对象再次被代理</span></span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> baseHandler = &#123;</span><br><span class="line">    <span class="comment">// reflect 优点 不回报错 而且 会有返回值 会替代掉Object 上的方法</span></span><br><span class="line">    <span class="keyword">get</span>(target, key, receiver) &#123;</span><br><span class="line">      <span class="comment">// proxy + reflect 反射</span></span><br><span class="line">      <span class="keyword">let</span> result = <span class="built_in">Reflect</span>.get(target, key, receiver)</span><br><span class="line">      <span class="comment">// result 是当前获取到的值</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 收集依赖 订阅 把当前的key 和 这个effect 对应起来</span></span><br><span class="line"></span><br><span class="line">      track(target, key) <span class="comment">// 如果目标上的 这个key 变化了 重新让数组中的effect执行即可</span></span><br><span class="line">      <span class="keyword">return</span> isObject(result) ? reactive(result) : result <span class="comment">// 是个递归</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>(target, key, value, receiver) &#123;</span><br><span class="line">      <span class="comment">// [1,2,3,4]</span></span><br><span class="line">      <span class="comment">// 怎么去 识别是改属性 还是 新增属性</span></span><br><span class="line">      <span class="keyword">let</span> hadKey = hasOwn(target, key) <span class="comment">// 判断这个属性 以前有没有</span></span><br><span class="line">      <span class="keyword">let</span> oldValue = target[key]</span><br><span class="line">      <span class="keyword">let</span> res = <span class="built_in">Reflect</span>.set(target, key, value, receiver)</span><br><span class="line">      <span class="keyword">if</span> (!hadKey) &#123;</span><br><span class="line">        trigger(target, <span class="string">'add'</span>, key)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (oldValue !== value) &#123;</span><br><span class="line">        <span class="comment">// 这里表述属性 更改过了</span></span><br><span class="line">        trigger(target, <span class="string">'set'</span>, key)</span><br><span class="line">      &#125; <span class="comment">// 为了屏蔽 无意义的修改</span></span><br><span class="line">      <span class="comment">// 如果设置没成功 如果这个对象不可以被更改 writable</span></span><br><span class="line">      <span class="keyword">return</span> res</span><br><span class="line">    &#125;,</span><br><span class="line">    deleteProperty(target, key) &#123;</span><br><span class="line">      <span class="keyword">let</span> res = <span class="built_in">Reflect</span>.deleteProperty(target, key)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'删除'</span>)</span><br><span class="line">      <span class="keyword">return</span> res</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> observed = <span class="keyword">new</span> <span class="built_in">Proxy</span>(target, baseHandler) <span class="comment">//es6</span></span><br><span class="line">  toProxy.set(target, observed)</span><br><span class="line">  toRaw.set(observed, target)</span><br><span class="line">  <span class="keyword">return</span> observed</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 栈 先进后出  &#123;name:[effect]&#125;</span></span><br><span class="line"><span class="keyword">let</span> activeEffectStacks = [] <span class="comment">// 栈型结果</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     target:&#123;</span></span><br><span class="line"><span class="comment">//         key:[fn,fn]</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">let</span> targetsMap = <span class="keyword">new</span> <span class="built_in">WeakMap</span>() <span class="comment">// 集合和hash表</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">track</span>(<span class="params">target, key</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果这个tagret中的 key 变化了 我就执行数组里的方法</span></span><br><span class="line">  <span class="keyword">let</span> effect = activeEffectStacks[activeEffectStacks.length - <span class="number">1</span>]</span><br><span class="line">  <span class="keyword">if</span> (effect) &#123;</span><br><span class="line">    <span class="comment">// 有对应关系 才创建关联</span></span><br><span class="line">    <span class="keyword">let</span> depsMap = targetsMap.get(target)</span><br><span class="line">    <span class="keyword">if</span> (!depsMap) &#123;</span><br><span class="line">      targetsMap.set(target, (depsMap = <span class="keyword">new</span> <span class="built_in">Map</span>()))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> deps = depsMap.get(key)</span><br><span class="line">    <span class="keyword">if</span> (!deps) &#123;</span><br><span class="line">      depsMap.set(key, (deps = <span class="keyword">new</span> <span class="built_in">Set</span>()))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!deps.has(effect)) &#123;</span><br><span class="line">      deps.add(effect)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 动态创建依赖关系</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 什么都不做</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trigger</span>(<span class="params">target, type, key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> depsMap = targetsMap.get(target)</span><br><span class="line">  <span class="keyword">if</span> (depsMap) &#123;</span><br><span class="line">    <span class="keyword">let</span> deps = depsMap.get(key)</span><br><span class="line">    <span class="keyword">if</span> (deps) &#123;</span><br><span class="line">      <span class="comment">// 将当前key 对应的effect 依次执行</span></span><br><span class="line">      deps.forEach(<span class="function"><span class="params">effect</span> =&gt;</span> &#123;</span><br><span class="line">        effect()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应式 副作用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">effect</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 需要把fn这个函数编程响应式的函数</span></span><br><span class="line">  <span class="keyword">let</span> effect = createReactiveEffect(fn)</span><br><span class="line">  effect() <span class="comment">// 默认应该先执行一次</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createReactiveEffect</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> effect = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 这个就是创建的响应式的effect</span></span><br><span class="line">    <span class="keyword">return</span> run(effect, fn) <span class="comment">// 运行 1.让fn执行，第二个就是把这个effect存到栈中</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> effect</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params">effect, fn</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 运行fn 并且将effect 存起来</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    activeEffectStacks.push(effect)</span><br><span class="line">    fn() <span class="comment">// vue2 利用了js是单线程的</span></span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    activeEffectStacks.pop()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 依赖收集 发布订阅</span></span><br><span class="line"><span class="keyword">let</span> obj = reactive(&#123; <span class="attr">name</span>: <span class="string">'zf'</span> &#125;)</span><br><span class="line">effect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// effect 会执行两次 ,默认先执行一次 之后依赖的数据变化了 会再次执行</span></span><br><span class="line">  <span class="built_in">console</span>.log(obj.name) <span class="comment">// 会调用get方法</span></span><br><span class="line">&#125;)</span><br><span class="line">obj.name = <span class="string">'jw'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ref computed</span></span><br><span class="line"><span class="comment">// 代理对象</span></span><br><span class="line"><span class="comment">// let arr = [1,2,3];</span></span><br><span class="line"><span class="comment">// let proxy = reactive(arr);</span></span><br><span class="line"><span class="comment">// proxy.length = 100;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// let object = &#123;name:&#123;n:'z'&#125;&#125;</span></span><br><span class="line"><span class="comment">// let proxy = reactive(object); // 多层代理 通过get方法 来判断</span></span><br><span class="line"><span class="comment">// 需要记录一下 如果这个对象代理过了 就不要在new了</span></span><br><span class="line"><span class="comment">// hash表 映射表</span></span><br><span class="line"><span class="comment">// let proxy = reactive(proxy);</span></span><br><span class="line"><span class="comment">// reactive(object);</span></span><br></pre></td></tr></table></figure>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/10/18/Vue3-0解析/">https://longgererer.github.io/2019/10/18/Vue3-0解析/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/10/18/Vue3-0解析/">October 18th 2019, 10:08:24 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/10/18/Vue3-0解析/">October 19th 2019, 3:12:45 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/10/12/Weex入门/" title="Weex入门">
+                    <div class="prevTitle">Weex入门</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:c2b139460q@163.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Longgererer" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/weChatlliiooiill.jpg">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//www.zhihu.com/people/lliiooiill/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//segmentfault.com/u/longgererer" class="iconfont-archer segmentFault" target="_blank" title="segmentFault"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Copyright © <a href="https://hexo.io/" target="_blank">2019</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">lliiooiill <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank"></a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 43
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href="/2019/10/18/Vue3-0解析/">Vue3.0解析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/12</span><a class="archive-post-title" href="/2019/10/12/Weex入门/">Weex入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href="/2019/10/03/代码模块化/">代码模块化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href="/2019/10/01/JS正则表达式/">JS正则表达式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/29</span><a class="archive-post-title" href="/2019/09/29/React工程目录详解/">React工程目录详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href="/2019/09/28/对象深拷贝和浅拷贝/">对象深拷贝和浅拷贝</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href="/2019/09/25/Redux笔记/">Redux笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href="/2019/09/24/React-router/">React-router</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/23</span><a class="archive-post-title" href="/2019/09/23/React-Hook/">React Hook</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/React生命周期/">React生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/08</span><a class="archive-post-title" href="/2019/09/08/Context/">React Context</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/SASS学习笔记/">SASS学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href="/2019/07/14/专插本C语言笔记/">专插本C语言笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href="/2019/07/13/浏览器的缓存机制/">浏览器的缓存机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/JS内存管理/">JS内存管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href="/2019/07/06/14种JavaScript设计模式/">14种JavaScript设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/04</span><a class="archive-post-title" href="/2019/07/04/grid网格布局/">grid网格布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/04</span><a class="archive-post-title" href="/2019/07/04/全面理解CSS媒体查询/">全面理解CSS媒体查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href="/2019/06/21/用JS实现最短路径算法/">用JS实现最短路径算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href="/2019/05/24/深度优先遍历和广度优先遍历/">广度优先算法和深度优先算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href="/2019/05/22/前端面试题汇总/">一些重要的前端面试题目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href="/2019/05/21/async-await学习笔记/">async/await学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2019/05/19/Vue路由详解/">Vue路由详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2019/05/19/Vue组件详解/">详解Vue组件化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/12</span><a class="archive-post-title" href="/2019/05/12/axios学习笔记/">Axios学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/Vuex笔记/">Vuex学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href="/2019/05/07/TypeScript学习指南/">TypeScript学习指南</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href="/2019/05/03/虚拟DOM和Diff算法/">虚拟DOM和Diff算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href="/2019/05/02/函数柯里化/">函数柯里化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href="/2019/05/01/Object-creat/">Object.create()</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href="/2019/04/28/this的指向/">this的指向</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href="/2019/04/23/DOM事件/">DOM事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2019/04/22/同步和异步/">同步和异步</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href="/2019/03/28/浏览器的回流与重绘/">浏览器的回流与重绘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href="/2019/03/28/函数节流与函数防抖/">函数节流与函数防抖</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/09</span><a class="archive-post-title" href="/2019/03/09/Generator生成器/">Generator生成器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2019/03/07/Promise学后总结/">Promise学后总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href="/2019/03/04/JavaScript设计模式/">JavaScript设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/Webpack4学后总结/">Webpack4学后总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/MVC与MVVM/">MVC与MVVM</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/LHS与RHS/">LHS与RHS</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
+        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+    
+        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
+    
+        <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
+    
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
+    
+        <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
+    
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
+        <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "lliiooiill"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
