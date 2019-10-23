@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>lliiooiill的技术Blog</title>
+    <title>前端需要知道的网络知识 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的技术Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">前端需要知道的网络知识</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            前端需要知道的网络知识
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">3.2k</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/10/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,241 +393,290 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/22/前端需要知道的网络知识/">
-            
-                <span>前端需要知道的网络知识</span>
-        </a>
-        <div class="abstract-content">
-            HTTPHTTP 协议也叫做超文本传输协议，是客户端和服务器端之间进行数据传输的格式规范，WEB 就是建立在 HTTP 协议上进行通信的
-特性
-无状态协议
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>HTTP 协议也叫做<strong>超文本传输协议</strong>，是客户端和服务器端之间进行数据传输的格式规范，WEB 就是建立在 HTTP 协议上进行通信的</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>无状态协议</li>
+</ul>
+<blockquote>
+<p>HTTP 是无状态协议，因为它不会对请求和响应之间的通信状态进行保存，协议对于请求和响应都不做持久化处理，这是为了<strong>更快的处理大量事务</strong></p>
+</blockquote>
+<ul>
+<li>客户端可以主动向服务器发起请求，而反过来则不行</li>
+</ul>
+<blockquote>
+<p>HTTP 协议规定，请求必须先从客户端发出，服务器才能响应请求并返回</p>
+</blockquote>
+<ul>
+<li>基于 TCP 实现</li>
+</ul>
+<h3 id="报文"><a href="#报文" class="headerlink" title="报文"></a>报文</h3><blockquote>
+<p>用于 HTTP 协议交互的信息被称为报文，客户端的报文叫做请求报文，服务器端的报文叫响应报文</p>
+</blockquote>
+<h4 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h4><p>请求报文由<strong>请求行、请求头、空行和请求数据</strong>四大部分组成</p>
+<h4 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h4><p>响应报文由<strong>状态行、消息报头和响应正文</strong>组成</p>
+<h4 id="报文内容"><a href="#报文内容" class="headerlink" title="报文内容"></a>报文内容</h4><p>举个例子：</p>
+<p><img src="https://i.loli.net/2019/10/22/o52p4iEqcBMzWQP.jpg" alt="截图未命名.jpg"></p>
+<h5 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h5><p>URL 是一种特殊的 URI， 如果请求的 URL 协议，域名，端口部分不一样就会产生跨域</p>
+<h5 id="Request-Method"><a href="#Request-Method" class="headerlink" title="Request Method"></a>Request Method</h5><p>请求方式有很多种，常用的就是 GET 和 POST</p>
+<ul>
+<li>GET<ul>
+<li>明文传输，参数包含在 URL 中</li>
+<li>传递数据长度有限制</li>
+<li>GET 请求参数会保留在浏览器历史纪录中</li>
+<li>GET 请求会被浏览器主动 Cache</li>
+<li>GET 请求会将 http header 和 data 一起发送出去，只请求一次就把数据发送出去了</li>
+<li>GET 参数通过 URL 传递</li>
+</ul>
+</li>
+<li>POST<ul>
+<li>参数隐藏，不会显示在 URL 中</li>
+<li>传递数据长度可视为无限制</li>
+<li>POST 请求参数不会保留在浏览器中</li>
+<li>浏览器不会 CachePOST 请求，除非手动设置</li>
+<li>POST 请求会先发送 header，服务器响应 100 之后再发送 data，需要请求两次（Firefox 除外）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>POST 请求相对 GET 虽然耗时，但是两次包的 TCP 在验证数据包完整性上有很大的优势</p>
+</blockquote>
+<h3 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h3><ul>
+<li>1XX<ul>
+<li>请求已接受，继续处理</li>
+</ul>
+</li>
+<li>2XX<ul>
+<li>请求已被成功接收、理解、接受</li>
+</ul>
+</li>
+<li>3XX<ul>
+<li>重定向，要完成请求必须进行更进一步的操作</li>
+</ul>
+</li>
+<li>4XX<ul>
+<li>请求有语法错误或请求无法实现</li>
+</ul>
+</li>
+<li>5XX<ul>
+<li>服务器未能实现合法的请求</li>
+</ul>
+</li>
+</ul>
+<h4 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h4><ul>
+<li>200 OK：客户端请求成功。</li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务器所理解。</li>
+<li>401 Unauthorized：请求未经授权，这个状态代码必须和 WWW-Authenticate 报头域一起使用。</li>
+<li>403 Forbidden：服务器收到请求，但是拒绝提供服务，比如对文件没有访问权限</li>
+<li>404 Not Found：请求资源不存在，举个例子：输入了错误的 URL。</li>
+<li>500 Internal Server Error：服务器发生不可预期的错误。</li>
+<li>503 Server Unavailable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常，举个例子：HTTP/1.1 - 200 OK（CRLF）</li>
+</ul>
+<h3 id="HTTP1-0-和-HTTP1-1"><a href="#HTTP1-0-和-HTTP1-1" class="headerlink" title="HTTP1.0 和 HTTP1.1"></a>HTTP1.0 和 HTTP1.1</h3><ul>
+<li>HTTP1.0<ul>
+<li>短暂连接，每一次请求都需要和服务器建立一个 TCP 连接，服务器处理完请求立即断开，不会记录过去的请求记录</li>
+<li>没有 host 字段，HTTP1.0 默认每一个服务器都绑定唯一的 IP 地址，所以请求的 URL 中没有包含主机名称</li>
+<li>缓存策略主要依赖于 header 中的 If-Modiified-Since,Expire</li>
+<li>存在一些性能浪费，请求对象中的一部分，但响应返回的是整个对象</li>
+</ul>
+</li>
+<li>HTTP1.1<ul>
+<li>持续连接（长连接），同一个 TCP 连接中可以传送多个 HTTP 请求和响应，多个请求和响应可以同时进行</li>
+<li>存在 host 字段，HTTP1.1 的请求消息和响应消息都应支持 Host 头域，且请求消息中如果没有 Host 头域会报告一个 400 错误</li>
+<li>增加更多缓存策略</li>
+<li>加入更多错误状态响应码</li>
+<li>节约带宽，HTTP1.1 通过在请求头设置 range 头域，就可以返回请求资源的一部分，也就是返回码为 206 的时候，大大优化性能，如断点续传</li>
+</ul>
+</li>
+</ul>
+<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><ul>
+<li>无状态协议</li>
+</ul>
+<blockquote>
+<p>无状态协议优点是可以快速处理大量事务，而缺点就是无法保存状态，举个例子：用户登录购物网站，即使跳转到该网站的其他页面也应该保持登录状态，但是无状态协议无法保存用户的登录状态，HTTP1.1 中加入了 cookie 的机制来缓存状态</p>
+</blockquote>
+<ul>
+<li>明文传输</li>
+</ul>
+<blockquote>
+<p>HTTP 直接运行在 TCP 之上，所有传输都是用明文，明文传输可能会被窃听，即使已经加密过，也会被窥视到内容</p>
+</blockquote>
+<ul>
+<li>验证</li>
+</ul>
+<blockquote>
+<ul>
+<li>HTTP 不会验证通信方的身份，因此有可能遭遇伪装</li>
+<li>HTTP 无法证明报文的完整性，因此可能已遭篡改</li>
+</ul>
+</blockquote>
+<h3 id="URI-和-URL"><a href="#URI-和-URL" class="headerlink" title="URI 和 URL"></a>URI 和 URL</h3><h4 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h4><p>统一资源标志符 URI 就是在某一规则下能把一个资源独一无二地标识出来</p>
+<p>URI 使用字符串来表示互联网中的某一资源，就像人的名字一样，可以通过人名知道这个人是谁，身份正也是一个很好的例子</p>
+<h4 id="URL-1"><a href="#URL-1" class="headerlink" title="URL"></a>URL</h4><p>统一资源定位符 URL 是以描述位置来唯一确定资源的位置的</p>
+<p>URL 描述的则是资源在互联网上所处的位置</p>
+<p>无论如何 URL 都是 URI 的一种实现，因为它和 URI 一样通过一个方式确认一个资源的唯一性</p>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><p>HTTP 和 HTTPS 的关系可以理解为：<strong>HTTP + 加密 + 认证 + 完整性保护 = HTTPS</strong></p>
+<p>HTTPS 是一个披着 SSL 外壳的 HTTP，HTTP 直接使用 TCP 进行通信，而 HTTPS 先和 SSL 通信，再和 TCP 通信，SSL 是独立于 HTTP 的协议，除了 HTTP 协议其他协议也可以使用 SSL</p>
+<h4 id="HTTPS-传输数据"><a href="#HTTPS-传输数据" class="headerlink" title="HTTPS 传输数据"></a>HTTPS 传输数据</h4><p>浏览器使用 HTTPS 传输数据的流程：</p>
+<ul>
+<li>客户端向服务器端请求 HTTPS 连接</li>
+<li>服务端返回网站证书（公钥）</li>
+<li>客户端产生随机的密钥</li>
+<li>客户端使用公钥对对称密钥加密</li>
+<li>客户端向服务器端发送加密后的对称密钥</li>
+<li>客户端通过对称密钥加密的密文通信</li>
+</ul>
+<h4 id="HTTP-和-HTTPS"><a href="#HTTP-和-HTTPS" class="headerlink" title="HTTP 和 HTTPS"></a>HTTP 和 HTTPS</h4><p>HTTP 和 HTTPS 使用连接方式不同，默认端口也不一样，HTTP 是 80，HTTPS 是 443，HTTP工作于应用层，HTTPS工作于传输层</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>HTTPS 虽然更加安全，但性能较差，多次握手，导致页面加载时间延长近 50%</li>
+<li>HTTPS 连接缓存不如 HTTP 高效，会增加数据开销和功耗</li>
+<li>申请 SSL 证书需要钱，功能越强大的证书费用越高</li>
+<li>SSL 涉及到的安全算法会消耗 CPU 资源，对服务器资源消耗较大</li>
+</ul>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>TCP/IP 协议模型是 Internet 的核心协议</p>
+<p>基于 TCP/IP 的参考模型将协议分为 4 个层次，下图表示 TCP/IP 模型与 OSI 模型各层的对照关系：</p>
+<p><img src="https://i.loli.net/2019/10/23/QNg2uLKPMDORJvd.png" alt="1938855150315551.jpg"></p>
+<h4 id="TCP-IP-模型"><a href="#TCP-IP-模型" class="headerlink" title="TCP/IP 模型"></a>TCP/IP 模型</h4><ul>
+<li>应用层<ul>
+<li>决定了向用户提供应用服务时通信的活动，HTTP 协议处于该层</li>
+</ul>
+</li>
+<li>传输层<ul>
+<li>对上层应用层提供处于网络连接中的两台计算机之间的数据传输</li>
+</ul>
+</li>
+<li>网络层<ul>
+<li>处理在网络上流动的数据包，数据包是网络传输的最小数据单位</li>
+</ul>
+</li>
+<li>数据链路层（网络接口层）<ul>
+<li>处理连接网络的硬件部分，包括控制操作系统，硬件设备驱动，网卡及光纤等物理可见部分，硬件上的范畴都在其作用范围之内</li>
+</ul>
+</li>
+</ul>
+<h4 id="OSI-模型"><a href="#OSI-模型" class="headerlink" title="OSI 模型"></a>OSI 模型</h4><ul>
+<li>应用层<ul>
+<li>为用户的应用程序（例如电子邮件、文件传输和终端仿真）提供网络服务</li>
+</ul>
+</li>
+<li>表示层<ul>
+<li>这一层的主要功能是定义数据格式及加密</li>
+</ul>
+</li>
+<li>会话层<ul>
+<li>他定义了如何开始、控制和结束一个会话，包括对多个双向会话的控制和管理</li>
+</ul>
+</li>
+<li>传输层<ul>
+<li>对上层应用层提供处于网络连接中的两台计算机之间的数据传输</li>
+</ul>
+</li>
+<li>网络层<ul>
+<li>负责将数据报的网络层分组从一台主机移动到另一台主机</li>
+</ul>
+</li>
+<li>数据链路层（网络接口层）<ul>
+<li>处理连接网络的硬件部分，包括控制操作系统，硬件设备驱动，网卡及光纤等物理可见部分，硬件上的范畴都在其作用范围之内</li>
+</ul>
+</li>
+<li>物理层<ul>
+<li>将报文中的一个一个比特的数据从一个节点移到下一个节点</li>
+</ul>
+</li>
+</ul>
+<h3 id="通信传输流"><a href="#通信传输流" class="headerlink" title="通信传输流"></a>通信传输流</h3><p><img src="https://i.loli.net/2019/10/23/ZiVaHmvFynRqP4x.png" alt="import1.png"></p>
+<p>使用 TCP/IP 在进行网络通信的时候，会通过分层顺序与对方进行通信，发送端从应用层往下走，而接收端从链路层往上走</p>
+<h3 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h3><p><img src="https://i.loli.net/2019/10/23/IEmUSL7rwQxCyHV.png" alt="3086068925.png"></p>
+<h4 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h4><p>建立一次连接需要三次握手</p>
+<ul>
+<li>第一次握手：客户端给服务器发送一个 SYN 报文，客户端处于 SYN_SENT 状态<ul>
+<li>客户端发送网络包，服务端收到了，说明客户端的发送能力、服务端的接收能力是正常的</li>
+</ul>
+</li>
+<li>第二次握手：服务器收到 SYN 报文之后，会应答一个 SYN+ACK 报文，服务器处于 SYN_REVD 的状态<ul>
+<li>服务端发包，客户端收到了，说明服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常</li>
+</ul>
+</li>
+<li>第三次握手：客户端收到 SYN+ACK 报文之后，会回应一个 ACK 报文，客户端处于 established 状态<ul>
+<li>客户端发包，服务端收到了，客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常</li>
+</ul>
+</li>
+<li>服务器收到 ACK 报文之后，三次握手建立完成</li>
+</ul>
+<blockquote>
+<p>其中 ACK 报文是用来应答的，SYN 报文是用来同步的</p>
+</blockquote>
+<p><strong>为什么需要三次握手？</strong></p>
+<blockquote>
+<ul>
+<li>第一次握手，服务器端可以确认服务器接收和客户端发送能力没有问题</li>
+<li>第二次握手，客户端可以确认服务器端接收和发送与客户端的接收和发送能力是没问题，但是服务器端不知道客户端的接收能力有无问题，因为客户端没有再次发送信息给服务器</li>
+<li>第三次握手，服务器就可以确认客户端的接收能力没有问题</li>
+</ul>
+</blockquote>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><ul>
+<li>确认双方的接收能力、发送能力是否正常</li>
+<li>指定自己的初始化序列号，为后面的可靠传送做准备</li>
+<li>如果是 HTTPS 协议的话，三次握手这个过程，还会进行数字证书的验证以及加密密钥的生成</li>
+</ul>
+<h4 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h4><p>终止一次连接需要四次挥手</p>
+<ul>
+<li>第一次挥手：客户端发送一个 FIN 报文，报文中会指定一个序列号。此时客户端处于 FIN_WAIT1 状态</li>
+<li>第二次握手：服务端收到 FIN 之后，会发送 ACK 报文，且把客户端的序列号值 +1 作为 ACK 报文的序列号值，表明已经收到客户端的报文了，此时服务端处于 CLOSE_WAIT 状态</li>
+<li>第三次挥手：如果服务端也想断开连接了，和客户端的第一次挥手一样，发给 FIN 报文，且指定一个序列号。此时服务端处于 LAST_ACK 的状态</li>
+<li>第四次挥手：客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答，且把服务端的序列号值 +1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT 状态</li>
+</ul>
+<p>注意：<strong>TIME_WAIT 状态下，客户端发送 ACK 之后不直接关闭，而是要等一阵子才关闭，因为要确保服务器是否已经收到了我们的 ACK 报文，如果没有收到的话，服务器会重新发 FIN 报文给客户端，客户端再次收到 ACK 报文之后，就知道之前的 ACK 报文丢失了，然后再次发送 ACK 报文</strong></p>
+<p><strong>为什么需要四次挥手？</strong></p>
+<blockquote>
+<ul>
+<li>第一次挥手：客户端想终止连接，发送 FIN 报文给服务器</li>
+<li>第二次挥手：服务器虽然收到了 FIN，但很可能并不会立即关闭 SOCKER，所以只能先回复一个 ACK，表示已经收到 FIN</li>
+<li>第三次挥手：服务器所有报文接收完毕，就向客户端发送 FIN 表示可以结束了</li>
+<li>第四次挥手：客户端收到 FIN，才能结束连接</li>
+</ul>
+</blockquote>
 
-
-HTTP 是无状态协议，因为它不会对请求和响应之间的通信状态进行保存，协议对于请求和响应都不做持久化处理，这是为了更快的处理大量事务
-
-
-客户端可以主动向服务器发起请求，而反过来则不行
-
-
-HTTP 协议规定，请求必须先从客户端发出，服务器才能响应请求并返回
-
-
-基于 TCP 实现
-
-报文
-用于 HTTP 协议交互的信息被称为报文，客户端的报文叫做请求报文，服务器端的报文叫响应报文
-
-请求报文请求报文由请求行、请求头、空行和请求数...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/21/Vue生命周期详解/">
-            
-                <span>Vue生命周期详解</span>
-        </a>
-        <div class="abstract-content">
-            首先来看看 Vue 的生命周期图示：
-
-beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周期函数
-
-在数据观测 data observer 前执行：
-
-12345&lt;template&gt;  &lt;div&gt;    &#123;&#123;a&#125;&#125;  &lt;/div&gt;&lt;/template&gt;
-123456789101112export default &#123;  data() &#123;    return &#123;      a: 1    &#125;  &#125;,  before...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/10/22/前端需要知道的网络知识/">https://longgererer.github.io/2019/10/22/前端需要知道的网络知识/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/10/22/前端需要知道的网络知识/">October 22nd 2019, 4:26:18 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/10/22/前端需要知道的网络知识/">October 23rd 2019, 6:23:35 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/18/Vue3-0解析/">
-            
-                <span>Vue3.0解析</span>
-        </a>
-        <div class="abstract-content">
-            Vue3.0 使用 composition api 多个方法进行组合使用：
-123456const App = &#123;  setup() &#123;    const state = Vue.reactive(&#123; a: 1 &#125;)    console.log(state)  &#125;&#125;
-在 Vue3.0 中，setup 方法类似于 created，只会执行一次
-输出结果是一个 proxy 对象：
-1Proxy&#123;a: 1&#125;
-setup 方法中 return 的对象会作为渲染的上下文来代替 data：
-12345678const ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/12/Weex入门/">
-            
-                <span>Weex入门</span>
-        </a>
-        <div class="abstract-content">
-            
-Weex 是使用流行的 Web 开发体验来开发高性能原生应用的框架
-
-Week 可用来构建 Android、iOS 和 Web 应用
-全局安装 Weex
-1npm install weex-toolkit -g
-创建项目:
-1weex create awesome-app
-运行项目：
-123cd awesome-appnpm installnpm start
-Weex 通用样式在了解 Weex 内容之前先来看看 Weex 的样式规范：
-尺寸单位Weex 对于长度值目前只支持 px 和 wx（不受屏幕宽度和 viewPortWidth 影响），不支持相对单位（em、rem）以及 %、pt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Weex">Weex</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/03/代码模块化/">
-            
-                <span>代码模块化</span>
-        </a>
-        <div class="abstract-content">
-            ES6 之前使用对象、闭包和立即执行函数实现模块调用函数将会创建新的作用域，我们可以在该作用域中定义变量，此时定义的变量只在当前函数可见：
-1234567;(function countClicks() &#123;  let numClicks = 0  document.addEventListener('click', () =&gt; &#123;    alert(++numClicks)  &#125;)&#125;)()
-我们在 countClicks 函数内创建了一个 numClicks 变量用来存储点击次数，监听点击事件，用户点击的时候 numClicks 增加
-这个 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/01/JS正则表达式/">
-            
-                <span>JS正则表达式</span>
-        </a>
-        <div class="abstract-content">
-            在 JS 中，正则表达式与其他对象类型相似，有两种方式创建正则表达式：
-
-正则表达式字面量
-创建 RegExp 对象实例
-
-在使用字面量的时候正则表达式用 / 分割：
-1const reg = /text/
-如果创建 RegExp 对象实例则可以省略掉：
-1const reg = new RegExp('test')
-在实际开发中推荐使用字面量的方式创建正则表达式，当需要在运行时动态创建字符串来构建正则表达式的时候使用构造函数的方式
-修饰符正则表达式中有 5 个修饰符：
-
-i
-对大小写不敏感，例如/test/i，可以匹配 test、Test 等等
-
-
-g
-查找所有匹配项，不会再找到第一个...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="正则表达式">正则表达式</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/10/21/Vue生命周期详解/" title="Vue生命周期详解">
+                    <div class="prevTitle">Vue生命周期详解</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -665,6 +769,24 @@ g
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP"><span class="toc-number">1.</span> <span class="toc-text">HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性"><span class="toc-number">1.1.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#报文"><span class="toc-number">1.2.</span> <span class="toc-text">报文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#请求报文"><span class="toc-number">1.2.1.</span> <span class="toc-text">请求报文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#响应报文"><span class="toc-number">1.2.2.</span> <span class="toc-text">响应报文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#报文内容"><span class="toc-number">1.2.3.</span> <span class="toc-text">报文内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#URL"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">URL</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Request-Method"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">Request Method</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态码"><span class="toc-number">1.3.</span> <span class="toc-text">状态码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见状态码"><span class="toc-number">1.3.1.</span> <span class="toc-text">常见状态码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP1-0-和-HTTP1-1"><span class="toc-number">1.4.</span> <span class="toc-text">HTTP1.0 和 HTTP1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺陷"><span class="toc-number">1.5.</span> <span class="toc-text">缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URI-和-URL"><span class="toc-number">1.6.</span> <span class="toc-text">URI 和 URL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#URI"><span class="toc-number">1.6.1.</span> <span class="toc-text">URI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL-1"><span class="toc-number">1.6.2.</span> <span class="toc-text">URL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS"><span class="toc-number">1.7.</span> <span class="toc-text">HTTPS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTPS-传输数据"><span class="toc-number">1.7.1.</span> <span class="toc-text">HTTPS 传输数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-和-HTTPS"><span class="toc-number">1.7.2.</span> <span class="toc-text">HTTP 和 HTTPS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-number">1.7.3.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP"><span class="toc-number">2.</span> <span class="toc-text">TCP/IP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型"><span class="toc-number">2.1.</span> <span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#TCP-IP-模型"><span class="toc-number">2.1.1.</span> <span class="toc-text">TCP/IP 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OSI-模型"><span class="toc-number">2.1.2.</span> <span class="toc-text">OSI 模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通信传输流"><span class="toc-number">2.2.</span> <span class="toc-text">通信传输流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三次握手四次挥手"><span class="toc-number">2.3.</span> <span class="toc-text">三次握手四次挥手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#三次握手"><span class="toc-number">2.3.1.</span> <span class="toc-text">三次握手</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#作用"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">作用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四次挥手"><span class="toc-number">2.3.2.</span> <span class="toc-text">四次挥手</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1342,6 +1464,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
