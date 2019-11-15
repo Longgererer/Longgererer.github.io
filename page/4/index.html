@@ -359,6 +359,95 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/19/Vue路由详解/">
+            
+                <span>Vue路由详解</span>
+        </a>
+        <div class="abstract-content">
+            Vue Router是Vue.js官方的路由管理器。它和Vue.js的核心深度集成，让构建单页面应用变得易如反掌。
+Vue Router的两个重点：
+
+路由跳转
+路由守卫
+全局前置守卫
+独享守卫
+全局解析守卫
+全局后置钩子
+组件内守卫
+
+
+
+路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
+1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/19/Vue组件详解/">
+            
+                <span>详解Vue组件化</span>
+        </a>
+        <div class="abstract-content">
+            组件化是Vue的一个核心思想，所谓的组件化就是将一个页面拆分成多个组件，每个组件依赖的Css、Js等资源都是独立的，组件和重复使用，也可以嵌套使用
+在一个由Vue搭建的项目中，App.vue是主组件，所有页面都在App.vue下进行切换，所有组件都是App.vue的子组件
+Vue的组件化我个人认为有如下三个重点：
+
+组件化通信
+父子组件间的通信
+父传子
+子传父
+父组件触发子组件方法
+子组件触发父组件方法
+
+
+
+
+prvide &amp; inject
+element-ui 组件库
+
+组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/12/axios学习笔记/">
             
                 <span>Axios学习笔记</span>
@@ -622,71 +711,6 @@ DOM0 级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/22/同步和异步/">
-            
-                <span>同步和异步</span>
-        </a>
-        <div class="abstract-content">
-            首先说说什么是同步，同步可以理解为在执行一个命令（例如函数）的时候，在没有得到返回结果之前，不会执行后续的命令，也就是说调用该命令的人必须主动等待该命令完成，才可执行后续操作。
-什么是异步呢？异步就是不需要等当前命令执行完得到返回值，直接执行下一个命令。
-在 JS 中，本身是没有异步这个特性的，之所以有异步的说法，完全是因为 JS 运行在浏览器的环境上。
-我为什么这么说呢？因为浏览器在执行代码的过程中会将setTimeOut等命令看作是耗时命令，也就是说这些命令需要消耗一定的时间，很有可能会阻塞后续命令的执行（即使setTimeOut设置的是 0ms），一旦发现耗时命令，浏览器便会将它推...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/浏览器的回流与重绘/">
-            
-                <span>浏览器的回流与重绘</span>
-        </a>
-        <div class="abstract-content">
-            写PC端页面的时候，样式可以做得非常花哨，酷炫也不会引起卡顿，但在移动端上受限于机能问题，如果无节制地使用各种CSS动画会导致页面卡顿，这是浏览器的回流与重绘造成的
-浏览器的回流与重绘是什么？reflow：回流，比如说改变了某元素的宽高等会影响页面布局的属性，那么浏览器就会自动回流(重排)页面，所有受影响的元素都需要重新绘制。repaint：重绘，比如说改变了元素的样式风格，但不会改变页面的布局，那浏览器就会发生重绘
-在浏览器中，不管是用JS还是CSS渲染页面都不可避免地要进行以下几个处理：
-
-也就是： JS/CSS =&gt; style(样式) =&gt; Layout(布局) =&...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="回流与重绘">回流与重绘</a>
     
 </div>
             
@@ -1240,9 +1264,23 @@ DOM0 级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 47
+        Total : 49
         </div>
         <!-- search  -->
         
@@ -1255,6 +1293,16 @@ DOM0 级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href="/2019/11/15/深入理解原型链/">深入理解原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/13</span><a class="archive-post-title" href="/2019/11/13/初学golang/">初学golang</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1500,15 +1548,15 @@ DOM0 级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
         <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
-    
-        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
@@ -1516,21 +1564,23 @@ DOM0 级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script
     
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
-        <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
-    
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
         <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
     
-        <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
+        <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
         <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
+        <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
