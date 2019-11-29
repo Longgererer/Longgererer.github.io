@@ -379,16 +379,17 @@ Sass3 其实就是 Scss，Scss 完全兼容 CSS3 且拥有 Sass 全部特性，�
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/07/14/专插本C语言笔记/">
+        <a class="abstract-title" href="/2019/07/14/C语言笔记/">
             
-                <span>专插本C语言笔记</span>
+                <span>C语言笔记</span>
         </a>
         <div class="abstract-content">
-            历史背景C 语言最早是由贝尔实验室的 Dennis Ritchie 为了 UNIX 的辅助开发而编写的，它是在 B 语言的基础上开发出来的，具有硬件无关性和可移植性
-为了进一步规范 C 语言的硬件无关性，1987 年，美国国家标准协会（ANSI）根据 C 语言问世以来各种版本对 C 语言的发展和扩充，制定了新的标准，称为 ANSI C
-特点
-简洁紧凑、灵活方便
-C 语言有 37 个关键字，9 种控制语句，程序书写形式自由，主要用小写字母表示，压缩了一切不必要的成分。实际上，C 是一个很小的内核语言，只包括极少的与硬件有关的成分，C 语言不直接提供输入和输出语句、有关文件操作的语句和动态内...
+            一个简单的 c 语言输出：
+123456#include &lt;stdio.h&gt;int main() &#123;	printf("hello world");	return 0;&#125;
+在字符串中的 // 和 /* 都不会作为注释的开始，而是作为字符串的一部分
+12printf("//hello world"); // 输出//hello worldprintf("/*hello world*/"); // 输出/*hello world*/
+占位符printf 方法可以包含两个参数，第一个参数代表希望输出的格式，第二个参数代表要输出的值：
+12char name[] =...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -399,7 +400,7 @@ C 语言有 37 个关键字，9 种控制语句，程序书写形式自由，主
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="C语言">C语言</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="C">C</a>
     
 </div>
             
@@ -1148,7 +1149,7 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/14</span><a class="archive-post-title" href="/2019/07/14/专插本C语言笔记/">专插本C语言笔记</a>
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href="/2019/07/14/C语言笔记/">C语言笔记</a>
         </li>
     
     
@@ -1335,6 +1336,8 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
