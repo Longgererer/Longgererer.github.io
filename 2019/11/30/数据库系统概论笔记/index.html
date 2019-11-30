@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>lliiooiill的技术Blog</title>
+    <title>数据库系统概论笔记 · lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的技术Blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">数据库系统概论笔记</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            数据库系统概论笔记
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/11/30</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,202 +399,211 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/21/Vue生命周期详解/">
-            
-                <span>Vue生命周期详解</span>
-        </a>
-        <div class="abstract-content">
-            首先来看看 Vue 的生命周期图示：
-
-beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周期函数
-
-在数据观测 data observer 前执行：
-
-12345&lt;template&gt;  &lt;div&gt;    &#123;&#123;a&#125;&#125;  &lt;/div&gt;&lt;/template&gt;
-123456789101112export default &#123;  data() &#123;    return &#123;      a: 1    &#125;  &#125;,  before...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="数据库系统概述"><a href="#数据库系统概述" class="headerlink" title="数据库系统概述"></a>数据库系统概述</h2><p>数据库的 4 个基本概念如下：</p>
+<ul>
+<li>数据</li>
+<li>数据库</li>
+<li>数据库管理系统</li>
+<li>数据库系统</li>
+</ul>
+<h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><p>数据<strong>是数据库中存储的基本对象</strong>，可以对数据做如下定义：<strong>描述事物的符号称为数据</strong></p>
+<p>描述事物的符号多种多样，所以数据有多种表现形式</p>
+<p>数据的表现形式还不能完全地表达其内容，需要经过解释，数据和关于数据的解释是密不可分的，每一个数据都有它的意义，数据的解释指的是对数据含义的说明，<strong>数据的含义称为数据的语义，数据与其语义是不可分的</strong></p>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>数据库就是存放数据的仓库，只不过这个仓库是在计算机存储设备上，而且数据是按一定格式存放的</p>
+<p>严格的来讲，数据库的含义如下：</p>
+<ul>
+<li>长期存储在计算机内，有组织的，可共享大量数据的集合</li>
+<li>里面的数据按照一定的数据模型组织，描述和储存</li>
+<li>具有较小的冗余度，较高的数据独立性和易扩展性，并可为各种用户共享</li>
+</ul>
+<p>数据库特点：</p>
+<ul>
+<li>永久存储</li>
+<li>有组织</li>
+<li>可共享</li>
+</ul>
+<h4 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h4><p>数据库管理系统是<strong>位于用户与操作系统之间的一层数据管理软件</strong>，它和操作系统一样是<strong>计算机的基础软件</strong></p>
+<p>数据库管理系统的功能主要包括以下方面：</p>
+<ul>
+<li>数据定义功能</li>
+<li>数据组织，存储和管理</li>
+<li>数据操纵功能</li>
+<li>数据库的事务管理和运行管理</li>
+<li>数据库的建立和维护功能<ul>
+<li>数据库初始数据输入，转换功能</li>
+<li>数据库的转储，恢复功能</li>
+<li>数据库的重组织功能</li>
+<li>数据库的性能监视，分析功能</li>
+</ul>
+</li>
+<li>其他功能<ul>
+<li>数据库管理系统与网络中其他软件系统的通信功能</li>
+<li>一个数据库管理系统与另一个数据库管理系统或文件系统的数据转换功能</li>
+<li>异构数据库之间的互访和互操作功能等</li>
+</ul>
+</li>
+</ul>
+<h4 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h4><p>数据库系统是由<strong>数据库，数据库管理系统，应用程序和数据库管理员组成的存储，管理，处理和维护数据的系统</strong></p>
+<p>数据库系统和引入数据库后的计算机系统的层次结构图示如下：</p>
+<p><img src="https://i.loli.net/2019/11/30/EfvVWS3zw5FbcyI.png" alt="1388863-20180912113502758-497437261.png"></p>
+<p>在一般不引起混淆的情况下，将数据库系统简称为<strong>数据库</strong></p>
+<h3 id="数据管理技术的产生和发展"><a href="#数据管理技术的产生和发展" class="headerlink" title="数据管理技术的产生和发展"></a>数据管理技术的产生和发展</h3><p>数据管理技术经历了 3 个阶段：</p>
+<ul>
+<li>人工管理</li>
+<li>文件系统</li>
+<li>数据库系统</li>
+</ul>
+<h4 id="人工管理"><a href="#人工管理" class="headerlink" title="人工管理"></a>人工管理</h4><p>人工管理阶段并没有直接存取数据的设备</p>
+<p>数据处理的方式是批处理</p>
+<p>人工管理数据的特点：</p>
+<ul>
+<li>数据不保存</li>
+<li>应用程序管理数据</li>
+<li>数据不共享</li>
+<li>数据不具有独立性</li>
+</ul>
+<h4 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h4><p>文件系统阶段，操作系统中已经有了专门的数据管理软件，一般称为文件系统</p>
+<p>文件系统管理数据有以下特点：</p>
+<ul>
+<li>数据可以长期保存</li>
+<li>有文件系统管理数据</li>
+</ul>
+<p>文件系统也有以下缺点：</p>
+<ul>
+<li>数据共享性差，冗余度大</li>
+<li>数据独立性差</li>
+</ul>
+<h4 id="数据库系统-1"><a href="#数据库系统-1" class="headerlink" title="数据库系统"></a>数据库系统</h4><p>数据库系统相比文件系统有更明显的优点，<strong>从文件系统到数据库系统标志着数据管理技术的飞跃</strong></p>
+<p>这三种系统的比较图如下：</p>
+<p><img src="https://i.loli.net/2019/11/30/bfpdNDHnwjgoPt8.jpg" alt="表1.1_数据管理三个阶段的比较_13_人工管理阶段_文件系统阶段_数据库系统阶段_应用背景_科学计算_科学计算、管理_大规模管理_背.jpg"></p>
+<h3 id="数据库系统的特点"><a href="#数据库系统的特点" class="headerlink" title="数据库系统的特点"></a>数据库系统的特点</h3><p>假设一个学生的信息包括了姓名、性别、年龄、奖励和学号，部分学生的信息表如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>性别</th>
+<th>年龄</th>
+<th>奖励</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1001</td>
+<td>小明</td>
+<td>男</td>
+<td>12</td>
+<td>国家奖学金</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>小红</td>
+<td>女</td>
+<td>11</td>
+<td>优秀学生</td>
+</tr>
+</tbody>
+</table>
+<p>奖励文件内容：</p>
+<table>
+<thead>
+<tr>
+<th>奖励</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国家奖学金</td>
+</tr>
+<tr>
+<td>优秀学生</td>
+</tr>
+</tbody>
+</table>
+<p>确认存储方式之后，需要编写程序实现数据的录入和查询功能</p>
+<p>首先建立学生的基本信息表和学生奖励情况表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> STUDENT(</span><br><span class="line">  Sno <span class="built_in">CHAR</span>(<span class="number">8</span>),</span><br><span class="line">  Sname <span class="built_in">CHAR</span>(<span class="number">10</span>),</span><br><span class="line">  Ssex <span class="built_in">CHAR</span>(<span class="number">2</span>),</span><br><span class="line">  Sage <span class="built_in">SMALLINT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> AWARD(</span><br><span class="line">  Sno <span class="built_in">CHAR</span>(<span class="number">8</span>),</span><br><span class="line">  Details <span class="built_in">VARCHAR</span>(<span class="number">2000</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>表的结构建立好之后，向数据库管理系统提交下面的两条插入命令就可以将学生的信息保存到表中：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> STUDENT (Sno,Sname,Ssex,Sage)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">'1001'</span>,<span class="string">'小明'</span>,<span class="string">'男'</span>,<span class="string">'12'</span>)</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> AWARD (Sno Details)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">'1001'</span>,<span class="string">'国家奖学金'</span>)</span><br></pre></td></tr></table></figure>
+<p>查询学生信息：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> A.Sno,Sname,Ssex,Sage,Details</span><br><span class="line"><span class="keyword">FROM</span> STUDENT A <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> AWARD B <span class="keyword">ON</span> A.Sno=B.Sno</span><br><span class="line"><span class="keyword">WHERE</span> A.Sno=<span class="string">'1001'</span></span><br></pre></td></tr></table></figure>
+<h4 id="数据库结构化"><a href="#数据库结构化" class="headerlink" title="数据库结构化"></a>数据库结构化</h4><p><strong>数据库系统实现整体数据的结构化，这是数据库的主要特征之一</strong>，也是数据库系统与文件系统的本质区别</p>
+<p>所谓的“整体”数据结构化，是指数据库中的数据不仅仅针对某一个应用，而是面向整个组织或者企业；不仅数据内部是结构化的，而且整体是结构化的，数据之间是具有联系的</p>
+<h4 id="数据的共享性高，冗余度低且易扩充"><a href="#数据的共享性高，冗余度低且易扩充" class="headerlink" title="数据的共享性高，冗余度低且易扩充"></a>数据的共享性高，冗余度低且易扩充</h4><p><strong>数据共享可以大大减少数据的冗余，节约存储空间，数据共享还能够避免数据之间的不相容性和不一致性</strong></p>
+<p>数据不一致性指的是同一数据不同副本的值是不一样的，采用人工或文件管理容易出现数据不一致</p>
+<p>由于数据面向整个系统，是有结构的数据，不仅可以被多个应用共享使用，而且容易增加新的应用，这就使得<strong>数据库系统弹性大，易于扩充</strong></p>
+<h4 id="数据独立性高"><a href="#数据独立性高" class="headerlink" title="数据独立性高"></a>数据独立性高</h4><p>数据独立性指的是借助数据库管理数据的显著优点，它已经成为了数据库领域中的一个常用的术语宏微重要概念，包括数据的<strong>物理独立性</strong>和<strong>逻辑独立性</strong></p>
+<p>物理独立性指的是用户的应用程序与数据库中的数据的物理存储是相互独立的</p>
+<p>逻辑独立性指的是用户的应用程序与数据库的逻辑结构是相互独立的</p>
+<h4 id="数据由数据库管理系统统一管理和控制"><a href="#数据由数据库管理系统统一管理和控制" class="headerlink" title="数据由数据库管理系统统一管理和控制"></a>数据由数据库管理系统统一管理和控制</h4><p>数据库的共享会存在一定的安全隐患，而数据库的共享是并发的，多个用户同时存取数据库中的数据又会带来更多隐患，所以数据库管理系统还必须提供以下几个方面的数据控制功能：</p>
+<ul>
+<li><p>数据的安全性保护</p>
+<ul>
+<li>数据的安全性指的是保护数据以防止不合法使用造成的数据泄密和破坏</li>
+</ul>
+</li>
+<li><p>数据的完整性检查</p>
+<ul>
+<li>数据的完整性指的是数据的正确性，有效性和相容性</li>
+</ul>
+</li>
+<li><p>并发控制</p>
+<ul>
+<li>当多个用户并发进程同时村去，修改数据库时，可能会发生相互干扰而得到错误的结果或使得数据库的完整性遭到破坏，因此必须对用户的并发操作加以控制和协调</li>
+</ul>
+</li>
+<li><p>数据库恢复</p>
+<ul>
+<li>计算机系统故障，操作员的失误等等问题都会影响数据库中的数据正确性，甚至造成数据库部分全部数据的丢失，数据库管理系统必须具有将数据库从错误状态恢复到某一已知的正确状态</li>
+</ul>
+</li>
+</ul>
+<p>总体来讲：</p>
+<p><strong>数据库是长期存储在计算机内的有组织、大量、共享的数据集合，它可以供各种用户共享，具有最小冗余度和较高的数据独立性，数据库管理系统是在数据库建立，运用和维护时对数据库进行统一控制，以保证数据的完整性和安全性，并在多用户同时使用数据库的时候进行并发控制，在发生故障后对数据进行回复</strong></p>
+<p>数据库系统的出现使信息系统<strong>从以加功数据的程序为中心转向围绕共享的数据库为中心的新阶段</strong></p>
+<h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/18/Vue3-0解析/">
-            
-                <span>Vue3.0解析</span>
-        </a>
-        <div class="abstract-content">
-            Vue3.0 使用 composition api 多个方法进行组合使用：
-123456const App = &#123;  setup() &#123;    const state = Vue.reactive(&#123; a: 1 &#125;)    console.log(state)  &#125;&#125;
-在 Vue3.0 中，setup 方法类似于 created，只会执行一次
-输出结果是一个 proxy 对象：
-1Proxy&#123;a: 1&#125;
-setup 方法中 return 的对象会作为渲染的上下文来代替 data：
-12345678const ...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2019/11/30/数据库系统概论笔记/">https://longgererer.github.io/2019/11/30/数据库系统概论笔记/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2019/11/30/数据库系统概论笔记/">November 30th 2019, 11:15:33 am</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2019/11/30/数据库系统概论笔记/">November 30th 2019, 3:39:15 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/08/03/Vue技术内幕/">
-            
-                <span>Vue技术内幕</span>
-        </a>
-        <div class="abstract-content">
-            输出Vue 是采用 rollup 做打包工具，flow 做数据类型检测的
-在 script/config.js 中可以看到 Vue 有三种不同的构建输出：UMD、CommonJS 以及 ES Module
-比如：
-12345678910111213141516171819202122const build = &#123;  "web-runtime-cjs-dev": &#123;    entry: resolve("web/entry-runtime.js"),    dest: resolve("dist/vue.runtime.common.dev.js"),    forma...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/19/Vue路由详解/">
-            
-                <span>Vue路由详解</span>
-        </a>
-        <div class="abstract-content">
-            Vue Router是Vue.js官方的路由管理器。它和Vue.js的核心深度集成，让构建单页面应用变得易如反掌。
-Vue Router的两个重点：
-
-路由跳转
-路由守卫
-全局前置守卫
-独享守卫
-全局解析守卫
-全局后置钩子
-组件内守卫
-
-
-
-路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
-1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/19/Vue组件详解/">
-            
-                <span>详解Vue组件化</span>
-        </a>
-        <div class="abstract-content">
-            组件化是Vue的一个核心思想，所谓的组件化就是将一个页面拆分成多个组件，每个组件依赖的Css、Js等资源都是独立的，组件和重复使用，也可以嵌套使用
-在一个由Vue搭建的项目中，App.vue是主组件，所有页面都在App.vue下进行切换，所有组件都是App.vue的子组件
-Vue的组件化我个人认为有如下三个重点：
-
-组件化通信
-父子组件间的通信
-父传子
-子传父
-父组件触发子组件方法
-子组件触发父组件方法
-
-
-
-
-prvide &amp; inject
-element-ui 组件库
-
-组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/11/15/深入理解原型链/" title="深入理解原型链">
+                    <div class="prevTitle">深入理解原型链</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -626,6 +696,24 @@ element-ui 组件库
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库系统概述"><span class="toc-number">1.</span> <span class="toc-text">数据库系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据"><span class="toc-number">1.0.1.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库"><span class="toc-number">1.0.2.</span> <span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库管理系统"><span class="toc-number">1.0.3.</span> <span class="toc-text">数据库管理系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库系统"><span class="toc-number">1.0.4.</span> <span class="toc-text">数据库系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据管理技术的产生和发展"><span class="toc-number">1.1.</span> <span class="toc-text">数据管理技术的产生和发展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#人工管理"><span class="toc-number">1.1.1.</span> <span class="toc-text">人工管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件系统"><span class="toc-number">1.1.2.</span> <span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库系统-1"><span class="toc-number">1.1.3.</span> <span class="toc-text">数据库系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库系统的特点"><span class="toc-number">1.2.</span> <span class="toc-text">数据库系统的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库结构化"><span class="toc-number">1.2.1.</span> <span class="toc-text">数据库结构化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据的共享性高，冗余度低且易扩充"><span class="toc-number">1.2.2.</span> <span class="toc-text">数据的共享性高，冗余度低且易扩充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据独立性高"><span class="toc-number">1.2.3.</span> <span class="toc-text">数据独立性高</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据由数据库管理系统统一管理和控制"><span class="toc-number">1.2.4.</span> <span class="toc-text">数据由数据库管理系统统一管理和控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据模型"><span class="toc-number">2.</span> <span class="toc-text">数据模型</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1369,6 +1457,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

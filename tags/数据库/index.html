@@ -346,186 +346,36 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/10/21/Vue生命周期详解/">
+        <a class="abstract-title" href="/2019/11/30/数据库系统概论笔记/">
             
-                <span>Vue生命周期详解</span>
+                <span>数据库系统概论笔记</span>
         </a>
         <div class="abstract-content">
-            首先来看看 Vue 的生命周期图示：
+            数据库系统概述数据库的 4 个基本概念如下：
 
-beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周期函数
+数据
+数据库
+数据库管理系统
+数据库系统
 
-在数据观测 data observer 前执行：
+数据数据是数据库中存储的基本对象，可以对数据做如下定义：描述事物的符号称为数据
+描述事物的符号多种多样，所以数据有多种表现形式
+数据的表现形式还不能完全地表达其内容，需要经过解释，数据和关于数据的解释是密不可分的，每一个数据都有它的意义，数据的解释指的是对数据含义的说明，数据的含义称为数据的语义，数据与其语义是不可分的
+数据库数据库就是存放数据的仓库，只不过这个仓库是在计算机存储设备上，而且数据是按一定格式存放的
+严格的来讲，数据库的含义如下：
 
-12345&lt;template&gt;  &lt;div&gt;    &#123;&#123;a&#125;&#125;  &lt;/div&gt;&lt;/template&gt;
-123456789101112export default &#123;  data() &#123;    return &#123;      a: 1    &#125;  &#125;,  before...
+长期存储在计算机内，有组织的，可共享大量数据的集合...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/18/Vue3-0解析/">
-            
-                <span>Vue3.0解析</span>
-        </a>
-        <div class="abstract-content">
-            Vue3.0 使用 composition api 多个方法进行组合使用：
-123456const App = &#123;  setup() &#123;    const state = Vue.reactive(&#123; a: 1 &#125;)    console.log(state)  &#125;&#125;
-在 Vue3.0 中，setup 方法类似于 created，只会执行一次
-输出结果是一个 proxy 对象：
-1Proxy&#123;a: 1&#125;
-setup 方法中 return 的对象会作为渲染的上下文来代替 data：
-12345678const ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/08/03/Vue技术内幕/">
-            
-                <span>Vue技术内幕</span>
-        </a>
-        <div class="abstract-content">
-            输出Vue 是采用 rollup 做打包工具，flow 做数据类型检测的
-在 script/config.js 中可以看到 Vue 有三种不同的构建输出：UMD、CommonJS 以及 ES Module
-比如：
-12345678910111213141516171819202122const build = &#123;  "web-runtime-cjs-dev": &#123;    entry: resolve("web/entry-runtime.js"),    dest: resolve("dist/vue.runtime.common.dev.js"),    forma...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/03</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/19/Vue路由详解/">
-            
-                <span>Vue路由详解</span>
-        </a>
-        <div class="abstract-content">
-            Vue Router是Vue.js官方的路由管理器。它和Vue.js的核心深度集成，让构建单页面应用变得易如反掌。
-Vue Router的两个重点：
-
-路由跳转
-路由守卫
-全局前置守卫
-独享守卫
-全局解析守卫
-全局后置钩子
-组件内守卫
-
-
-
-路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
-1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/19/Vue组件详解/">
-            
-                <span>详解Vue组件化</span>
-        </a>
-        <div class="abstract-content">
-            组件化是Vue的一个核心思想，所谓的组件化就是将一个页面拆分成多个组件，每个组件依赖的Css、Js等资源都是独立的，组件和重复使用，也可以嵌套使用
-在一个由Vue搭建的项目中，App.vue是主组件，所有页面都在App.vue下进行切换，所有组件都是App.vue的子组件
-Vue的组件化我个人认为有如下三个重点：
-
-组件化通信
-父子组件间的通信
-父传子
-子传父
-父组件触发子组件方法
-子组件触发父组件方法
-
-
-
-
-prvide &amp; inject
-element-ui 组件库
-
-组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
     
 </div>
             
