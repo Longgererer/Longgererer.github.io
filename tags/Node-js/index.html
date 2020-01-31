@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>对象深拷贝和浅拷贝 · lliiooiill的技术Blog</title>
+    <title>lliiooiill的技术Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">lliiooiill的技术Blog.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">对象深拷贝和浅拷贝</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">lliiooiill的技术Blog.</a>
 </header>
@@ -231,74 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            对象深拷贝和浅拷贝
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">753</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/09/28</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -399,76 +338,46 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>什么是浅拷贝？举个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  b: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> c = a</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c === a) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">c.b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a.b) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<p>我们先将 a 赋值给 c，实际上是将 a 的内存地址分享给 c，两个变量引用的实际上是同一个对象</p>
-<p>所以当改变 c 的 b 属性时，a 的 b 属性也会跟着改变</p>
-<p>由上可得：浅拷贝只复制对象的第一层属性</p>
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>由于浅拷贝所得到的值的内存地址是一样的，所以要想改变属性值而不影响其他对象，就需要深拷贝</p>
-<p>深拷贝可以将对象的属性进行递归复制</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">oldObj, newObj</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 判断newObj是否传入，如果没有初始化一个空对象</span></span><br><span class="line">  newObj = newObj || &#123;&#125;</span><br><span class="line">  <span class="comment">// for...in循环遍历oldObj的key</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">in</span> oldObj) &#123;</span><br><span class="line">    <span class="comment">// 判断是否为对象</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> oldObj[item] === <span class="string">'object'</span>) &#123;</span><br><span class="line">      <span class="comment">// 判断属性值是否为数组</span></span><br><span class="line">      <span class="keyword">if</span> (objObj[item].constructor === <span class="built_in">Array</span>) &#123;</span><br><span class="line">        newObj[item] = []</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果不是数组，那就是对象</span></span><br><span class="line">        newObj[item] = &#123;&#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 递归调用deepCopy</span></span><br><span class="line">      deepCopy(oldObj[item], newObj[item])</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      newObj[item] = oldObj[item]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这种方法比较麻烦，实际项目中可以使用序列化反序列化的方式实现深拷贝：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepCopy = <span class="function"><span class="params">oldObj</span> =&gt;</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(oldObj))</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  b: <span class="number">1</span>,</span><br><span class="line">  c: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  d: &#123;</span><br><span class="line">    e: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f = deepCopy(a)</span><br><span class="line">f.b = <span class="number">2</span></span><br><span class="line">f.c[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line">f.d.e = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   b: 1,</span></span><br><span class="line"><span class="comment">//   c: [1, 2, 3],</span></span><br><span class="line"><span class="comment">//   d: &#123;</span></span><br><span class="line"><span class="comment">//     e: 1</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   b: 2,</span></span><br><span class="line"><span class="comment">//   c: [4, 2, 3],</span></span><br><span class="line"><span class="comment">//   d: &#123;</span></span><br><span class="line"><span class="comment">//     e: 5</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-<p>可以看到这种方法也可以实现深拷贝</p>
-<h2 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign"></a>Object.assign</h2><p>Object.assign 是 ES6 规范中的一个新方法</p>
-<p>也可以实现对象的拷贝，但仅限于第一层的深拷贝，第一层之后一律是浅拷贝：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepCopy = <span class="function"><span class="params">oldObj</span> =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, oldObj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  b: <span class="number">1</span>,</span><br><span class="line">  c: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  d: &#123;</span><br><span class="line">    e: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f = deepCopy(a)</span><br><span class="line">f.b = <span class="number">2</span></span><br><span class="line">f.c[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line">f.d.e = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   b: 1,</span></span><br><span class="line"><span class="comment">//   c: [4, 2, 3],</span></span><br><span class="line"><span class="comment">//   d: &#123;</span></span><br><span class="line"><span class="comment">//     e: 5</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   b: 2,</span></span><br><span class="line"><span class="comment">//   c: [4, 2, 3],</span></span><br><span class="line"><span class="comment">//   d: &#123;</span></span><br><span class="line"><span class="comment">//     e: 5</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-<p>使用 Object.assign 方法并不能达到严格意义上的深拷贝，只能深拷贝第一层的属性而已，因此，如果对象有多层嵌套，就不要用 Object.assign 进行深拷贝</p>
-<h2 id="对象扩展符"><a href="#对象扩展符" class="headerlink" title="对象扩展符"></a>对象扩展符</h2><p>对象扩展符是 ES7 的标准</p>
-<p>还是一样的例子，来看看对象扩展符能否实现深拷贝：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepCopy = <span class="function"><span class="params">oldObj</span> =&gt;</span> (&#123; ...oldObj &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  b: <span class="number">1</span>,</span><br><span class="line">  c: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  d: &#123;</span><br><span class="line">    e: <span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f = deepCopy(a)</span><br><span class="line">f.b = <span class="number">2</span></span><br><span class="line">f.c[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line">f.d.e = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   b: 1,</span></span><br><span class="line"><span class="comment">//   c: [4, 2, 3],</span></span><br><span class="line"><span class="comment">//   d: &#123;</span></span><br><span class="line"><span class="comment">//     e: 5</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   b: 2,</span></span><br><span class="line"><span class="comment">//   c: [4, 2, 3],</span></span><br><span class="line"><span class="comment">//   d: &#123;</span></span><br><span class="line"><span class="comment">//     e: 5</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-<p>结果和 Object.assign 一模一样，同样也只是实现了第一层的深拷贝</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ul>
-<li>JSON.parse(JSON.stringify(oldObj)) 这种方法可以实现严格意义上的深拷贝</li>
-<li>Object.assign 和对象扩展符只能对第一层属性深拷贝，更深层的属性只能浅拷贝</li>
-</ul>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/09/28/对象深拷贝和浅拷贝/">https://longgererer.github.io/2019/09/28/对象深拷贝和浅拷贝/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/09/28/对象深拷贝和浅拷贝/">September 28th 2019, 8:23:18 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/09/28/对象深拷贝和浅拷贝/">September 28th 2019, 9:21:03 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/01/04/koa2框架入门/">
+            
+                <span>koa2框架入门</span>
+        </a>
+        <div class="abstract-content">
+            koa 框架是基于 Node.js 平台的 web 开发框架，由 express 框架原班人马打造，因此开发思路和 express 相仿，最大的特点就是避免了异步嵌套
+安装koa2 框架要求 Node.js 版本至少是 8.x 的版本
+安装教程
+使用安装好 koa 之后，在目录中创建一个 app.js 文件
+如果想在 app.js 文件中使用 koa，就要先引入：
+12const koa = require("koa");const app = new koa();
+在 express 框架中是自带路由的，不需要配置，但是在 koa 中就需要配置了，等一下会讲怎么配置
+先写一个中间件，中...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Node.js">Node.js</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/09/29/React工程目录详解/" title="React工程目录详解">
-                    <div class="nextTitle">React工程目录详解</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/09/25/Redux笔记/" title="Redux笔记">
-                    <div class="prevTitle">Redux笔记</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -561,24 +470,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浅拷贝"><span class="toc-number">1.</span> <span class="toc-text">浅拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深拷贝"><span class="toc-number">2.</span> <span class="toc-text">深拷贝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-assign"><span class="toc-number">3.</span> <span class="toc-text">Object.assign</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象扩展符"><span class="toc-number">4.</span> <span class="toc-text">对象扩展符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-number">5.</span> <span class="toc-text">结论</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1385,8 +1276,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
