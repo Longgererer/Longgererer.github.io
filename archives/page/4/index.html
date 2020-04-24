@@ -346,6 +346,245 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/08/03/Vue技术内幕/">
+            
+                <span>Vue技术内幕</span>
+        </a>
+        <div class="abstract-content">
+            输出Vue 是采用 rollup 做打包工具，flow 做数据类型检测的
+在 script/config.js 中可以看到 Vue 有三种不同的构建输出：UMD、CommonJS 以及 ES Module
+比如：
+12345678910111213141516171819202122const build = &#123;  "web-runtime-cjs-dev": &#123;    entry: resolve("web/entry-runtime.js"),    dest: resolve("dist/vue.runtime.common.dev.js"),    forma...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/24/SASS学习笔记/">
+            
+                <span>SASS学习笔记</span>
+        </a>
+        <div class="abstract-content">
+            Sass 分为两种版本，一个是以.sass 为后缀名，一个是以.scss 为后缀名
+Sass3 其实就是 Scss，Scss 完全兼容 CSS3 且拥有 Sass 全部特性，但是格式偏向 CSS 而不是 Sass
+嵌套规则嵌套功能避免了重复输入父选择器，而且令复杂的 CSS 结构更易于管理
+123456789#main p &#123;  color: #00ff00;  width: 97%;  .redbox &#123;    background-color: #ff0000;    color: #000000;  &#125;&#125;
+父选择器 &amp;假如我想给 bu...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Sass">Sass</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/14/C语言笔记/">
+            
+                <span>C语言笔记</span>
+        </a>
+        <div class="abstract-content">
+            一个简单的 c 语言输出：
+123456#include &lt;stdio.h&gt;int main() &#123;	printf("hello world");	return 0;&#125;
+在字符串中的 // 和 /* 都不会作为注释的开始，而是作为字符串的一部分
+12printf("//hello world"); // 输出//hello worldprintf("/*hello world*/"); // 输出/*hello world*/
+占位符printf 方法可以包含两个参数，第一个参数代表希望输出的格式，第二个参数代表要输出的值：
+12char name[] =...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C">C</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/13/浏览器的缓存机制/">
+            
+                <span>浏览器的缓存机制</span>
+        </a>
+        <div class="abstract-content">
+            缓存《图解 HTTP》一书中说：缓存是指代理服务器或者客户端本地磁盘内保存的资源副本，利用缓存可减少对服务器的访问
+说的稍微通俗一点，浏览器缓存就是把一个已经请求过的 Web 资源拷贝一份副本储存在浏览器中，缓存会根据进来的请求保存输出内容的副本，当下一个请求来到的时候，如果是相同的 URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求
+缓存的优点：
+
+节省通信流量
+减少通信时间
+降低服务器压力
+
+浏览器第一次向服务器发起该请求后拿到请求结果后，将请求结果和缓存标识存入浏览器缓存，浏览器对于缓存的处理是根据第一次请求资源时返回的响应头来确定的，浏览器每次发...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/13</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="缓存">缓存</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/08/JS内存管理/">
+            
+                <span>JS内存管理</span>
+        </a>
+        <div class="abstract-content">
+            JS 的内存管理对大部分前端人员来说可能很陌生，因为 JS 这门语言会在变量不再使用的时候自动释放内存，这让很多开发者认为完全不用关心内存管理，这是错误的想法
+JS 内存空间分为栈(stack)、堆(heap)、池(一般也会归类为栈中)。 其中栈存放变量，堆存放复杂对象，池存放常量
+我们来看一个例子
+12let a = 20;let b = a; // a=?
+12345let a = &#123;  b: 1&#125;;let c = a;c.b = 2; // a.b=?
+在栈内存中的数据发生复制行为时，系统会自动为新的变量分配一个新值。var b = a 执行之后，a 与 b 虽...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/06/14种JavaScript设计模式/">
+            
+                <span>14种JavaScript设计模式</span>
+        </a>
+        <div class="abstract-content">
+            看了 《JavaScript 设计模式与开发实践》 一书，深有感触，想总结一下
+单例模式
+单例模式顾名思义就是只需要一个对象就够了，比如弹窗，就算点击多次按钮也只会跳出一次弹窗
+
+这就需要一个变量判断弹窗对象是否已经创建过，如果创建过则直接返回之前创建的对象
+但是还有一个问题，这个按钮我也许永远不会点，那么就没有必要在页面加载时就创建好，只需要点击按钮的时候在创建就好了，也就是惰性单例
+1234567891011121314151617let loginBtn = document.getElementById("login");loginBtn.onclick = function()...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/06</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/04/grid网格布局/">
+            
+                <span>grid网格布局</span>
+        </a>
+        <div class="abstract-content">
+            
+我们知道 flex 布局是一种非常优秀的布局，非常适用于响应式布局，但是 flex 任然不是最强大的布局，grid 才是现今最为强大的布局方案
+
+grid 的优势在于，它可以将网页划分成一个个网格，可以任意组合成不同的网格，以实现各种各样的布局
+grid 和 flex 的区别两者的区别是非常大的，是二维和一维的区别，flex 布局是轴线布局，只能指定元素相对于轴线的位置，而 grid 却可以将容器分为行和列，产生单元格
+学习 grid12345&lt;div id="grid"&gt;  &lt;div&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/07/04/全面理解CSS媒体查询/">
             
                 <span>全面理解CSS媒体查询</span>
@@ -446,279 +685,10 @@ BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地�
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/22/前端面试题汇总/">
-            
-                <span>一些重要的前端面试题目</span>
-        </a>
-        <div class="abstract-content">
-            闭包先来看一道和for循环有关的题目
-123456for (var i = 0; i &lt; 5; i++) &#123;  setTimeout(function() &#123;    console.log(i)  &#125;, 1000)&#125;console.log(i)
-
-要求给出输出的结果
-
-了解var和异步机制的同学应该很容易就知道输出的结果，答案是： 5、5、5、5、5、5
-这是又有一个问题，既然是输出 6 个五，因为计时器的原因肯定不能一次性全部输出，那么输出的顺序（时间间隔）是怎么样的呢？
-熟悉计数器工作机制的同学知道答案是： 先输出一个 5，过一秒之后输出...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/21/async-await学习笔记/">
-            
-                <span>async/await学习笔记</span>
-        </a>
-        <div class="abstract-content">
-            介绍继ES6出现promise之后,再也不用担心回调地狱,但是promise也不是十全十美,async/await可以让异步代码看起来就像同步的一样,这就是要学习它的原因
-首先创建一个简单的 promise:
-1234567891011function getData() &#123;  return new Promise(function(resolve) &#123;    let data = &#123; name: "Tom" &#125;;    resolve(data);  &#125;);&#125;let p = getData();p.then(data =&gt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/19/Vue路由详解/">
-            
-                <span>Vue路由详解</span>
-        </a>
-        <div class="abstract-content">
-            Vue Router是Vue.js官方的路由管理器。它和Vue.js的核心深度集成，让构建单页面应用变得易如反掌。
-Vue Router的两个重点：
-
-路由跳转
-路由守卫
-全局前置守卫
-独享守卫
-全局解析守卫
-全局后置钩子
-组件内守卫
-
-
-
-路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
-1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/19/Vue组件详解/">
-            
-                <span>详解Vue组件化</span>
-        </a>
-        <div class="abstract-content">
-            组件化是Vue的一个核心思想，所谓的组件化就是将一个页面拆分成多个组件，每个组件依赖的Css、Js等资源都是独立的，组件和重复使用，也可以嵌套使用
-在一个由Vue搭建的项目中，App.vue是主组件，所有页面都在App.vue下进行切换，所有组件都是App.vue的子组件
-Vue的组件化我个人认为有如下三个重点：
-
-组件化通信
-父子组件间的通信
-父传子
-子传父
-父组件触发子组件方法
-子组件触发父组件方法
-
-
-
-
-prvide &amp; inject
-element-ui 组件库
-
-组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/12/axios学习笔记/">
-            
-                <span>Axios学习笔记</span>
-        </a>
-        <div class="abstract-content">
-            Axios是一个基于 promise 的 HTTP 库，所以学习Axios之前需要先学习promise，Axios可以应用在浏览器和node.js中
-安装npm
-1$ npm install axios
-or yarn
-1$ yarn add axios
-or CDN
-1&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;
-引入 axios
-1import axios from "axios";
-APIaxios 有如下几个 API
-
-
-axios.request(config)
-axi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Axios">Axios</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/11/Vuex笔记/">
-            
-                <span>Vuex学习笔记</span>
-        </a>
-        <div class="abstract-content">
-            Vuex是一个专为Vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
-状态管理模式看下面的例子：
-1234567891011new Vue(&#123;  data() &#123;    return &#123; count: 0 &#125;;  &#125;,  template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,  methods: &#123;    add() &#123;      thi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vuex">Vuex</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/07/TypeScript学习指南/">
-            
-                <span>TypeScript学习指南</span>
-        </a>
-        <div class="abstract-content">
-            在学习 TypeScript 之前，要了解的是：TypeScript 是 JavaScript 的超集，是 JavaScript 预处理语言，主要提供了类型系统和对 ES6 的支持
-为什么要学习 TypeScript？
-
-可以在编译阶段就发现大部分错误
-增强了编辑器和 IDE 的功能，包括代码补全、接口提示、跳转到定义、重构等
-即使完全用 js 语法写 ts 文件也不会出问题
-即使不显式的定义类型，也能够自动做出类型推论
-即使 TypeScript 编译报错，也可以生成 JavaScript 文件
-
-
-开始学习安装 TypeScript运行如下命令：
-123npm i typescrip...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="TypeScript">TypeScript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/3/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/5/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/page/3/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/5/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1210,9 +1180,58 @@ axi...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 61
         </div>
         <!-- search  -->
         
@@ -1225,6 +1244,41 @@ axi...
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href="/2020/04/23/前端面试题之CSS/">前端面试题之CSS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/前端面试题之HTML/">前端面试题之HTML</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/学习websocket/">学习WebSocket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/文件断点上传/">文件断点上传</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/Webpack生命周期/">Webpack生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href="/2020/04/09/完整的通讯流程/">完整的通讯流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span><a class="archive-post-title" href="/2020/04/04/编译原理/">编译原理</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1514,39 +1568,43 @@ axi...
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
-    
-        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
-        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
-    
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
-        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
-    
         <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
+        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
+    
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     

@@ -346,6 +346,247 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/04/23/前端面试题之CSS/">
+            
+                <span>前端面试题之CSS</span>
+        </a>
+        <div class="abstract-content">
+            CSS 的盒子模型有哪两种标准盒子模型图示如下：
+
+IE 盒子模型和标准盒模型的不同在于 IE 的盒子宽高包括了 padding 和 border
+CSS3 的 box-sizing 属性给了开发者选择盒模型解析方式的权利，设置为 border-box 就可以统一盒模型：
+1box-sizing: border-box;
+说说 CSS 选择器
+通用选择器：选择所有元素，不参与计算优先级*，兼容性 IE6+*{}
+id 选择器：选择 id 值为 X 的元素，兼容性：IE6+#div1{}
+类选择器：选择 class 包含 X 的元素，兼容性：IE6+.div1{}
+后代选择器：选择满足 X...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="面试">面试</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/22/前端面试题之HTML/">
+            
+                <span>前端面试题之HTML</span>
+        </a>
+        <div class="abstract-content">
+            XHTML 和 HTML 的区别HTML 是一种基本的 WEB 网页设计语言，XHTML 是一个基于 XML 的置标语言
+主要不同：
+
+XHTML 元素必须被正确地嵌套
+XHTML 元素必须被关闭
+标签名必须用小写字母
+XHTML 文档必须拥有根元素
+
+前端页面有哪三层构成，分别是什么，作用是什么
+结构层
+HTML/XHTML
+
+
+表示层
+CSS
+
+
+行为层
+JS
+
+
+
+html5 有哪些新特性、移除了那些元素新增：
+
+canvas
+video 和 audio 元素
+本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失
+sessionStorage 的数据在浏览器...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="面试">面试</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/22/学习websocket/">
+            
+                <span>学习WebSocket</span>
+        </a>
+        <div class="abstract-content">
+            这篇笔记参考阮一峰的 WebSocket 教程
+WebSocket 协议是基于 TCP 的一种新的网络协议，实现了浏览器与服务器双向通信给客户端
+WebSocket 简介在 WebSocket 之前，已经有 HTTP 协议了，但是 HTTP 协议为了安全性，只能够由客户端发起
+如果使用 HTTP 向服务器发起请求以获取推送信息的话，每隔一段时间就要发起一次请求，非常麻烦和低效
+WebSocket 可以使服务器主动向客户端推送信息，真正实现了客户端和服务器之间的双向通信
+在实现 websocket 连线过程中，需要通过浏览器发出 websocket 连线请求，然后服务器发出回应，这个过程通...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="WebSocket">WebSocket</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/10/文件断点上传/">
+            
+                <span>文件断点上传</span>
+        </a>
+        <div class="abstract-content">
+            断点续传断点续传就是上传到一半可以暂停，其主要依靠 HTML5 特性，无法兼容较老的浏览器
+HTML5 可以分割文件内容，靠的就是数组/字符串的 slice 方法
+前端拿到 FileList 对象中的文件，获取内容后将文件分段，一段一段的传给后端，后端再一段一段地拼接起来
+FileListFileList 对象不能够直接被修改，浏览器为了安全性的考虑，把 FileList 对象的内容设为了不可更改，只可以手动置空，但不能修改内容
+解决办法是，新增一个数组，初始复制 FileList 对象的文件内容，之后的修改操作则通过这个可更改的数组进行，也就是说，新增的数组实际上是 FileList ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/10/Webpack生命周期/">
+            
+                <span>Webpack生命周期</span>
+        </a>
+        <div class="abstract-content">
+            Webpack 整体流程图如下：
+
+下面将注意说明整个流程。
+webpack.config.js 和 shell 解析webpack.config.js 大致结构如下：
+123456789101112131415161718192021222324252627282930313233343536373839404142var path = require('path');var node_modules = path.resolve(__dirname, 'node_modules');var pathToReact = path.resolve(node_modules, 'react...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/09/完整的通讯流程/">
+            
+                <span>完整的通讯流程</span>
+        </a>
+        <div class="abstract-content">
+            当用户在浏览器中输入链接并跳转时，会发生什么呢？
+拿百度举例，用户在转到链接 www.baidu.com 时，会向域名 baidu.com 所关联的服务器发送一个网页数据包。
+要知道域名所关联的服务器 IP 需要进行解析，需要发送一个 DNS 数据包给 DNS 服务器，DNS 服务器做出响应返回百度 IP 地址。
+DNS 域名解析为什么需要 DNS网络通讯大部分基于 TCP/IP，TCP/IP 是基于 IP 地址，所以计算机在网络通讯时不能识别域名。
+DNS 是什么DNS( Domain Name System) 域名系统是一种组织成域层次结构的计算机和网络服务命名系统，用于 TCP/I...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/09</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/04/编译原理/">
+            
+                <span>编译原理</span>
+        </a>
+        <div class="abstract-content">
+            FORTRAN 介绍汇编语言是一个面向机器的程序设计语言，使用汇编语言编写的程序不能被机器直接识别，需要先进行翻译，且依赖于具体的机型，所编译出的程序不能够通用，开发效率低且单调。
+为了解决汇编语言的缺点，1951 年，IBM 公司的 John Backus 开发了 FORTRAN 语言
+1953 年 John Backus 开发出了 Speed coding 用来提高编程效率，这是解释器的早期雏形。虽然可以提高开发速度，但是通过 Speed coding 所编写的程序比手写的程序慢上很多倍，原因就是 Speed coding 是通过解释器来运行代码，相对于编译器或手工写代码要慢很多。
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/04</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2020/01/04/koa2框架入门/">
             
                 <span>koa2框架入门</span>
@@ -970,9 +1211,58 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 54
+        Total : 61
         </div>
         <!-- search  -->
         
@@ -985,6 +1275,41 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href="/2020/04/23/前端面试题之CSS/">前端面试题之CSS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/前端面试题之HTML/">前端面试题之HTML</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/学习websocket/">学习WebSocket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/文件断点上传/">文件断点上传</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/Webpack生命周期/">Webpack生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href="/2020/04/09/完整的通讯流程/">完整的通讯流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span><a class="archive-post-title" href="/2020/04/04/编译原理/">编译原理</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1274,39 +1599,43 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
-    
-        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
-        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
-    
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
-        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
-    
         <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
+        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
+    
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
