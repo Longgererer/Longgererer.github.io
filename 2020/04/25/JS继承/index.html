@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>lliiooiill的学习记录分享</title>
+    <title>JS继承 · lliiooiill的学习记录分享</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的学习记录分享.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">JS继承</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">lliiooiill的学习记录分享.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            JS继承
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">882</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/04/25</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,149 +399,80 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/01/04/koa2框架入门/">
-            
-                <span>koa2框架入门</span>
-        </a>
-        <div class="abstract-content">
-            koa 框架是基于 Node.js 平台的 web 开发框架，由 express 框架原班人马打造，因此开发思路和 express 相仿，最大的特点就是避免了异步嵌套
-安装koa2 框架要求 Node.js 版本至少是 8.x 的版本
-安装教程
-使用安装好 koa 之后，在目录中创建一个 app.js 文件
-如果想在 app.js 文件中使用 koa，就要先引入：
-12const koa = require("koa");const app = new koa();
-在 express 框架中是自带路由的，不需要配置，但是在 koa 中就需要配置了，等一下会讲怎么配置
-先写一个中间件，中...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Node.js">Node.js</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>平常我们实现继承一般采用下面两种方式：</p>
+<p>构造函数和 ES6 的类继承</p>
+<p>那么这三种继承方式的原理是怎样的呢，有什么不同呢？</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一条会汪汪叫的白狗</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.bark = <span class="string">'汪汪汪'</span></span><br><span class="line">  <span class="keyword">this</span>.color = <span class="string">'white'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建一个实例化对象</span></span><br><span class="line"><span class="keyword">const</span> dog1 = <span class="keyword">new</span> Dog()</span><br><span class="line"><span class="built_in">console</span>.log(dog1.bark, dog1.color) <span class="comment">// '汪汪汪' 'white'</span></span><br></pre></td></tr></table></figure>
+<p>这样就完成了一个构造函数的继承方式，<strong>注意</strong>：JS 本身不存在构造函数这种东西，但因为有了 <code>new</code> 操作符，所以被 <code>new</code> 操作符调用的函数叫构造函数，是基础上它和普通函数并无差别</p>
+<p>我们知道 <code>new</code> 操作符进行了如下动作：</p>
+<ul>
+<li>创建一个全新的对象</li>
+<li>连接原型链，将新对象的 <code>__proto__</code> 属性指向构造函数的 <code>prototype</code></li>
+<li>将构造函数的 <code>this</code> 指向新对象</li>
+<li>如果是值类型，返回新对象，如果是引用类型，返回这个引用类型的对象</li>
+</ul>
+<p>也就是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">obj.__proto__ = Dog.prototype</span><br><span class="line">Dog.call(obj)</span><br><span class="line"><span class="keyword">return</span> obj</span><br></pre></td></tr></table></figure>
+<p>在进行以上操作后，下面的等式成立：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数Dog</span></span><br><span class="line">Dog.prototype.constructor === Dog <span class="comment">// true</span></span><br><span class="line">Dog.__proto__ === <span class="built_in">Function</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 实例dog1</span></span><br><span class="line">dog1.__proto__ === Dog.prototype <span class="comment">// true</span></span><br><span class="line">Dog.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><p>举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, sex) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.sex = sex</span><br><span class="line">  &#125;</span><br><span class="line">  printInfo() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.sex)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pupil</span> <span class="keyword">extends</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, sex, age) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name, sex)</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">  &#125;</span><br><span class="line">  printInfo() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.sex, <span class="keyword">this</span>.age)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面是输出结果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Lisa = <span class="keyword">new</span> Student(<span class="string">'Lisa'</span>, <span class="string">'女'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(Lisa) <span class="comment">// &#123;name: "Lisa",sex: "女"&#125;</span></span><br><span class="line">Lisa.printInfo() <span class="comment">// "Lisa" "女"</span></span><br><span class="line"><span class="keyword">const</span> tom = <span class="keyword">new</span> Pupil(<span class="string">'Tom'</span>, <span class="string">'男'</span>, <span class="number">12</span>)</span><br><span class="line"><span class="built_in">console</span>.log(tom) <span class="comment">// &#123;age: 12,name: "Tom",sex: "男"&#125;</span></span><br><span class="line">tom.printInfo() <span class="comment">// "Tom" "男" 12</span></span><br></pre></td></tr></table></figure>
+<p>我们来看看这两个类的信息：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype.constructor === Student <span class="comment">// true</span></span><br><span class="line">Pupil.prototype.constructor === Pupil <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">Pupil.__proto__ === Student <span class="comment">// true</span></span><br><span class="line">Student.__proto__ === <span class="built_in">Function</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">Tom.__proto__ === Pupil.prototype <span class="comment">// true</span></span><br><span class="line">Pupil.prototype.__proto__ === Student.prototype <span class="comment">// true</span></span><br><span class="line">Student.prototype.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.__proto__ === <span class="literal">null</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>由此我们可以知道，ES6 的类继承的机制是：</p>
+<ul>
+<li>把子类构造函数的 <code>__proto__</code> 指向父类的构造函数</li>
+<li>把子类实例的原型对象的原型指向了父类的原型对象</li>
+<li>子类构造函数通过 <code>super</code> 继承了父类构造函数的里的属性</li>
+</ul>
+<p>那么，如何用 ES5 实现 ES6 的类继承呢？</p>
+<h2 id="ES6-的-class-继承实现"><a href="#ES6-的-class-继承实现" class="headerlink" title="ES6 的 class 继承实现"></a>ES6 的 class 继承实现</h2><p>将 ES6 用 babel 转换成 ES5 后如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> _createClass = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">defineProperties</span>(<span class="params">target, props</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; props.length; i++) &#123;</span><br><span class="line">      <span class="keyword">var</span> descriptor = props[i]</span><br><span class="line">      descriptor.enumerable = descriptor.enumerable || <span class="literal">false</span></span><br><span class="line">      descriptor.configurable = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="string">'value'</span> <span class="keyword">in</span> descriptor) descriptor.writable = <span class="literal">true</span></span><br><span class="line">      <span class="built_in">Object</span>.defineProperty(target, descriptor.key, descriptor)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">Constructor, protoProps, staticProps</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (protoProps) defineProperties(Constructor.prototype, protoProps)</span><br><span class="line">    <span class="keyword">if</span> (staticProps) defineProperties(Constructor, staticProps)</span><br><span class="line">    <span class="keyword">return</span> Constructor</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_possibleConstructorReturn</span>(<span class="params">self, call</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!self) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">ReferenceError</span>(<span class="string">"this hasn't been initialised - super() hasn't been called"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> call &amp;&amp; (<span class="keyword">typeof</span> call === <span class="string">'object'</span> || <span class="keyword">typeof</span> call === <span class="string">'function'</span>) ? call : self</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_inherits</span>(<span class="params">subClass, superClass</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> superClass !== <span class="string">'function'</span> &amp;&amp; superClass !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Super expression must either be null or a function, not '</span> + <span class="keyword">typeof</span> superClass)</span><br><span class="line">  &#125;</span><br><span class="line">  subClass.prototype = <span class="built_in">Object</span>.create(superClass &amp;&amp; superClass.prototype, &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: &#123; value: subClass, <span class="attr">enumerable</span>: <span class="literal">false</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">configurable</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (superClass)</span><br><span class="line">    <span class="built_in">Object</span>.setPrototypeOf ? <span class="built_in">Object</span>.setPrototypeOf(subClass, superClass) : (subClass.__proto__ = superClass)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span>(<span class="params">instance, Constructor</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot call a class as a function'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> A = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    _classCallCheck(<span class="keyword">this</span>, A)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.a = a</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _createClass(A, [</span><br><span class="line">    &#123;</span><br><span class="line">      key: <span class="string">'getA'</span>,</span><br><span class="line">      value: <span class="function"><span class="keyword">function</span> <span class="title">getA</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a)</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> A</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> B = (<span class="function"><span class="keyword">function</span> (<span class="params">_A</span>) </span>&#123;</span><br><span class="line">  _inherits(B, _A)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">    _classCallCheck(<span class="keyword">this</span>, B)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> _this = _possibleConstructorReturn(<span class="keyword">this</span>, (B.__proto__ || <span class="built_in">Object</span>.getPrototypeOf(B)).call(<span class="keyword">this</span>))</span><br><span class="line"></span><br><span class="line">    _this.b = b</span><br><span class="line">    <span class="keyword">return</span> _this</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> B</span><br><span class="line">&#125;)(A)</span><br></pre></td></tr></table></figure>
+<p>可以看出 ES6 类继承的实现方式其实是<strong>原型继承</strong></p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/01/01/nginx配置/">
-            
-                <span>nginx配置</span>
-        </a>
-        <div class="abstract-content">
-            
-配置文件结构
-
-nginx.conf 由多个块组成：
-
-main(全局设置)
-events
-http
-upstream(负载均衡服务器设置)
-多个 server(主机设置)
-多个 location(URL 匹配特定位置的设置)
-
-
-
-
-
-
-
-
-
-对这几个模块，这篇博客有好地解释：
-https://blog.csdn.net/wangbin_0729/article/details/82109693
-下面着重讲 server 和 location：
-server12345678# server的一部分配置server &#123;  listen 80;  server_name 192...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2020/04/25/JS继承/">https://longgererer.github.io/2020/04/25/JS继承/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2020/04/25/JS继承/">April 25th 2020, 5:01:17 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2020/04/25/JS继承/">April 25th 2020, 8:47:27 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Nginx">Nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/01/01/Linux服务器常用指令/">
-            
-                <span>Linux服务器常用指令</span>
-        </a>
-        <div class="abstract-content">
-            防火墙iptables
-查看防火墙状态
-service iptables status
-
-
-开启防火墙
-service iptables start
-
-
-停止防火墙
-service iptables stop
-
-
-重启防火墙
-service iptables restart
-
-
-开启端口(如 80)
--A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT
-
-
-
-firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使用 iptables 对内核命令动态通信包过滤的，简单理解就是 fire...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2020/04/23/前端面试题之CSS/" title="前端面试题之CSS">
+                    <div class="prevTitle">前端面试题之CSS</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -577,6 +569,24 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-number">1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class"><span class="toc-number">2.</span> <span class="toc-text">class</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6-的-class-继承实现"><span class="toc-number">3.</span> <span class="toc-text">ES6 的 class 继承实现</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1483,6 +1493,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

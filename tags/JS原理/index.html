@@ -346,6 +346,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/04/25/JS继承/">
+            
+                <span>JS继承</span>
+        </a>
+        <div class="abstract-content">
+            平常我们实现继承一般采用下面两种方式：
+构造函数和 ES6 的类继承
+那么这三种继承方式的原理是怎样的呢，有什么不同呢？
+构造函数12345678// 一条会汪汪叫的白狗function Dog() &#123;  this.bark = '汪汪汪'  this.color = 'white'&#125;// 创建一个实例化对象const dog1 = new Dog()console.log(dog1.bark, dog1.color) // '汪汪汪' 'white'
+这样就完成了一个构造函数的继承方式，注意：JS 本身不存在构造函数这种东西，但因为有了 new 操作符，所以被 ne...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/11/15/深入理解原型链/">
             
                 <span>深入理解原型链</span>
@@ -634,37 +667,6 @@ JS 内存空间分为栈(stack)、堆(heap)、池(一般也会归类为栈中)�
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/01/Object-creat/">
-            
-                <span>Object.create()</span>
-        </a>
-        <div class="abstract-content">
-            Object.create()是ES5的一种创建对象的方法
-Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对象，这个对象无法进行委托。由于这个对象没有原型链，所以像instanceof这种操作符无法判断该对象的原型，因此会返回 false。这些对象因为它们完全不受原型链干扰的特性，所以非常适合用来存储数据
-1234567let foo = &#123;  func: function() &#123;    console.log(1);  &#125;&#125;;let bar = Object.create(foo);bar.fun...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/01</span>
             </div>
             <!-- tags  -->
             
@@ -1221,9 +1223,16 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 61
+        Total : 62
         </div>
         <!-- search  -->
         
@@ -1236,6 +1245,11 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href="/2020/04/25/JS继承/">JS继承</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1572,29 +1586,29 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
-    
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
-    
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
-    
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     

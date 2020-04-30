@@ -346,6 +346,57 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/01/01/Linux服务器常用指令/">
+            
+                <span>Linux服务器常用指令</span>
+        </a>
+        <div class="abstract-content">
+            防火墙iptables
+查看防火墙状态
+service iptables status
+
+
+开启防火墙
+service iptables start
+
+
+停止防火墙
+service iptables stop
+
+
+重启防火墙
+service iptables restart
+
+
+开启端口(如 80)
+-A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT
+
+
+
+firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使用 iptables 对内核命令动态通信包过滤的，简单理解就是 fire...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/12/11/排序算法详解/">
             
                 <span>排序算法详解</span>
@@ -673,46 +724,6 @@ setup 方法中 return 的对象会作为渲染的上下文来代替 data：
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/12/Weex入门/">
-            
-                <span>Weex入门</span>
-        </a>
-        <div class="abstract-content">
-            
-Weex 是使用流行的 Web 开发体验来开发高性能原生应用的框架
-
-Week 可用来构建 Android、iOS 和 Web 应用
-全局安装 Weex
-1npm install weex-toolkit -g
-创建项目:
-1weex create awesome-app
-运行项目：
-123cd awesome-appnpm installnpm start
-Weex 通用样式在了解 Weex 内容之前先来看看 Weex 的样式规范：
-尺寸单位Weex 对于长度值目前只支持 px 和 wx（不受屏幕宽度和 viewPortWidth 影响），不支持相对单位（em、rem）以及 %、pt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Weex">Weex</a>
     
 </div>
             
@@ -1263,9 +1274,16 @@ Weex 通用样式在了解 Weex 内容之前先来看看 Weex 的样式规范：
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 61
+        Total : 62
         </div>
         <!-- search  -->
         
@@ -1278,6 +1296,11 @@ Weex 通用样式在了解 Weex 内容之前先来看看 Weex 的样式规范：
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href="/2020/04/25/JS继承/">JS继承</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1614,29 +1637,29 @@ Weex 通用样式在了解 Weex 内容之前先来看看 Weex 的样式规范：
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
-    
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
-    
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
-    
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     

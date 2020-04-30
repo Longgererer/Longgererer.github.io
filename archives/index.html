@@ -346,6 +346,39 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/04/25/JS继承/">
+            
+                <span>JS继承</span>
+        </a>
+        <div class="abstract-content">
+            平常我们实现继承一般采用下面两种方式：
+构造函数和 ES6 的类继承
+那么这三种继承方式的原理是怎样的呢，有什么不同呢？
+构造函数12345678// 一条会汪汪叫的白狗function Dog() &#123;  this.bark = '汪汪汪'  this.color = 'white'&#125;// 创建一个实例化对象const dog1 = new Dog()console.log(dog1.bark, dog1.color) // '汪汪汪' 'white'
+这样就完成了一个构造函数的继承方式，注意：JS 本身不存在构造函数这种东西，但因为有了 new 操作符，所以被 ne...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2020/04/23/前端面试题之CSS/">
             
                 <span>前端面试题之CSS</span>
@@ -663,57 +696,6 @@ server12345678# server的一部分配置server &#123;  listen 80;  server_name 1
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="Nginx">Nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/01/01/Linux服务器常用指令/">
-            
-                <span>Linux服务器常用指令</span>
-        </a>
-        <div class="abstract-content">
-            防火墙iptables
-查看防火墙状态
-service iptables status
-
-
-开启防火墙
-service iptables start
-
-
-停止防火墙
-service iptables stop
-
-
-重启防火墙
-service iptables restart
-
-
-开启端口(如 80)
--A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT
-
-
-
-firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使用 iptables 对内核命令动态通信包过滤的，简单理解就是 fire...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
     
 </div>
             
@@ -1264,9 +1246,16 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 61
+        Total : 62
         </div>
         <!-- search  -->
         
@@ -1279,6 +1268,11 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href="/2020/04/25/JS继承/">JS继承</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1615,29 +1609,29 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
-    
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
-    
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
-    
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     

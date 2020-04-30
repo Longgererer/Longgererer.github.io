@@ -346,6 +346,40 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/08/20/Window对象属性详解/">
+            
+                <span>Window对象属性详解</span>
+        </a>
+        <div class="abstract-content">
+            学了那么久的 js，有必要了解一些实用的原生 API 了
+window 属性closed此属性返回一个布尔值，用于判断指定窗口是否关闭，常和 window.open() 方法一起使用：
+12345const newWindow = window.open("");newWindow.close();if (newWindow.closed) &#123;  console.log("window closed");&#125;
+控制台将输出 window closed
+如果直接在当前页面上执行 window.closed 返回值为 false，因为当前窗口是打开的
+document此属性...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/08/03/Vue技术内幕/">
             
                 <span>Vue技术内幕</span>
@@ -639,40 +673,6 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/24/深度优先遍历和广度优先遍历/">
-            
-                <span>广度优先算法和深度优先算法</span>
-        </a>
-        <div class="abstract-content">
-            广度优先算法广度优先算法（BFS）是一种图形搜索算法，BFS是从根节点开始，沿着树的宽度遍历树的节点，如果所有节点都被访问了，算法就会终止
-其遍历顺序如下:
-BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地址，而是彻底地搜索整张图
-所有因为展开节点而得到的子节点都会被放置在一个先进先出的队列中，一般情况下，其邻居节点尚未被检验过的节点会被放置在一个被称为open的容器中，检验过的就会放在closed容器中
-加入有如下一段 html，需要用广度优先遍历，要求输出每个元素节点的tagName和className
-1234567891011&lt;div class="root"&gt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/24</span>
             </div>
             <!-- tags  -->
             
@@ -1229,9 +1229,16 @@ BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地�
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 61
+        Total : 62
         </div>
         <!-- search  -->
         
@@ -1244,6 +1251,11 @@ BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href="/2020/04/25/JS继承/">JS继承</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1580,29 +1592,29 @@ BFS是一种盲目搜索法，也就是说，它不会考虑结果的可能地�
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
         <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
-    
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
-    
-        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
-    
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
