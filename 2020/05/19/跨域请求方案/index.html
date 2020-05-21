@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>专插本C语言笔记 · lliiooiill的技术Blog</title>
+    <title>跨域请求方案 · lliiooiill的学习记录分享</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -214,14 +214,14 @@
     
     <div class="banner">
             <div class="blog-title">
-                <a href="/">lliiooiill的技术Blog.</a>
+                <a href="/">lliiooiill的学习记录分享.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">专插本C语言笔记</a>
+                <a href="#" class="post-name">跨域请求方案</a>
             </div>
     </div>
     
-    <a class="home-link" href="/">lliiooiill的技术Blog.</a>
+    <a class="home-link" href="/">lliiooiill的学习记录分享.</a>
 </header>
     <div class="wrapper">
         <div class="site-intro" style="
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            专插本C语言笔记
+            跨域请求方案
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="C语言">C语言</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/07/14</span>
+                    <span class="post-intro-time">2020/05/19</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,209 +401,77 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="历史背景"><a href="#历史背景" class="headerlink" title="历史背景"></a>历史背景</h2><p>C 语言最早是由贝尔实验室的 Dennis Ritchie 为了 UNIX 的辅助开发而编写的，它是在 B 语言的基础上开发出来的，具有硬件无关性和可移植性</p>
-<p>为了进一步规范 C 语言的硬件无关性，1987 年，美国国家标准协会（ANSI）根据 C 语言问世以来各种版本对 C 语言的发展和扩充，制定了新的标准，称为 ANSI C</p>
-<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
-<li><p>简洁紧凑、灵活方便</p>
-<p>C 语言有 37 个关键字，9 种控制语句，程序书写形式自由，主要用小写字母表示，压缩了一切不必要的成分。实际上，C 是一个很小的内核语言，只包括极少的与硬件有关的成分，C 语言不直接提供输入和输出语句、有关文件操作的语句和动态内存管理的语句等</p>
-</li>
-<li><p>运算符丰富</p>
-<p>C 语言的运算符包含的范围很广泛，共有 34 种运算符。C 语言把括号、赋值和强制类型转换等都作为运算符处理，从而使 C 语言的运算类型极其丰富，表达式类型多样化</p>
-</li>
-<li><p>数据类型丰富</p>
-<p>C 语言提供的数据类型包括：整型、浮点型、字符型、数组类型、指针类型、结构体类型和共用体类型等，C99 又扩充了复数浮点类型、超长整型和布尔类型等。尤其是指针类型数据，使用十分灵活和多样化，能用来实现各种复杂的数据结构（如链表、树、栈等）的运算</p>
-</li>
-<li><p>具有结构化的控制语句</p>
-<p>如 if…else 语句、do…while 语句、switch 语句和 for 语句等。用函数作为程序的模块单位，便于实现程序的模块化。C 语言是完全模块化和结构化的语言</p>
-</li>
-<li><p>语法限制不太严格，程序设置自由度大</p>
-</li>
-<li><p>C 语言允许直接访问物理地址，能进行位操作，能实现汇编语言的大部分功能，可以直接对硬件进行操作</p>
-</li>
-<li><p>用 C 语言编写的程序可移植性好</p>
-</li>
-<li><p>生成目标代码质量高，程序执行效率高</p>
-</li>
+        <p>实现跨域常用的有三种： JSONP、CORS 和 postMessage</p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p>原生 JavaScript 和 jQuery 都可以进行 JSONP 请求</p>
+<p>可以通过动态创建 script 标签的方式来进行 JSONP 请求：</p>
+<h3 id="原生-JavaScript"><a href="#原生-JavaScript" class="headerlink" title="原生 JavaScript"></a>原生 JavaScript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">script.src = <span class="string">'http://www.xxx.com?callback=callback'</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: <span class="string">'http://www.xxx.com'</span>,</span><br><span class="line">  type: <span class="string">'GET'</span>,</span><br><span class="line">  dataType: <span class="string">'jsonp'</span>,</span><br><span class="line">  jsonpCallback: <span class="string">'callback'</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>兼容性好，不需要 XMLHttpRequest 或 ActiveX 的支持</li>
+<li>在请求完毕后可以通过调用 callback 的方式回传结果</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>只能实现 GET 请求</li>
+<li>不能解决不同域的两个页面之间如何进行 JavaScript 调用的问题</li>
+<li>JSONP 在调用失败的时候不会返回各种 HTTP 状态码</li>
+<li>有一定的安全风险</li>
+</ol>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>实现 CORS 只需要添加一些 HTTP 头部就可以实现</p>
+<p>CORS 需要浏览器和服务器同时支持</p>
+<h3 id="简单-CORS-请求"><a href="#简单-CORS-请求" class="headerlink" title="简单 CORS 请求"></a>简单 CORS 请求</h3><p>简单请求需要满足：</p>
+<ul>
+<li>请求方式为 HEAD、POST 或者 GET</li>
+<li>http 头信息不超出一下字段：<code>Accept</code>、<code>Accept-Language</code>、 <code>Content-Language</code>、 <code>Last-Event-ID</code>、 <code>Content-Type</code>(限于三个值：<code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code>、<code>text/plain</code>)</li>
 </ul>
-<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p><strong>注意</strong>：在 C 语言中，所有关键字都是小写的</p>
-<p>ANSIC 有 32 个关键字：</p>
-<table>
-<thead>
-<tr>
-<th>数据类型关键字</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>char</td>
-<td>声明字符型变量或函数</td>
-</tr>
-<tr>
-<td>double</td>
-<td>声明双精度变量或函数</td>
-</tr>
-<tr>
-<td>enum</td>
-<td>声明枚举类型</td>
-</tr>
-<tr>
-<td>float</td>
-<td>声明浮点型变量或函数</td>
-</tr>
-<tr>
-<td>int</td>
-<td>声明整型变量或函数</td>
-</tr>
-<tr>
-<td>long</td>
-<td>声明长整型变量或函数</td>
-</tr>
-<tr>
-<td>short</td>
-<td>声明短整型变量或函数</td>
-</tr>
-<tr>
-<td>signed</td>
-<td>声明有符号类型变量或函数</td>
-</tr>
-<tr>
-<td>struct</td>
-<td>声明结构体变量或函数</td>
-</tr>
-<tr>
-<td>union</td>
-<td>声明共用体（联合）数据类型</td>
-</tr>
-<tr>
-<td>unsigned</td>
-<td>声明无符号类型变量或函数</td>
-</tr>
-<tr>
-<td>void</td>
-<td>声明函数无返回值或无参数，声明无类型指针</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>控制语句关键字</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>for</td>
-<td>一种循环语句(可意会不可言传）</td>
-</tr>
-<tr>
-<td>do</td>
-<td>循环语句的循环体</td>
-</tr>
-<tr>
-<td>while</td>
-<td>循环语句的循环条件</td>
-</tr>
-<tr>
-<td>break</td>
-<td>跳出当前循环</td>
-</tr>
-<tr>
-<td>continue</td>
-<td>结束当前循环，开始下一轮循环</td>
-</tr>
-<tr>
-<td>if</td>
-<td>条件语句</td>
-</tr>
-<tr>
-<td>else</td>
-<td>条件语句否定分支（与 if 连用）</td>
-</tr>
-<tr>
-<td>goto</td>
-<td>无条件跳转语句</td>
-</tr>
-<tr>
-<td>switch</td>
-<td>用于开关语句</td>
-</tr>
-<tr>
-<td>case</td>
-<td>开关语句分支</td>
-</tr>
-<tr>
-<td>default</td>
-<td>开关语句中的“其他”分支</td>
-</tr>
-<tr>
-<td>return</td>
-<td>子程序返回语句（可以带参数，也看不带参数）</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>存储类型关键字</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>auto</td>
-<td>声明自动变量 一般不使用</td>
-</tr>
-<tr>
-<td>extern</td>
-<td>声明变量是在其他文件正声明（也可以看做是引用变量）</td>
-</tr>
-<tr>
-<td>register</td>
-<td>声明积存器变量</td>
-</tr>
-<tr>
-<td>static</td>
-<td>声明静态变量</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>其他关键字</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>const</td>
-<td>声明只读变量</td>
-</tr>
-<tr>
-<td>sizeof</td>
-<td>计算数据类型长度</td>
-</tr>
-<tr>
-<td>typedef</td>
-<td>用以给数据类型取别名（当然还有其他作用）</td>
-</tr>
-<tr>
-<td>volatile</td>
-<td>说明变量在程序执行中可被隐含地改变</td>
-</tr>
-</tbody>
-</table>
+<p>在简单请求的条件下，浏览器会自动在头部信息中添加一个 Origin 字段表示请求源头。<code>Access-Control-Allow-Origin</code> 字段表示该资源可以被任意外部域访问</p>
+<p>如果 Origin 源头不允许跨域访问，那么服务器会返回正常的 HTTP 响应，响应头不包含 <code>Access-Control-Allow-Origin</code>，于是抛出错误，但是响应的状态码可能是 200</p>
+<p>如果允许跨域访问，响应头会有如下字段：</p>
+<ul>
+<li><code>Access-Control-Allow-Origin</code> 要么是 Origin 的值，要么是*</li>
+<li><code>Access-Control-Allow-Credentials</code> 布尔值，表示是否允许发送 Cookie，默认为 true</li>
+<li><code>Access-Control-Expose-Headers</code></li>
+</ul>
+<h3 id="非简单-CORS-请求"><a href="#非简单-CORS-请求" class="headerlink" title="非简单 CORS 请求"></a>非简单 CORS 请求</h3><p>非简单请求需要满足：</p>
+<ul>
+<li>请求方式为 PUT、DELETE、CONNECT、OPTIONS、TRACE 或者 PATCH</li>
+<li>人为设置了 CORS 相关字段之外的其他首部字段，如 <code>Content-Type</code>、<code>Content-Language</code>等等</li>
+<li><code>Content-Type</code> 不属于 <code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code> 和 <code>text/plain</code></li>
+</ul>
+<p>当浏览器发现这个请求不是一个简单请求，就会发出一个预先检测的 OPTIONS 请求，询问服务器是否可以接受这样的请求</p>
+<p>请求头中同样包含 Origin 字段</p>
+<p>如果服务器允许该请求，返回的响应头类似这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Mon, 01 Dec 2008 01:15:39 GMT</span><br><span class="line">Server: Apache/2.0.61 (Unix)</span><br><span class="line">Access-Control-Allow-Origin: http://www.XXX.com</span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT // 服务器支持的请求列表</span><br><span class="line">Access-Control-Allow-Credentials: true</span><br><span class="line">Access-Control-Max-Age: 1728000 // 可选，用来指定本次预检请求的有效期，单位为秒</span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Length: 0</span><br><span class="line">Keep-Alive: timeout=2, max=100</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Type: text/plain</span><br></pre></td></tr></table></figure>
+<p>如果请求被服务器拒绝，也会返回正常的 HTTP 回应，但不包含任何 CORS 相关头信息，浏览器就会报错</p>
+<p>一旦通过了 OPTIONS 请求，之后的每次 CORS 请求都和简单请求一样</p>
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>支持所有类型的 HTTP 请求</li>
+<li>CORS 可以通过 onerror 事件监听错误，并且浏览器控制台会看到报错信息</li>
+<li>相对 JSONP 更安全</li>
+</ol>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>兼容性差</li>
+<li>对于复杂请求，CORS 会发两次请求</li>
+</ol>
+<h2 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h2><p>window.postMessage(message,targetOrigin) 方法是 html5 新引进的特性，可以使用它来向其它的 window 对象发送消息，无论这个 window 对象是属于同源或不同源</p>
+<p>postMessage 适用于：</p>
+<ul>
+<li>页面和其打开的新窗口的数据传递</li>
+<li>多窗口之间消息传递</li>
+<li>页面与嵌套的 iframe 消息传递</li>
+<li>上面三个问题的跨域数据传递</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">otherWindow.postMessage(data, origin, [transfer])</span><br></pre></td></tr></table></figure>
+<p>data 指的是要传递的数据，html5 规范中提到该参数可以是 JavaScript 的任意基本类型或可复制的对象</p>
+<p>origin 指的是目标窗口的源，协议+主机+端口号[+URL]，URL 会被忽略，所以可以不写，这个参数是为了安全考虑，postMessage()方法只会将 message 传递给指定窗口，当然如果愿意也可以建参数设置为<code>&quot;*&quot;</code>，这样可以传递给任意窗口，如果要指定和当前窗口同源的话设置为<code>&quot;/&quot;</code></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
-            </p><p>原文链接：<a href="https://longgererer.github.io/2019/07/14/专插本C语言笔记/">https://longgererer.github.io/2019/07/14/专插本C语言笔记/</a>
-            </p><p>发表日期：<a href="https://longgererer.github.io/2019/07/14/专插本C语言笔记/">July 14th 2019, 4:49:11 pm</a>
-            </p><p>更新日期：<a href="https://longgererer.github.io/2019/07/14/专插本C语言笔记/">July 14th 2019, 6:34:19 pm</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2020/05/19/跨域请求方案/">https://longgererer.github.io/2020/05/19/跨域请求方案/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2020/05/19/跨域请求方案/">May 19th 2020, 9:05:42 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2020/05/19/跨域请求方案/">May 20th 2020, 9:31:11 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -612,16 +480,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/07/24/SASS学习笔记/" title="SASS学习笔记">
-                    <div class="nextTitle">SASS学习笔记</div>
+                <a href="/2020/05/20/web-workers详解/" title="Web Workers详解">
+                    <div class="nextTitle">Web Workers详解</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/07/13/浏览器的缓存机制/" title="浏览器的缓存机制">
-                    <div class="prevTitle">浏览器的缓存机制</div>
+                <a href="/2020/04/25/JS继承/" title="JS继承">
+                    <div class="prevTitle">JS继承</div>
                 </a>
             
         </li>
@@ -720,6 +588,10 @@ height:50vh;
     <div class="copyright">
         <span id="hexo-power">Copyright © <a href="https://hexo.io/" target="_blank">2019</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">lliiooiill <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank"></a></span>
     </div>
+    <div class="beian">
+      <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+      <a href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">黑ICP备19007665号-1</a>
+    </div>
     <!-- 不蒜子  -->
     
     <div class="busuanzi-container">
@@ -748,7 +620,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#历史背景"><span class="toc-number">1.</span> <span class="toc-text">历史背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-number">2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键字"><span class="toc-number">3.</span> <span class="toc-text">关键字</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-number">1.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原生-JavaScript"><span class="toc-number">1.1.</span> <span class="toc-text">原生 JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery"><span class="toc-number">1.2.</span> <span class="toc-text">jQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-number">1.3.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">1.4.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS"><span class="toc-number">2.</span> <span class="toc-text">CORS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单-CORS-请求"><span class="toc-number">2.1.</span> <span class="toc-text">简单 CORS 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非简单-CORS-请求"><span class="toc-number">2.2.</span> <span class="toc-text">非简单 CORS 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点-1"><span class="toc-number">2.3.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点-1"><span class="toc-number">2.4.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#postMessage"><span class="toc-number">3.</span> <span class="toc-text">postMessage</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1108,9 +980,107 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 49
+        Total : 63
         </div>
         <!-- search  -->
         
@@ -1121,8 +1091,87 @@ top:50vh;
     
     
     
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href="/2020/05/20/web-workers详解/">Web Workers详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2020/05/19/跨域请求方案/">跨域请求方案</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href="/2020/04/25/JS继承/">JS继承</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href="/2020/04/23/前端面试题之CSS/">前端面试题之CSS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/前端面试题之HTML/">前端面试题之HTML</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/学习websocket/">学习WebSocket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/文件断点上传/">文件断点上传</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/Webpack生命周期/">Webpack生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href="/2020/04/09/完整的通讯流程/">完整的通讯流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href="/2020/01/04/koa2框架入门/">koa2框架入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href="/2020/01/01/nginx配置/">nginx配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href="/2020/01/01/Linux服务器常用指令/">Linux服务器常用指令</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href="/2019/12/11/排序算法详解/">排序算法详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2019/11/30/数据库系统概论笔记/">数据库系统概论笔记</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1226,7 +1275,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">07/14</span><a class="archive-post-title" href="/2019/07/14/专插本C语言笔记/">专插本C语言笔记</a>
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href="/2019/07/14/C语言笔记/">C语言笔记</a>
         </li>
     
     
@@ -1374,21 +1423,21 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
-    
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+        <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
-        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
+    
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
         <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
@@ -1398,21 +1447,33 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="C语言"><span class="iconfont-archer">&#xe606;</span>C语言</span>
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+    
+        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
