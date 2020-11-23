@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="lliiooiill">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="lliiooiill">
+    
+    <meta name="keywords" content="IT 技术 JS 前端 互联网 网页 - hexo - 'hexo-theme' - 'hexo-blog'">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>前端面试题汇总 · lliiooiill的学习记录分享</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">lliiooiill的学习记录分享.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">前端面试题汇总</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">lliiooiill的学习记录分享.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/784001.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            前端面试题汇总
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="浏览器">浏览器</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="兼容性">兼容性</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="框架">框架</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="HTML">HTML</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">4.3k</span>阅读时长: <span class="post-count reading-time">15 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/06/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>##　兼容性</p>
+<p><strong>主流浏览器及内核：</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome</td>
+<td>Webkit 内核/Blink 内核</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Gecko 内核</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Webkit 内核</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>Trident 内核</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>Presto 内核/Webkit 内核/Blink 内核</td>
+</tr>
+<tr>
+<td>360、猎豹</td>
+<td>Trident+Webkit 双内核</td>
+</tr>
+<tr>
+<td>搜狗、遨游、QQ</td>
+<td>Trident(兼容模式)+Webkit(高速模式)</td>
+</tr>
+<tr>
+<td>百度、世界之窗</td>
+<td>Trident 内核</td>
+</tr>
+<tr>
+<td>2345</td>
+<td>Trident 内核/Trident+Webkit 双内核</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>内核</th>
+<th>前缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>opera</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>-webkit-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常见兼容问题"><a href="#常见兼容问题" class="headerlink" title="常见兼容问题"></a>常见兼容问题</h3><p>解决 IE9 以下的浏览器不能使用 opacity：<code>filter:alpha(opacity=50);</code></p>
+<p>不同浏览器的默认 margin 和 padding 不同：<code>*{margin: 0;padding: 0;}</code></p>
+<p>事件：</p>
+<ul>
+<li>添加事件：<code>addEventListener/attachEvent</code></li>
+<li>移除事件句柄：<code>removeEventListener/detachEvent/elem[&#39;on&#39;+type]=null</code></li>
+<li>取消默认事件：<code>preventDefault/returnValue=false</code></li>
+<li>阻止冒泡：<code>stopPropagation/cancelBubble=true</code></li>
+<li>非 chrome 浏览器 scrollTop：<code>document.documentElement.scrollTop</code></li>
+<li>new Date：<code>2019-1-1这样的格式不能在所有浏览器中都用new Date(str)生成正确的日期对象，应该用2019/1/1</code></li>
+</ul>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><p>BOM(浏览器对象模型)，它的核心是 window 对象，表示当前浏览器实例</p>
+<p>BOM 中有许多对象</p>
+<ul>
+<li>Document<ul>
+<li>document 既属于 DOM 也属于 BOM 对象，document 由一系列集合构成，可以访问文档的各个部分，指向当前窗口内的文档节点。</li>
+</ul>
+</li>
+<li>Location<ul>
+<li>Location 对象包含有关文档当前位置的信息，表示载入窗口的 URL，还可以解析 URI。</li>
+<li>应用: 导航到一个新页面。</li>
+</ul>
+</li>
+<li>Navigator<ul>
+<li>Navigator 包含大量 Web 浏览器相关的信息。</li>
+<li>应用: 检测浏览器名称及版本。</li>
+</ul>
+</li>
+<li>Screen<ul>
+<li>表示一个屏幕窗口，往往指的是当前正在被渲染的 window 对象，可以获取用户屏幕相关的信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="BOM-和-DOM-有什么区别"><a href="#BOM-和-DOM-有什么区别" class="headerlink" title="BOM 和 DOM 有什么区别"></a>BOM 和 DOM 有什么区别</h3><p>DOM 是文档对象模型，用来获取或设置文档中的标签及其属性。</p>
+<p>BOM 是浏览器对象模型，用来获取或设置浏览器的属性、行为。例如：新建窗口、获取屏幕分辨率、浏览器版本号等。</p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="行内元素和块级元素"><a href="#行内元素和块级元素" class="headerlink" title="行内元素和块级元素"></a>行内元素和块级元素</h3><h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><p>行内元素有：span, a, br, img, i, input, textarea, select 等</p>
+<ol>
+<li>和其它元素排在一行</li>
+<li>高度、宽度以及内边距都是不可控的</li>
+<li>宽高就是内容的高度，不可以改变</li>
+<li>行内元素只能包含行内元素，不能包含块级元素</li>
+</ol>
+<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><p>块级元素有：address, h1-h6, hr, p, pre, ul, ol, dl, table, form, div 等</p>
+<ol>
+<li>总是从新的一行开始</li>
+<li>高度、宽度都是可控的</li>
+<li>宽度没有设置时，默认为 100%</li>
+<li>块级元素中可以包含块级元素和行内元素</li>
+</ol>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="DOM-事件"><a href="#DOM-事件" class="headerlink" title="DOM 事件"></a>DOM 事件</h3><p>DOM 事件分为：DOM0 级事件，DOM2 级事件，DOM3 级事件。</p>
+<p>DOM0 级事件是最原始的事件处理方式，将事件定义在标签内，这种方式的事件函数名和 JS 中的函数名有强烈的耦合性，修改不方便。同一事件无法绑定多个函数。</p>
+<p>DOM2 级事件弥补了 DOM0 的缺点，可以通过 addEventListener 对同一事件绑定多个函数。</p>
+<p>DOM3 级事件没有新增绑定事件的方法，但是添加了许多事件类型。比如页面滚动事件(scroll)，取得，失去焦点事件(focus, blur)，滚轮事件(mousewheel)，键盘事件(keydown,keypress)等。</p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="HTTP-协议"><a href="#HTTP-协议" class="headerlink" title="HTTP 协议"></a>HTTP 协议</h3><p>HTTP 协议，也就是超文本传输协议。</p>
+<p>HTTP 基于 TCP/IP 通信协议来传递数据(HTML 文件，图片，查询结果)等等。</p>
+<p>HTTP 属于应用层的面向对象协议，工作于客户端-服务端架构之上。</p>
+<p>HTTP1.0,HTTP1.1,HTTP2.0 协议对比如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HTTP1.0</th>
+<th>HTTP1.1</th>
+<th>HTTP2.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOST 头</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>RANGE 头</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>长连接</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>请求方法</td>
+<td>GET HEAD POST</td>
+<td>以上+OPTIONS PUT DELETE TRACE CONNECT</td>
+<td>全部</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>Expire Last-Modefied Pragma</td>
+<td>以上+ETag Cache-Control</td>
+<td>全部</td>
+</tr>
+<tr>
+<td>HEADER 压缩</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>多路复用</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>服务器推送</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Range"><a href="#Range" class="headerlink" title="Range"></a>Range</h4><p>Range 是针对 HTTP1.0 的浪费现象的一个解决方案。如：断点续传，有了 Range，客户端可以知道本地下载的进度，转而向服务器请求剩下的文件信息。节约了用户的时间，也防止服务器重复地传数多于数据造成的带宽浪费。</p>
+<h4 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h4><p>HTTP1.0 的时候，浏览器和服务器只能保持短暂的连接，浏览器对服务器的每次请求都要建立一个 TCP 连接，TCP 连接需要三次握手，如果页面中有太多的资源需要请求就会大大降低访问速度。HTTP1.1 使用长连接解决了这个问题，超时无内容传输的时候才会断开连接，多个请求可以使用一个 TCP 连接，提升了访问速度。</p>
+<h4 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h4><p>多路复用是 HTTP2.0 使用的技术，就是同一个连接并发处理多个请求，而且并发请求的数量比 HTTP1.1 大了好几个数量级。<br>chrome 浏览器每个页面最多允许建立 6 个 TCP 连接，发起请求-&gt;服务端处理-&gt;响应请求这样算是完成了一个浏览器请求。<br>如果一个页面发起太多请求可能会把 6 个 TCP 连接全部占用，阻塞后面的请求，降低响应速度。<br>HTTP2 采用多路复用指的是在同一个域名下，开启一个 TCP 的连接，请求以 stream 的方式传输，每个 stream 都有唯一标识，一旦建立了连接，后续的请求都可以复用这个连接，并且可以同时发送，服务器端根据 stream 的唯一标识来对应相应的请求，解决了请求阻塞的问题。</p>
+<h4 id="数据压缩"><a href="#数据压缩" class="headerlink" title="数据压缩"></a>数据压缩</h4><p>HTTP2.0 支持 HPACK 算法对头部数据进行压缩，数据体积小了传输速度会更快。</p>
+<h4 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a>服务器推送</h4><p>如果我们对支持 HTTP2.0 的 web server 请求数据的时候，服务器会顺便把一些客户需要的资源一起推送到客户端，免得客户再次创建连接请求服务器，适合加载静态资源。</p>
+<h4 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h4><p>Cache-Control 表示浏览器使用缓存，不向服务器发请求。</p>
+<p>只有请求相同的 url 才会利用之前的缓存，那么我在 http 的请求路径上加上一个查询参数就可以了，每次更新 css，js，只要变化查询参数就行了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/default.css?version=1"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--只要每次带上不同的查询参数就好，服务器不会解析后面的参数--&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>HTTP1.0 中出现了 Expires，值为格林威治时间，表示资源的过期时间，但这个时间依赖于本地时间，如果本地时间修改了，可能造成缓存失败。</p>
+<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><p>Cache-Control 出现于 HTTP / 1.1，优先级高于 Expires ,表示的是相对时间。</p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><p>ETag 是 HTTP1.1 协议请求头中的一个字段。</p>
+<p>当浏览器请求服务器的某项资源，服务器根据资源用 MD5 算出一个哈希值，并通过 ETag 返回给浏览器，浏览器吧 ETag 的值和资源同时缓存在本地，如果下次再次请求相同的资源，会通过 If-None-Match 字段将 ETag 发给服务器，服务器再次计算资源的哈希值，如果相同就返回一个 304 表示未修改，这时命中协商缓存，浏览器调用本地缓存。通过 Cache-Control 可以节省服务器的带宽。</p>
+<p>为什么使用 ETag：</p>
+<ul>
+<li>一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新 GET</li>
+<li>某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说 1s 内修改了 N 次)，If-Modified-Since 能检查到的粒度是 s 级的，这种修改无法判断(或者说 UNIX 记录 MTIME 只能精确到秒)</li>
+<li>某些服务器不能精确的得到文件的最后修改时间</li>
+</ul>
+<h4 id="Last-Modefied"><a href="#Last-Modefied" class="headerlink" title="Last-Modefied"></a>Last-Modefied</h4><p>Last-Modefied 代表服务器端文件的最后修改时间，当浏览器发起请求时，会向服务端发送 If-modefied-Since 报头，询问在 Last-Modefied 之后有没有被修改过。如果没有修改过，则返回 304 使用缓存，如果修改过，则向服务器请求资源，返回 200。</p>
+<p>但是如果本地打开缓存文件，会导致 Last-Modefied 被修改，所以在 HTTP/1.1 中引入 Etag。</p>
+<h4 id="强缓存和协商缓存"><a href="#强缓存和协商缓存" class="headerlink" title="强缓存和协商缓存"></a>强缓存和协商缓存</h4><p>浏览器在加载资源的时候会根据请求头的 Expires 和 Cache-Control 判断是否命中强缓存，如果命中，直接从缓存读取资源，不向服务器发起请求。</p>
+<p>如果强缓存没有命中，浏览器一定会像服务器发起请求，通过 Last-Modefied 和 ETag 判断资源是否命中协商缓存，如果资源没有更新，返回 304，浏览器读取缓存中的资源，如果没有命中，返回 200，从服务器加载资源。</p>
+<h4 id="如何选择合适的缓存策略"><a href="#如何选择合适的缓存策略" class="headerlink" title="如何选择合适的缓存策略"></a>如何选择合适的缓存策略</h4><ol>
+<li>Cache-Control —— 请求服务器之前</li>
+<li>Expires —— 请求服务器之前</li>
+<li>If-None-Match (Etag) —— 请求服务器</li>
+<li>If-Modified-Since (Last-Modified) —— 请求服务器</li>
+</ol>
+<h3 id="TCP-和-UDP"><a href="#TCP-和-UDP" class="headerlink" title="TCP 和 UDP"></a>TCP 和 UDP</h3><p>为什么要四次挥手？</p>
+<ul>
+<li>第一次挥手，客户端向服务器发送 FIN 报文请求断开连接</li>
+<li>第二次挥手，服务器向客户端发送 ACK 报文表示收到请求</li>
+<li>第三次挥手，服务器向客户端发送 FIN 报文表示可以断开连接</li>
+<li>第四次挥手，客户端向服务器发送 ACK 报文表示收到</li>
+</ul>
+<p>为什么第二次和第三次不能合并成一次挥手呢？</p>
+<p>因为服务器收到 FIN 报文之后，可能还需要发一些信息给客户端，不能马上断开连接，因此需要服务器操作完毕再发送 FIN 报文给客户端。</p>
+<p>然而，如果服务器端也没有信息需要发送，ACK 和 FIN 会合并成一次挥手。</p>
+<p>如果只有三次挥手，就不能支持半关闭了，当客户端执行 close 函数后会向服务器端发出 FIN 消息，服务器端操作系统接收到该信息后向服务器进程发出 EOF(end of file)，这时服务器无论调用 send 还是 recv 都会失败，此时服务器端认为客户端已经关闭了连接，因此调用 close 函数关闭同客户端的连接，当客户端接收到 FIN 信息后进行 ACK 回复确认，整个四次挥手的过程完毕。</p>
+<p>为什么需要三次握手？</p>
+<ul>
+<li>第一次握手，客户端发送 SYN 请求报文，并进入 SYN SENT 状态，等待服务器确认。</li>
+<li>第二次握手，服务器接收到 SYN 报文后，返回 ACK 并且发送一个 SYN 报文，并进入 SYN RCVD 状态。</li>
+<li>第三次握手，客户端收到 ACK 和 SYN 后，需要返回一个应答 ACK 报文，此时该连接进入半连接状态的队列，当服务器端收到 ACK 后，双反进入 ESTABLISHED 状态。</li>
+</ul>
+<p>第一次握手发送报文丢失怎么办？</p>
+<p>客户端发送报文之后会启动一个定时器，超时之后未收到服务器的确认，就会再次发起 SYN 请求，尝试时间是上一次的两倍，如果总尝试时间为 75 秒，则建立连接失败。</p>
+<p>为什么第二次握手要法 ACK 和 SYN 两个报文？</p>
+<p>因为 TCP 是全双工通信，协议规定收到建立连接请求后必须返回一个序列号，同时建立本端到对端的通信连接，也叫做捎带应答机制。</p>
+<p>第二次发送报文丢失怎么办？</p>
+<p>在发送完 ACK+SYN 报文后会启动一个定时器，超时没有收到 ACK 确认，会再次发送，会进行多次重试。</p>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><h4 id="XMLHttpRequest-的缺陷"><a href="#XMLHttpRequest-的缺陷" class="headerlink" title="XMLHttpRequest 的缺陷"></a>XMLHttpRequest 的缺陷</h4><p>XMLHttpRequest 标准分为两个版本</p>
+<p>老版本主要缺陷如下：</p>
+<ul>
+<li>受同源策略的限制，不能发送跨域请求</li>
+<li>不能发送二进制文件（如图片、视频、音频等），只能发送纯文本数据</li>
+<li>在发送和获取数据的过程中，无法实时获取进度信息，只能判断是否完成</li>
+</ul>
+<p>新版本对老版本的缺陷进行了优化，新增了以下功能：</p>
+<ul>
+<li>可以发送跨域请求，在服务端允许的情况下</li>
+<li>支持发送和接收二进制数据</li>
+<li>新增 formData 对象，支持发送表单数据</li>
+<li>发送和获取数据时，可以获取进度信息</li>
+<li>可以设置请求的超时时间</li>
+</ul>
+<h4 id="单工，半双工，全双工"><a href="#单工，半双工，全双工" class="headerlink" title="单工，半双工，全双工"></a>单工，半双工，全双工</h4><p><strong>单工</strong>：只支持数据在一个方向上传输；在同一时间只有一方能接受或发送信息，不能实现双向通信，举例：电视，广播。</p>
+<p><strong>半双工</strong>：允许数据在两个方向上传输,但是,在某一时刻,只允许数据在一个方向上传输,它实际上是一种切换方向的单工通信；在同一时间只可以有一方接受或发送信息，可以实现双向通信。举例：对讲机。</p>
+<p><strong>全双工</strong>：允许数据同时在两个方向上传输,因此,全双工通信是两个单工通信方式的结合,它要求发送设备和接收设备都有独立的接收和发送能力；在同一时间可以同时接受和发送信息，实现双向通信，举例：电话通信。</p>
+<h2 id="同步和异步"><a href="#同步和异步" class="headerlink" title="同步和异步"></a>同步和异步</h2><h3 id="AJAX-1"><a href="#AJAX-1" class="headerlink" title="AJAX"></a>AJAX</h3><p>AJAX 是一个创建交互式网页应用的开发技术，可以在不用刷新浏览器的情况下，与服务器进行异步通讯技术。</p>
+<p>AJAX 的核心是 JavaScript 对象 XmlHttpRequest。</p>
+<p>XmlHttpRequest 的作用是向服务器提出请求并处理响应，而不阻塞用户操作，可以在页面加载以后进行页面的局部更新。</p>
+<p>XmlHttpRequest 常用方法和属性：</p>
+<ul>
+<li>open(method, url, boolean, username, password)<ul>
+<li>该方法创建 http 请求</li>
+<li>第一个参数是指定提交方式(post、get)</li>
+<li>第二个参数是指定要提交的地址是哪</li>
+<li>第三个参数是指定是异步还是同步(true 表示异步，false 表示同步)</li>
+<li>第四和第五参数在 http 认证的时候会用到。是可选的</li>
+</ul>
+</li>
+<li>send(content)<ul>
+<li>如果是 get 方式，并不需要填写参数，或填写 null</li>
+<li>如果是 post 方式，把要提交的参数写上去</li>
+</ul>
+</li>
+<li>setRequestHeader(header, value)<ul>
+<li>设置消息头（使用 post 方式才会使用到，get 方法并不需要调用该方法）</li>
+</ul>
+</li>
+<li>getAllResponseHeaders()</li>
+<li>getResponseHeader(header)</li>
+<li>abort()</li>
+</ul>
+<p>AJAX 实现流程：</p>
+<ul>
+<li>创建 XMLHttpRequest 对象,也就是创建一个异步调用对象</li>
+<li>创建一个新的 HTTP 请求,并指定该 HTTP 请求的方法、URL 及验证信息</li>
+<li>设置响应 HTTP 请求状态变化的函数</li>
+<li>发送 HTTP 请求</li>
+<li>获取异步调用返回的数据</li>
+<li>使用 JavaScript 和 DOM 实现局部刷新</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">  <span class="comment">//在IE6以上的版本以及其他内核的浏览器(Mozilla)等</span></span><br><span class="line">  httpRequest = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">//在IE6以下的版本</span></span><br><span class="line">  httpRequest = <span class="keyword">new</span> ActiveXObject()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建http请求</span></span><br><span class="line">httpRequest.open(<span class="string">'POST'</span>, <span class="string">'Servlet1'</span>, <span class="literal">true</span>)</span><br><span class="line"><span class="comment">//因为我使用的是post方式，所以需要设置消息头</span></span><br><span class="line">httpRequest.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>)</span><br><span class="line"><span class="comment">//指定回调函数</span></span><br><span class="line">httpRequest.onreadystatechange = response22</span><br><span class="line"><span class="comment">//得到文本框的数据</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="built_in">document</span>.getElementById(<span class="string">'username'</span>).value</span><br><span class="line"><span class="comment">//发送http请求，把要检测的用户名传递进去</span></span><br><span class="line">httpRequest.send(<span class="string">'username='</span> + name)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">response22</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//判断请求状态码是否是4【数据接收完成】</span></span><br><span class="line">  <span class="keyword">if</span> (httpRequest.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="comment">//再判断状态码是否为200【200是成功的】</span></span><br><span class="line">    <span class="keyword">if</span> (httpRequest.status == <span class="number">200</span>) &#123;</span><br><span class="line">      <span class="comment">//得到服务端返回的文本数据</span></span><br><span class="line">      <span class="keyword">var</span> text = httpRequest.responseText</span><br><span class="line">      <span class="comment">//把服务端返回的数据写在div上</span></span><br><span class="line">      <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'result'</span>)</span><br><span class="line">      div.innerText = text</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何解决跨域问题"><a href="#如何解决跨域问题" class="headerlink" title="如何解决跨域问题"></a>如何解决跨域问题</h3><p>协议、域名、端口都相同才同域，否则都是跨域</p>
+<h2 id="HTML-1"><a href="#HTML-1" class="headerlink" title="HTML"></a>HTML</h2><h3 id="meta-标签都有什么作用"><a href="#meta-标签都有什么作用" class="headerlink" title="meta 标签都有什么作用"></a>meta 标签都有什么作用</h3><ul>
+<li>页面关键词<ul>
+<li><code>&lt;meta name=&quot;keywords&quot; content=&quot;关键词&quot; /&gt;</code></li>
+</ul>
+</li>
+<li>页面描述<ul>
+<li><code>&lt;meta name=&quot;description&quot; content=&quot;想要描述的内容&quot; /&gt;</code></li>
+</ul>
+</li>
+<li>搜索引擎索引方式<ul>
+<li><code>&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot; /&gt;</code></li>
+<li>all：文件将被检索，且页面上的链接可以被查询</li>
+<li>none：文件将不被检索，且页面上的链接不可以被查询</li>
+<li>index：文件将被检索</li>
+<li>follow：页面上的链接可以被查询</li>
+<li>noindex：文件将不被检索</li>
+<li>nofollow：页面上的链接不可以被查询</li>
+</ul>
+</li>
+<li>页面重定向和刷新<ul>
+<li><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=&quot; /&gt;</code></li>
+</ul>
+</li>
+<li>申明编码<ul>
+<li><code>&lt;meta charset=&#39;utf-8&#39; /&gt;</code></li>
+</ul>
+</li>
+</ul>
+<p>除此之外还有很多。</p>
+<h3 id="哪些标签的使用可以有利于-seo"><a href="#哪些标签的使用可以有利于-seo" class="headerlink" title="哪些标签的使用可以有利于 seo"></a>哪些标签的使用可以有利于 seo</h3><p><code>&lt;h&gt;</code> 标签对搜索引擎非常友好，它告诉了搜索引擎这个页面的主题是什么，但是权重一般只到<code>&lt;h3&gt;</code>为止，<code>&lt;h3&gt;</code>以下的标签将不会对 seo 产生影响。</p>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://longgererer.github.io">lliiooiill</a>
+            </p><p>原文链接：<a href="https://longgererer.github.io/2020/06/22/浏览器兼容性/">https://longgererer.github.io/2020/06/22/浏览器兼容性/</a>
+            </p><p>发表日期：<a href="https://longgererer.github.io/2020/06/22/浏览器兼容性/">June 22nd 2020, 2:34:40 pm</a>
+            </p><p>更新日期：<a href="https://longgererer.github.io/2020/06/22/浏览器兼容性/">June 26th 2020, 11:12:32 am</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2020/06/23/Vue面试题/" title="Vue面试题">
+                    <div class="nextTitle">Vue面试题</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2020/05/26/前端面试题之JS/" title="前端面试题之JS">
+                    <div class="prevTitle">前端面试题之JS</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:c2b139460q@163.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Longgererer" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/weChatlliiooiill.jpg">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//www.zhihu.com/people/lliiooiill/activities" class="iconfont-archer zhihu" target="_blank" title="zhihu"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="//segmentfault.com/u/longgererer" class="iconfont-archer segmentFault" target="_blank" title="segmentFault"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Copyright © <a href="https://hexo.io/" target="_blank">2019</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">lliiooiill <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank"></a></span>
+    </div>
+    <div class="beian">
+      <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+      <a href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">黑ICP备19007665号-1</a>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见兼容问题"><span class="toc-number">1.</span> <span class="toc-text">常见兼容问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BOM"><span class="toc-number"></span> <span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM-和-DOM-有什么区别"><span class="toc-number">1.</span> <span class="toc-text">BOM 和 DOM 有什么区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML"><span class="toc-number"></span> <span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#行内元素和块级元素"><span class="toc-number">1.</span> <span class="toc-text">行内元素和块级元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#行内元素"><span class="toc-number">1.1.</span> <span class="toc-text">行内元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#块级元素"><span class="toc-number">1.2.</span> <span class="toc-text">块级元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript"><span class="toc-number"></span> <span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM-事件"><span class="toc-number">1.</span> <span class="toc-text">DOM 事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络"><span class="toc-number"></span> <span class="toc-text">网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-协议"><span class="toc-number">1.</span> <span class="toc-text">HTTP 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Range"><span class="toc-number">1.1.</span> <span class="toc-text">Range</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#长连接"><span class="toc-number">1.2.</span> <span class="toc-text">长连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多路复用"><span class="toc-number">1.3.</span> <span class="toc-text">多路复用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据压缩"><span class="toc-number">1.4.</span> <span class="toc-text">数据压缩</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器推送"><span class="toc-number">1.5.</span> <span class="toc-text">服务器推送</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cache"><span class="toc-number">1.6.</span> <span class="toc-text">cache</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Expires"><span class="toc-number">1.7.</span> <span class="toc-text">Expires</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cache-Control"><span class="toc-number">1.8.</span> <span class="toc-text">Cache-Control</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ETag"><span class="toc-number">1.9.</span> <span class="toc-text">ETag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Last-Modefied"><span class="toc-number">1.10.</span> <span class="toc-text">Last-Modefied</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#强缓存和协商缓存"><span class="toc-number">1.11.</span> <span class="toc-text">强缓存和协商缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何选择合适的缓存策略"><span class="toc-number">1.12.</span> <span class="toc-text">如何选择合适的缓存策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-和-UDP"><span class="toc-number">2.</span> <span class="toc-text">TCP 和 UDP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX"><span class="toc-number">3.</span> <span class="toc-text">AJAX</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#XMLHttpRequest-的缺陷"><span class="toc-number">3.1.</span> <span class="toc-text">XMLHttpRequest 的缺陷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#单工，半双工，全双工"><span class="toc-number">3.2.</span> <span class="toc-text">单工，半双工，全双工</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步和异步"><span class="toc-number"></span> <span class="toc-text">同步和异步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX-1"><span class="toc-number">1.</span> <span class="toc-text">AJAX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何解决跨域问题"><span class="toc-number">2.</span> <span class="toc-text">如何解决跨域问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-1"><span class="toc-number"></span> <span class="toc-text">HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#meta-标签都有什么作用"><span class="toc-number">1.</span> <span class="toc-text">meta 标签都有什么作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哪些标签的使用可以有利于-seo"><span class="toc-number">2.</span> <span class="toc-text">哪些标签的使用可以有利于 seo</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 70
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2020/11/23/每天一个知识点/">每天一个知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href="/2020/06/28/网络协议/">网络协议</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2020/06/27/ES6知识点/">ES6知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href="/2020/06/23/Vue面试题/">Vue面试题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href="/2020/06/22/浏览器兼容性/">前端面试题汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/26</span><a class="archive-post-title" href="/2020/05/26/前端面试题之JS/">前端面试题之JS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href="/2020/05/23/git详解/">git详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/20</span><a class="archive-post-title" href="/2020/05/20/web-workers详解/">Web Workers详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2020/05/19/跨域请求方案/">跨域请求方案</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/25</span><a class="archive-post-title" href="/2020/04/25/JS继承/">JS继承</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href="/2020/04/23/前端面试题之CSS/">前端面试题之CSS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/前端面试题之HTML/">前端面试题之HTML</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2020/04/22/学习websocket/">学习WebSocket</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/文件断点上传/">文件断点上传</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/10</span><a class="archive-post-title" href="/2020/04/10/Webpack生命周期/">Webpack生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/09</span><a class="archive-post-title" href="/2020/04/09/完整的通讯流程/">完整的通讯流程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href="/2020/01/04/koa2框架入门/">koa2框架入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href="/2020/01/01/nginx配置/">nginx配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/01</span><a class="archive-post-title" href="/2020/01/01/Linux服务器常用指令/">Linux服务器常用指令</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href="/2019/12/11/排序算法详解/">排序算法详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2019/11/30/数据库系统概论笔记/">数据库系统概论笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href="/2019/11/15/深入理解原型链/">深入理解原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/13</span><a class="archive-post-title" href="/2019/11/13/初学golang/">初学golang</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span><a class="archive-post-title" href="/2019/10/26/JS常用方法/">JS常用方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/24</span><a class="archive-post-title" href="/2019/10/24/BFC及其应用/">BFC及其应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/22</span><a class="archive-post-title" href="/2019/10/22/前端需要知道的网络知识/">前端需要知道的网络知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/21</span><a class="archive-post-title" href="/2019/10/21/Vue生命周期详解/">Vue生命周期详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/18</span><a class="archive-post-title" href="/2019/10/18/Vue3-0解析/">Vue3.0解析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/12</span><a class="archive-post-title" href="/2019/10/12/Weex入门/">Weex入门</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href="/2019/10/03/代码模块化/">代码模块化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href="/2019/10/01/JS正则表达式/">JS正则表达式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/29</span><a class="archive-post-title" href="/2019/09/29/React工程目录详解/">React工程目录详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href="/2019/09/28/对象深拷贝和浅拷贝/">对象深拷贝和浅拷贝</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href="/2019/09/25/Redux笔记/">Redux笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href="/2019/09/24/React-router/">React-router</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/23</span><a class="archive-post-title" href="/2019/09/23/React-Hook/">React Hook</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/22</span><a class="archive-post-title" href="/2019/09/22/React生命周期/">React生命周期</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/08</span><a class="archive-post-title" href="/2019/09/08/Context/">React Context</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href="/2019/08/20/Window对象属性详解/">Window对象属性详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/03</span><a class="archive-post-title" href="/2019/08/03/Vue技术内幕/">Vue技术内幕</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/SASS学习笔记/">SASS学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/14</span><a class="archive-post-title" href="/2019/07/14/C语言笔记/">C语言笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href="/2019/07/13/浏览器的缓存机制/">浏览器的缓存机制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href="/2019/07/08/JS内存管理/">JS内存管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/06</span><a class="archive-post-title" href="/2019/07/06/14种JavaScript设计模式/">14种JavaScript设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/04</span><a class="archive-post-title" href="/2019/07/04/grid网格布局/">grid网格布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/04</span><a class="archive-post-title" href="/2019/07/04/全面理解CSS媒体查询/">全面理解CSS媒体查询</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href="/2019/06/21/用JS实现最短路径算法/">用JS实现最短路径算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/24</span><a class="archive-post-title" href="/2019/05/24/深度优先遍历和广度优先遍历/">广度优先算法和深度优先算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/22</span><a class="archive-post-title" href="/2019/05/22/前端面试题汇总/">一些重要的前端面试题目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/21</span><a class="archive-post-title" href="/2019/05/21/async-await学习笔记/">async/await学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2019/05/19/Vue路由详解/">Vue路由详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href="/2019/05/19/Vue组件详解/">详解Vue组件化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/12</span><a class="archive-post-title" href="/2019/05/12/axios学习笔记/">Axios学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/Vuex笔记/">Vuex学习笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/07</span><a class="archive-post-title" href="/2019/05/07/TypeScript学习指南/">TypeScript学习指南</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/03</span><a class="archive-post-title" href="/2019/05/03/虚拟DOM和Diff算法/">虚拟DOM和Diff算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/02</span><a class="archive-post-title" href="/2019/05/02/函数柯里化/">函数柯里化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/01</span><a class="archive-post-title" href="/2019/05/01/Object-creat/">Object.create()</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/28</span><a class="archive-post-title" href="/2019/04/28/this的指向/">this的指向</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/23</span><a class="archive-post-title" href="/2019/04/23/DOM事件/">DOM事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href="/2019/04/22/同步和异步/">同步和异步</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href="/2019/03/28/浏览器的回流与重绘/">浏览器的回流与重绘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href="/2019/03/28/函数节流与函数防抖/">函数节流与函数防抖</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/09</span><a class="archive-post-title" href="/2019/03/09/Generator生成器/">Generator生成器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2019/03/07/Promise学后总结/">Promise学后总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/04</span><a class="archive-post-title" href="/2019/03/04/JavaScript设计模式/">JavaScript设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/Webpack4学后总结/">Webpack4学后总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/MVC与MVVM/">MVC与MVVM</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/26</span><a class="archive-post-title" href="/2019/02/26/LHS与RHS/">LHS与RHS</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
+    
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
+    
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+    
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
+    
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+    
+        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
+    
+        <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
+    
+        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
+    
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+    
+        <span class="sidebar-tag-name" data-tags="兼容性"><span class="iconfont-archer">&#xe606;</span>兼容性</span>
+    
+        <span class="sidebar-tag-name" data-tags="框架"><span class="iconfont-archer">&#xe606;</span>框架</span>
+    
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
+        <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "lliiooiill"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
