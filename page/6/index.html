@@ -359,6 +359,271 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/21/async-await学习笔记/">
+            
+                <span>async/await学习笔记</span>
+        </a>
+        <div class="abstract-content">
+            介绍继ES6出现promise之后,再也不用担心回调地狱,但是promise也不是十全十美,async/await可以让异步代码看起来就像同步的一样,这就是要学习它的原因
+首先创建一个简单的 promise:
+1234567891011function getData() &#123;  return new Promise(function(resolve) &#123;    let data = &#123; name: "Tom" &#125;;    resolve(data);  &#125;);&#125;let p = getData();p.then(data =&gt...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/19/Vue路由详解/">
+            
+                <span>Vue路由详解</span>
+        </a>
+        <div class="abstract-content">
+            Vue Router是Vue.js官方的路由管理器。它和Vue.js的核心深度集成，让构建单页面应用变得易如反掌。
+Vue Router的两个重点：
+
+路由跳转
+路由守卫
+全局前置守卫
+独享守卫
+全局解析守卫
+全局后置钩子
+组件内守卫
+
+
+
+路由跳转在Vue创建的项目中，可以选择是否使用vue-router，如果使用，那么项目中会多一个router文件夹，里面有个文件夹index.js，它的结构是这样的：
+1234567891011121314import Vue from "vue";import Router from "vue-router";import Test from "....
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/19/Vue组件详解/">
+            
+                <span>详解Vue组件化</span>
+        </a>
+        <div class="abstract-content">
+            组件化是Vue的一个核心思想，所谓的组件化就是将一个页面拆分成多个组件，每个组件依赖的Css、Js等资源都是独立的，组件和重复使用，也可以嵌套使用
+在一个由Vue搭建的项目中，App.vue是主组件，所有页面都在App.vue下进行切换，所有组件都是App.vue的子组件
+Vue的组件化我个人认为有如下三个重点：
+
+组件化通信
+父子组件间的通信
+父传子
+子传父
+父组件触发子组件方法
+子组件触发父组件方法
+
+
+
+
+prvide &amp; inject
+element-ui 组件库
+
+组件化通信先来说说组件，在 Vue 项目中，除了主组件 App.vue 之外，其他组件都要放到 compo...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/19</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/12/axios学习笔记/">
+            
+                <span>Axios学习笔记</span>
+        </a>
+        <div class="abstract-content">
+            Axios是一个基于 promise 的 HTTP 库，所以学习Axios之前需要先学习promise，Axios可以应用在浏览器和node.js中
+安装npm
+1$ npm install axios
+or yarn
+1$ yarn add axios
+or CDN
+1&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;
+引入 axios
+1import axios from "axios";
+APIaxios 有如下几个 API
+
+
+axios.request(config)
+axi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/12</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Axios">Axios</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/11/Vuex笔记/">
+            
+                <span>Vuex学习笔记</span>
+        </a>
+        <div class="abstract-content">
+            Vuex是一个专为Vue.js应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+状态管理模式看下面的例子：
+1234567891011new Vue(&#123;  data() &#123;    return &#123; count: 0 &#125;;  &#125;,  template: `&lt;div @click="add"&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;`,  methods: &#123;    add() &#123;      thi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vuex">Vuex</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/07/TypeScript学习指南/">
+            
+                <span>TypeScript学习指南</span>
+        </a>
+        <div class="abstract-content">
+            在学习 TypeScript 之前，要了解的是：TypeScript 是 JavaScript 的超集，是 JavaScript 预处理语言，主要提供了类型系统和对 ES6 的支持
+为什么要学习 TypeScript？
+
+可以在编译阶段就发现大部分错误
+增强了编辑器和 IDE 的功能，包括代码补全、接口提示、跳转到定义、重构等
+即使完全用 js 语法写 ts 文件也不会出问题
+即使不显式的定义类型，也能够自动做出类型推论
+即使 TypeScript 编译报错，也可以生成 JavaScript 文件
+
+
+开始学习安装 TypeScript运行如下命令：
+123npm i typescrip...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="TypeScript">TypeScript</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/03/虚拟DOM和Diff算法/">
+            
+                <span>虚拟DOM和Diff算法</span>
+        </a>
+        <div class="abstract-content">
+            React有两个核心概念：虚拟DOM和Diff算法
+首先我们来看看什么是DOM：DOM意思是文档对象模型（Dcoument Object Model），它是一个结构化文本的抽象。对于Web开发者，这个文本是一段HTML代码，DOM也就被叫做HTML DOM。HTML的元素在DOM中变成了节点。DOM是浏览器中的概念，用JS对象表示页面上的元素，并提供了操作DOM对象的API
+那么，什么是虚拟DOM呢？
+虚拟DOM首先说一下，这个虚拟DOM不是React发明的，但是React用了它且免费提供。它是轻量的，是从浏览器特定（Browser-specific，这里意指特定的浏览器需要特定的实现）...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/02/函数柯里化/">
             
                 <span>函数柯里化</span>
@@ -439,233 +704,6 @@ Object.create(null)会创建一个拥有空(或者说null)__proto__链接的对�
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/23/DOM事件/">
-            
-                <span>DOM事件</span>
-        </a>
-        <div class="abstract-content">
-            DOM 一共分为四个级别：DOM0 级，DOM1 级，DOM2 级和 DOM3 级DOM 事件有三种：DOM0 级事件处理，DOM2 级事件处理和 DOM3 级事件处理如下图：
-
-DOM0 级事件123456&lt;button onclick="func"&gt;点我&lt;/button&gt;&lt;script&gt;  function func() &#123;    console.log(1);  &#125;&lt;/script&gt;
-这是 HTML 的事件处理，是最早的一种事件处理方式，也是最不推荐的一种。因为标签内事件所触发的函数名称和 JS 中的函数有强烈的耦...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/22/同步和异步/">
-            
-                <span>同步和异步</span>
-        </a>
-        <div class="abstract-content">
-            首先说说什么是同步，同步可以理解为在执行一个命令（例如函数）的时候，在没有得到返回结果之前，不会执行后续的命令，也就是说调用该命令的人必须主动等待该命令完成，才可执行后续操作。
-什么是异步呢？异步就是不需要等当前命令执行完得到返回值，直接执行下一个命令。
-在 JS 中，本身是没有异步这个特性的，之所以有异步的说法，完全是因为 JS 运行在浏览器的环境上。
-我为什么这么说呢？因为浏览器在执行代码的过程中会将setTimeOut等命令看作是耗时命令，也就是说这些命令需要消耗一定的时间，很有可能会阻塞后续命令的执行（即使setTimeOut设置的是 0ms），一旦发现耗时命令，浏览器便会将它推...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/浏览器的回流与重绘/">
-            
-                <span>浏览器的回流与重绘</span>
-        </a>
-        <div class="abstract-content">
-            写PC端页面的时候，样式可以做得非常花哨，酷炫也不会引起卡顿，但在移动端上受限于机能问题，如果无节制地使用各种CSS动画会导致页面卡顿，这是浏览器的回流与重绘造成的
-浏览器的回流与重绘是什么？reflow：回流，比如说改变了某元素的宽高等会影响页面布局的属性，那么浏览器就会自动回流(重排)页面，所有受影响的元素都需要重新绘制。repaint：重绘，比如说改变了元素的样式风格，但不会改变页面的布局，那浏览器就会发生重绘
-在浏览器中，不管是用JS还是CSS渲染页面都不可避免地要进行以下几个处理：
-
-也就是： JS/CSS =&gt; style(样式) =&gt; Layout(布局) =&...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="回流与重绘">回流与重绘</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/28/函数节流与函数防抖/">
-            
-                <span>函数节流与函数防抖</span>
-        </a>
-        <div class="abstract-content">
-            函数节流
-函数节流就是在指定时间间隔内只执行一次该函数
-
-举个栗子：滚动条滚动事件
-1234567window.addEventListener(  "scroll",  function() &#123;    console.log("页面滚动了");  &#125;,  false);
-该代码的初衷是：用户每滑动一次滚动条，执行一次console.log(&#39;页面滚动了&#39;)，但事实是：
-
-用户只滑动了一次滚动条，就多次触发了scroll事件，因为浏览器每隔一个很短的时间间隔就要判断滚动条的变化，如果执行函数内需要执行 DOM 操作，将会非常消耗资源，这个时候节流函数就...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/28</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/09/Generator生成器/">
-            
-                <span>Generator生成器</span>
-        </a>
-        <div class="abstract-content">
-            Generator 基本用法Promise 解决了异步嵌套的问题，ES6 又推出了 Generator 函数，这是一个新的函数类型，也叫做生成器来看例子：
-123456789101112let x = 1;function a() &#123;  x++;  b();  console.log(x);&#125;a();function b() &#123;  x++;&#125;
-输出结果是什么？毫无疑问会是 3如果我把 b()这条调用函数 b 的行为取消，那结果应该是 2，有没有方法可以做到在取消调用函数 b 之后，仍然可以得到 3 的结果呢？答案就是：Generator
-12345...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Generator">Generator</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/07/Promise学后总结/">
-            
-                <span>Promise学后总结</span>
-        </a>
-        <div class="abstract-content">
-            Promise 是异步编程的一种解决方案，它主要用于解决异步中的回调地狱问题所谓的回调地狱就类似于下面这样：
-12345678910111213function a() &#123;  function b() &#123;    function c() &#123;      function d() &#123;        console.log("123");      &#125;      d();    &#125;    c();  &#125;  b();&#125;a();
-在上述代码中，如果我想执行函数 d，那就必须先要执行函数 c…一直要执行到 a，这样的嵌套...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Promise">Promise</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/03/04/JavaScript设计模式/">
-            
-                <span>JavaScript设计模式</span>
-        </a>
-        <div class="abstract-content">
-            随着前端学习的深入，开发者们的重心逐渐由怎么实现需求转变为如何写出高效，可维护，可读性强的代码那么 JavaScript 设计模式就显得尤为重要了，很多开发者都不知道设计模式的重要性，他们可能有了解过，但并没有将设计模式的思想体现在代码中最后写出的代码无法维护，后悔莫及，跳了几次坑之后才知道用设计模式，实在是不值得
-JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模式构造原型模式动态原型模式寄生构造函数模式稳妥构造函数模式
-工厂模式工厂模式是最常用的一种模式，工厂模式定义一个用于创建对象的接口，至于实例化与否，由子类决定，所以说该模式使一个类的实例化延迟到子类，子类可以...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/04</span>
             </div>
             <!-- tags  -->
             
@@ -1341,9 +1379,58 @@ JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 63
+        Total : 70
         </div>
         <!-- search  -->
         
@@ -1356,6 +1443,41 @@ JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2020/11/23/每天一个知识点/">技术专题#1:Event Loop</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href="/2020/06/28/网络协议/">网络协议</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2020/06/27/ES6知识点/">ES6知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href="/2020/06/23/Vue面试题/">Vue面试题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href="/2020/06/22/浏览器兼容性/">前端面试题汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/26</span><a class="archive-post-title" href="/2020/05/26/前端面试题之JS/">前端面试题之JS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href="/2020/05/23/git详解/">git详解</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1686,15 +1808,17 @@ JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
-    
         <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
     
-        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
+        <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
+    
+        <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
+    
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
@@ -1702,13 +1826,13 @@ JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模�
     
         <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
-    
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
@@ -1718,25 +1842,39 @@ JavaScript 有非常多的设计模式:工厂模式原型模式构造函数模�
     
         <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
+    
         <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
     
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
-        <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
-    
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
-    
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
-    
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+    
+        <span class="sidebar-tag-name" data-tags="兼容性"><span class="iconfont-archer">&#xe606;</span>兼容性</span>
+    
+        <span class="sidebar-tag-name" data-tags="框架"><span class="iconfont-archer">&#xe606;</span>框架</span>
+    
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
     
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
         <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
     
         <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+        <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
