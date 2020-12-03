@@ -359,6 +359,39 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/04/25/JS继承/">
+            
+                <span>JS继承</span>
+        </a>
+        <div class="abstract-content">
+            平常我们实现继承一般采用下面两种方式：
+构造函数和 ES6 的类继承
+那么这三种继承方式的原理是怎样的呢，有什么不同呢？
+构造函数12345678// 一条会汪汪叫的白狗function Dog() &#123;  this.bark = '汪汪汪'  this.color = 'white'&#125;// 创建一个实例化对象const dog1 = new Dog()console.log(dog1.bark, dog1.color) // '汪汪汪' 'white'
+这样就完成了一个构造函数的继承方式，注意：JS 本身不存在构造函数这种东西，但因为有了 new 操作符，所以被 ne...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2020/04/23/前端面试题之CSS/">
             
                 <span>前端面试题之CSS</span>
@@ -707,57 +740,10 @@ firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/12/11/排序算法详解/">
-            
-                <span>排序算法详解</span>
-        </a>
-        <div class="abstract-content">
-            常用的排序算法如下：
-
-说明：
-
-稳定：如果 a 原本在 b 前面，并且 a=b，排序之后 a 仍然在 b 前面
-不稳定：如果 a 原本在 b 前面，并且 a=b，而排序之后 a 可能在 b 后面
-内排序：所有排序操作都在内存中完成
-外排序：由于数据太大，因此把数据都放在磁盘中，而排序通过磁盘和内存的数据传输才能进行
-时间复杂度：一个算法执行所耗费的时间
-空间复杂度：运行完一个程序所需内存大小
-n：数据规模
-k：桶的个数
-In-place：占用常数内存，不占用额外内存
-Out-place：占用额外内存
-
-冒泡排序冒泡排序的步骤：
-
-比较相邻的元素，如果第一个比第二个大，就交换它们两个
-从...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1466,9 +1452,16 @@ Out-place：占用额外内存
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 70
+        Total : 71
         </div>
         <!-- search  -->
         
@@ -1484,7 +1477,12 @@ Out-place：占用额外内存
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2020/11/23/每天一个知识点/">技术专题#1:Event Loop</a>
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2020/12/03/每天一个知识点-浏览器渲染原理/">每天一个知识点#浏览器渲染原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2020/11/23/每天一个知识点#eventLoop/">技术专题#1:Event Loop</a>
         </li>
     
     
@@ -1852,45 +1850,47 @@ Out-place：占用额外内存
     
         <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
     
-        <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
-    
-        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
-    
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
-        <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
-    
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
+        <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
@@ -1900,19 +1900,17 @@ Out-place：占用额外内存
     
         <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
     
-        <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
-    
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
-    
         <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
     
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
-        <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
