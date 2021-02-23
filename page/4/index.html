@@ -359,6 +359,119 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/10/22/前端需要知道的网络知识/">
+            
+                <span>前端需要知道的网络知识</span>
+        </a>
+        <div class="abstract-content">
+            HTTPHTTP 协议也叫做超文本传输协议，是客户端和服务器端之间进行数据传输的格式规范，WEB 就是建立在 HTTP 协议上进行通信的
+特性
+无状态协议
+
+
+HTTP 是无状态协议，因为它不会对请求和响应之间的通信状态进行保存，协议对于请求和响应都不做持久化处理，这是为了更快的处理大量事务
+
+
+客户端可以主动向服务器发起请求，而反过来则不行
+
+
+HTTP 协议规定，请求必须先从客户端发出，服务器才能响应请求并返回
+
+
+基于 TCP 实现
+
+报文
+用于 HTTP 协议交互的信息被称为报文，客户端的报文叫做请求报文，服务器端的报文叫响应报文
+
+请求报文请求报文由请求行、请求头、空行和请求数...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/10/21/Vue生命周期详解/">
+            
+                <span>Vue生命周期详解</span>
+        </a>
+        <div class="abstract-content">
+            首先来看看 Vue 的生命周期图示：
+
+beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周期函数
+
+在数据观测 data observer 前执行：
+
+12345&lt;template&gt;  &lt;div&gt;    &#123;&#123;a&#125;&#125;  &lt;/div&gt;&lt;/template&gt;
+123456789101112export default &#123;  data() &#123;    return &#123;      a: 1    &#125;  &#125;,  before...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/10/18/Vue3-0解析/">
+            
+                <span>Vue3.0解析</span>
+        </a>
+        <div class="abstract-content">
+            Vue3.0 使用 composition api 多个方法进行组合使用：
+123456const App = &#123;  setup() &#123;    const state = Vue.reactive(&#123; a: 1 &#125;)    console.log(state)  &#125;&#125;
+在 Vue3.0 中，setup 方法类似于 created，只会执行一次
+输出结果是一个 proxy 对象：
+1Proxy&#123;a: 1&#125;
+setup 方法中 return 的对象会作为渲染的上下文来代替 data：
+12345678const ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/18</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/10/12/Weex入门/">
             
                 <span>Weex入门</span>
@@ -606,113 +719,6 @@ Action 本质...
         <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/09/23/React-Hook/">
-            
-                <span>React Hook</span>
-        </a>
-        <div class="abstract-content">
-            
-Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
-
-Hook 是为了解决以下问题：
-
-组件之间复用状态逻辑很难
-复杂组件变得难以理解
-难以理解的 class
-
-使用 Hook 可以在无需修改组件结构的情况下复用状态逻辑
-Hook 将组件中相互关联的部分拆分成更小的函数，而不是按照生命周期划分
-Hook 可以在不使用 class 的情况下使用更多的 React 特性
-State Hook在使用 State Hook 之前要先引入 useState：
-1import React, &#123; useS...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/09/22/React生命周期/">
-            
-                <span>React生命周期</span>
-        </a>
-        <div class="abstract-content">
-            React16.3 的生命周期如图所示：
-
-相对于之前的生命周期少了 componentWillMount, componentWillReceiveProps, componentWillUpdate 这三个阶段，但实际上这三个生命周期都还在，只是马上就要删除了，因为实在是没有什么用
-在创建时首先会运行构造函数 constructor
-123456class Father extends React.Component &#123;  constructor(props) &#123;    super(props)    //...  &#125;&#125;
-接下来执行 getDe...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/09/08/Context/">
-            
-                <span>React Context</span>
-        </a>
-        <div class="abstract-content">
-            Context 的意思是上下文，许多 React 组件都是通过 Context 来完成的，比如 react-redux 的 &lt;Provider /&gt;
-&lt;Provider /&gt; 通过 Context 提供一个全局的 store，通过 Context 在组件中分发 Drag 和 Drop 事件
-作用Context 的作用是这样的：
-当你不想在组件树中通过逐层传递的方式传递 props 的时候，可以使用 Context 来实现跨越层级的传递
-正常情况下我们通过 props 来将属性传递给深层组件
-
-有了 Context，我们不再需要那么麻烦的操作：
-
-使用 Contex...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/08</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1443,9 +1449,30 @@ State Hook在使用 State Hook 之前要先引入 useState：
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 72
+        Total : 75
         </div>
         <!-- search  -->
         
@@ -1456,8 +1483,32 @@ State Hook在使用 State Hook 之前要先引入 useState：
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href="/2021/02/20/简单梳理下Vue3的新特性/">简单梳理下Vue3的新特性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href="/2021/02/19/深度学习框架Tensorflow-js/">深度学习框架TensorFlow.js</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href="/2020/12/13/技术专题4-Webpack5源码分析/">技术专题#4:Webpack源码分析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1837,37 +1888,37 @@ State Hook在使用 State Hook 之前要先引入 useState：
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
-    
         <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
-    
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+    
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
@@ -1875,11 +1926,11 @@ State Hook在使用 State Hook 之前要先引入 useState：
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
-    
-        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
@@ -1891,11 +1942,13 @@ State Hook在使用 State Hook 之前要先引入 useState：
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
+        <span class="sidebar-tag-name" data-tags="TensorFlow"><span class="iconfont-archer">&#xe606;</span>TensorFlow</span>
+    
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
         <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
-    
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     

@@ -359,6 +359,121 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2020/04/09/完整的通讯流程/">
+            
+                <span>完整的通讯流程</span>
+        </a>
+        <div class="abstract-content">
+            当用户在浏览器中输入链接并跳转时，会发生什么呢？
+拿百度举例，用户在转到链接 www.baidu.com 时，会向域名 baidu.com 所关联的服务器发送一个网页数据包。
+要知道域名所关联的服务器 IP 需要进行解析，需要发送一个 DNS 数据包给 DNS 服务器，DNS 服务器做出响应返回百度 IP 地址。
+DNS 域名解析为什么需要 DNS网络通讯大部分基于 TCP/IP，TCP/IP 是基于 IP 地址，所以计算机在网络通讯时不能识别域名。
+DNS 是什么DNS( Domain Name System) 域名系统是一种组织成域层次结构的计算机和网络服务命名系统，用于 TCP/I...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/09</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/01/04/koa2框架入门/">
+            
+                <span>koa2框架入门</span>
+        </a>
+        <div class="abstract-content">
+            koa 框架是基于 Node.js 平台的 web 开发框架，由 express 框架原班人马打造，因此开发思路和 express 相仿，最大的特点就是避免了异步嵌套
+安装koa2 框架要求 Node.js 版本至少是 8.x 的版本
+安装教程
+使用安装好 koa 之后，在目录中创建一个 app.js 文件
+如果想在 app.js 文件中使用 koa，就要先引入：
+12const koa = require("koa");const app = new koa();
+在 express 框架中是自带路由的，不需要配置，但是在 koa 中就需要配置了，等一下会讲怎么配置
+先写一个中间件，中...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Node.js">Node.js</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/01/01/nginx配置/">
+            
+                <span>nginx配置</span>
+        </a>
+        <div class="abstract-content">
+            
+配置文件结构
+
+nginx.conf 由多个块组成：
+
+main(全局设置)
+events
+http
+upstream(负载均衡服务器设置)
+多个 server(主机设置)
+多个 location(URL 匹配特定位置的设置)
+
+
+
+
+
+
+
+
+
+对这几个模块，这篇博客有好地解释：
+https://blog.csdn.net/wangbin_0729/article/details/82109693
+下面着重讲 server 和 location：
+server12345678# server的一部分配置server &#123;  listen 80;  server_name 192...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Nginx">Nginx</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2020/01/01/Linux服务器常用指令/">
             
                 <span>Linux服务器常用指令</span>
@@ -624,119 +739,6 @@ BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不.
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/22/前端需要知道的网络知识/">
-            
-                <span>前端需要知道的网络知识</span>
-        </a>
-        <div class="abstract-content">
-            HTTPHTTP 协议也叫做超文本传输协议，是客户端和服务器端之间进行数据传输的格式规范，WEB 就是建立在 HTTP 协议上进行通信的
-特性
-无状态协议
-
-
-HTTP 是无状态协议，因为它不会对请求和响应之间的通信状态进行保存，协议对于请求和响应都不做持久化处理，这是为了更快的处理大量事务
-
-
-客户端可以主动向服务器发起请求，而反过来则不行
-
-
-HTTP 协议规定，请求必须先从客户端发出，服务器才能响应请求并返回
-
-
-基于 TCP 实现
-
-报文
-用于 HTTP 协议交互的信息被称为报文，客户端的报文叫做请求报文，服务器端的报文叫响应报文
-
-请求报文请求报文由请求行、请求头、空行和请求数...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/21/Vue生命周期详解/">
-            
-                <span>Vue生命周期详解</span>
-        </a>
-        <div class="abstract-content">
-            首先来看看 Vue 的生命周期图示：
-
-beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周期函数
-
-在数据观测 data observer 前执行：
-
-12345&lt;template&gt;  &lt;div&gt;    &#123;&#123;a&#125;&#125;  &lt;/div&gt;&lt;/template&gt;
-123456789101112export default &#123;  data() &#123;    return &#123;      a: 1    &#125;  &#125;,  before...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/10/18/Vue3-0解析/">
-            
-                <span>Vue3.0解析</span>
-        </a>
-        <div class="abstract-content">
-            Vue3.0 使用 composition api 多个方法进行组合使用：
-123456const App = &#123;  setup() &#123;    const state = Vue.reactive(&#123; a: 1 &#125;)    console.log(state)  &#125;&#125;
-在 Vue3.0 中，setup 方法类似于 created，只会执行一次
-输出结果是一个 proxy 对象：
-1Proxy&#123;a: 1&#125;
-setup 方法中 return 的对象会作为渲染的上下文来代替 data：
-12345678const ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/18</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
     
 </div>
             
@@ -1469,9 +1471,30 @@ setup 方法中 return 的对象会作为渲染的上下文来代替 data：
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 72
+        Total : 75
         </div>
         <!-- search  -->
         
@@ -1482,8 +1505,32 @@ setup 方法中 return 的对象会作为渲染的上下文来代替 data：
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href="/2021/02/20/简单梳理下Vue3的新特性/">简单梳理下Vue3的新特性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href="/2021/02/19/深度学习框架Tensorflow-js/">深度学习框架TensorFlow.js</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href="/2020/12/13/技术专题4-Webpack5源码分析/">技术专题#4:Webpack源码分析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1863,37 +1910,37 @@ setup 方法中 return 的对象会作为渲染的上下文来代替 data：
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
-    
         <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
-    
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+    
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
@@ -1901,11 +1948,11 @@ setup 方法中 return 的对象会作为渲染的上下文来代替 data：
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
-    
-        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
@@ -1917,11 +1964,13 @@ setup 方法中 return 的对象会作为渲染的上下文来代替 data：
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
+        <span class="sidebar-tag-name" data-tags="TensorFlow"><span class="iconfont-archer">&#xe606;</span>TensorFlow</span>
+    
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
         <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
-    
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     

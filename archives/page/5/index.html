@@ -346,6 +346,113 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/09/23/React-Hook/">
+            
+                <span>React Hook</span>
+        </a>
+        <div class="abstract-content">
+            
+Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
+
+Hook 是为了解决以下问题：
+
+组件之间复用状态逻辑很难
+复杂组件变得难以理解
+难以理解的 class
+
+使用 Hook 可以在无需修改组件结构的情况下复用状态逻辑
+Hook 将组件中相互关联的部分拆分成更小的函数，而不是按照生命周期划分
+Hook 可以在不使用 class 的情况下使用更多的 React 特性
+State Hook在使用 State Hook 之前要先引入 useState：
+1import React, &#123; useS...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/09/22/React生命周期/">
+            
+                <span>React生命周期</span>
+        </a>
+        <div class="abstract-content">
+            React16.3 的生命周期如图所示：
+
+相对于之前的生命周期少了 componentWillMount, componentWillReceiveProps, componentWillUpdate 这三个阶段，但实际上这三个生命周期都还在，只是马上就要删除了，因为实在是没有什么用
+在创建时首先会运行构造函数 constructor
+123456class Father extends React.Component &#123;  constructor(props) &#123;    super(props)    //...  &#125;&#125;
+接下来执行 getDe...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/09/08/Context/">
+            
+                <span>React Context</span>
+        </a>
+        <div class="abstract-content">
+            Context 的意思是上下文，许多 React 组件都是通过 Context 来完成的，比如 react-redux 的 &lt;Provider /&gt;
+&lt;Provider /&gt; 通过 Context 提供一个全局的 store，通过 Context 在组件中分发 Drag 和 Drop 事件
+作用Context 的作用是这样的：
+当你不想在组件树中通过逐层传递的方式传递 props 的时候，可以使用 Context 来实现跨越层级的传递
+正常情况下我们通过 props 来将属性传递给深层组件
+
+有了 Context，我们不再需要那么麻烦的操作：
+
+使用 Contex...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/08</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/08/20/Window对象属性详解/">
             
                 <span>Window对象属性详解</span>
@@ -573,112 +680,6 @@ JS 内存空间分为栈(stack)、堆(heap)、池(一般也会归类为栈中)�
             <div class="abstract-tags">
     
         <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/04/grid网格布局/">
-            
-                <span>grid网格布局</span>
-        </a>
-        <div class="abstract-content">
-            
-我们知道 flex 布局是一种非常优秀的布局，非常适用于响应式布局，但是 flex 任然不是最强大的布局，grid 才是现今最为强大的布局方案
-
-grid 的优势在于，它可以将网页划分成一个个网格，可以任意组合成不同的网格，以实现各种各样的布局
-grid 和 flex 的区别两者的区别是非常大的，是二维和一维的区别，flex 布局是轴线布局，只能指定元素相对于轴线的位置，而 grid 却可以将容器分为行和列，产生单元格
-学习 grid12345&lt;div id="grid"&gt;  &lt;div&gt;&lt;span&gt;1&lt;/span&gt;&lt;/div&gt;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/04/全面理解CSS媒体查询/">
-            
-                <span>全面理解CSS媒体查询</span>
-        </a>
-        <div class="abstract-content">
-            
-CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
-
-媒体查询的基本语法单独使用1234567891011121314151617181920@media screen &#123;  .container &#123;    width: 600px;  &#125;&#125;@media screen, tv &#123;  .container &#123;    width: 600px;  &#125;&#125;@media (min-width: 600px) &#123;  .container &#123;    display: none;  &#125...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/04</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/21/用JS实现最短路径算法/">
-            
-                <span>用JS实现最短路径算法</span>
-        </a>
-        <div class="abstract-content">
-            Dijkstra（迪克斯彻）算法
-学习了离散数学之后，我一直对 Djikstra 算法(求最短路径)非常感兴趣，我想能不能用 JS 实现最短路径的算法
-
-假设一个无向图是这样的：
-
-如何计算从 v1 至各个点的最短路径呢？
-乍一眼看过去结果很明显，但在实际应用中往往比这张图复杂得多
-为了获取图中的信息，我们需要先把上图转换为邻接矩阵：
-
-这里 i 表示 infinite (无穷大)，表示两个点互不相连
-在 JS 中用二维数组表示矩阵：
-12345678const matrix = [  [0, 5, 6, Infinity, Infinity, Infinity],  [5, 0, 1,...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
     
 </div>
             
@@ -1306,9 +1307,30 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 72
+        Total : 75
         </div>
         <!-- search  -->
         
@@ -1319,8 +1341,32 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href="/2021/02/20/简单梳理下Vue3的新特性/">简单梳理下Vue3的新特性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href="/2021/02/19/深度学习框架Tensorflow-js/">深度学习框架TensorFlow.js</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href="/2020/12/13/技术专题4-Webpack5源码分析/">技术专题#4:Webpack源码分析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1700,37 +1746,37 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
         <span class="sidebar-tag-name" data-tags="CSS"><span class="iconfont-archer">&#xe606;</span>CSS</span>
     
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
-    
         <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
     
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
-    
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
+    
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+    
         <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
-        <span class="sidebar-tag-name" data-tags="Node.js"><span class="iconfont-archer">&#xe606;</span>Node.js</span>
     
         <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
     
@@ -1738,11 +1784,11 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
+        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
+    
         <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
-    
-        <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
         <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
     
@@ -1754,11 +1800,13 @@ CSS 媒体查询早在 CSS2 就出现了，广泛用于响应式布局
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
+        <span class="sidebar-tag-name" data-tags="TensorFlow"><span class="iconfont-archer">&#xe606;</span>TensorFlow</span>
+    
+        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
+    
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
     
         <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
-    
-        <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
     
