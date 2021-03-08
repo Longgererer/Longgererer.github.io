@@ -346,215 +346,27 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2020/01/01/nginx配置/">
+        <a class="abstract-title" href="/2020/05/20/web-workers详解/">
             
-                <span>nginx配置</span>
+                <span>Web Workers详解</span>
         </a>
         <div class="abstract-content">
-            
-配置文件结构
+            Web Workers 让 JavaScript 多线程变成了可能，线程可以执行任务而不干扰用户界面
+使用 Worker 有如下限制：
 
-nginx.conf 由多个块组成：
+不能直接操作 DOM 节点
+不能使用 window 对象的默认方法和属性，但仍然可以使用很多如 WebSockets，IndexedDB 等数据存储机制，和其他属性，也可以发起 ajax 请求
+Worker 运行的脚本文件必须与主线程脚本同源
+Worker 线程无法读取本地文件
 
-main(全局设置)
-events
-http
-upstream(负载均衡服务器设置)
-多个 server(主机设置)
-多个 location(URL 匹配特定位置的设置)
-
-
-
-
-
-
-
-
-
-对这几个模块，这篇博客有好地解释：
-https://blog.csdn.net/wangbin_0729/article/details/82109693
-下面着重讲 server 和 location：
-server12345678# server的一部分配置server &#123;  listen 80;  server_name 192...
+Worker 所运行的脚本必须保存在一个独立的文件中
+1const worker = new Worker('test.js')
+如果指定文件存在，在这个网络文件下载并执行之...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Nginx">Nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2020/01/01/Linux服务器常用指令/">
-            
-                <span>Linux服务器常用指令</span>
-        </a>
-        <div class="abstract-content">
-            防火墙iptables
-查看防火墙状态
-service iptables status
-
-
-开启防火墙
-service iptables start
-
-
-停止防火墙
-service iptables stop
-
-
-重启防火墙
-service iptables restart
-
-
-开启端口(如 80)
--A INPUT -m state –state NEW -m tcp -p tcp –dport 80 -j ACCEPT
-
-
-
-firewallfirewall 是 centos7 里面的新的防火墙命令，它底层还是使用 iptables 对内核命令动态通信包过滤的，简单理解就是 fire...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/01</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Linux">Linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/12/11/排序算法详解/">
-            
-                <span>排序算法详解</span>
-        </a>
-        <div class="abstract-content">
-            常用的排序算法如下：
-
-说明：
-
-稳定：如果 a 原本在 b 前面，并且 a=b，排序之后 a 仍然在 b 前面
-不稳定：如果 a 原本在 b 前面，并且 a=b，而排序之后 a 可能在 b 后面
-内排序：所有排序操作都在内存中完成
-外排序：由于数据太大，因此把数据都放在磁盘中，而排序通过磁盘和内存的数据传输才能进行
-时间复杂度：一个算法执行所耗费的时间
-空间复杂度：运行完一个程序所需内存大小
-n：数据规模
-k：桶的个数
-In-place：占用常数内存，不占用额外内存
-Out-place：占用额外内存
-
-冒泡排序冒泡排序的步骤：
-
-比较相邻的元素，如果第一个比第二个大，就交换它们两个
-从...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/11/30/数据库系统概论笔记/">
-            
-                <span>数据库系统概论笔记</span>
-        </a>
-        <div class="abstract-content">
-            数据库系统概述数据库的 4 个基本概念如下：
-
-数据
-数据库
-数据库管理系统
-数据库系统
-
-数据数据是数据库中存储的基本对象，可以对数据做如下定义：描述事物的符号称为数据
-描述事物的符号多种多样，所以数据有多种表现形式
-数据的表现形式还不能完全地表达其内容，需要经过解释，数据和关于数据的解释是密不可分的，每一个数据都有它的意义，数据的解释指的是对数据含义的说明，数据的含义称为数据的语义，数据与其语义是不可分的
-数据库数据库就是存放数据的仓库，只不过这个仓库是在计算机存储设备上，而且数据是按一定格式存放的
-严格的来讲，数据库的含义如下：
-
-长期存储在计算机内，有组织的，可共享大量数据的集合...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/11/15/深入理解原型链/">
-            
-                <span>深入理解原型链</span>
-        </a>
-        <div class="abstract-content">
-            原型链是 JS 的一个非常重要的概念，首先从对象说起：
-在 JS 中，除了基本类型之外，其他的类型都是对象，我们看看对象的结构：
-1234const a = &#123;  b: 1,  c: 2&#125;;
-这就是一个普通对象，只不过上面显示的是对象中可枚举的属性，对象中还有一个不可枚举的属性__proto__，在控制台输出对象可以看到这个属性：
-
-在 JS 中，所有对象都存在__proto__属性，那么__proto__是用来干什么的呢？继续看：
-__proto__下面有一个 constructor 属性，指向的是 Object 的 prototype，这里要说一下函数对象和普通对...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/15</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/20</span>
             </div>
             <!-- tags  -->
             
@@ -573,27 +385,26 @@ __proto__下面有一个 constructor 属性，指向的是 Object 的 prototype�
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/11/13/初学golang/">
+        <a class="abstract-title" href="/2020/05/19/跨域请求方案/">
             
-                <span>初学golang</span>
+                <span>跨域请求方案</span>
         </a>
         <div class="abstract-content">
-            GO 语言是一门编译型语言，不需要解释器就可以直接将代码转换为二进制文件
-GO module在较早前的版本，GO 需要配置 go path 才能工作，新版本中推出了 go module，只要文件夹中含有 go.mod 文件就能工作，也不需要包含 src，bin 这样的目录（1.11 版本以上才能使用 Go Module，1.13 版本以下 Go Module 默认关闭）
-初始化 module1go mod init [module name]
-然后会在当前目录下生成一个 go.mod 文件，内容为 module [module name]
-项目结构虽然有了 go module 不需要像以...
+            实现跨域常用的有三种： JSONP、CORS 和 postMessage
+JSONP原生 JavaScript 和 jQuery 都可以进行 JSONP 请求
+可以通过动态创建 script 标签的方式来进行 JSONP 请求：
+原生 JavaScript123456const script = document.createElement('script')script.src = 'http://www.xxx.com?callback=callback'document.body.appendChild(script)function callback(res) &#123;  c...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/19</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="GO">GO</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
     
 </div>
             
@@ -606,28 +417,27 @@ GO module在较早前的版本，GO 需要配置 go path 才能工作，新版�
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/10/26/JS常用方法/">
+        <a class="abstract-title" href="/2020/04/25/JS继承/">
             
-                <span>JS常用方法</span>
+                <span>JS继承</span>
         </a>
         <div class="abstract-content">
-            获取窗口宽高
-网页可见区域宽高（不包括垂直和横向滚动条） ➡ 可见 element content + padding，会随窗口显示大小而改变
-
-12const width = document.body.clientWidthconst height = document.body.clientHeight
-
-网页可见区域宽高（包括边框） ➡ element content + padding + border-width，包括滚动条和边线（不包括浏览器本身的滚动条），会随窗口显示大小而改变， 注意：offsetWidth 只会显示可见区域宽度，但是 offsetHeight 显示的是...
+            平常我们实现继承一般采用下面两种方式：
+构造函数和 ES6 的类继承
+那么这三种继承方式的原理是怎样的呢，有什么不同呢？
+构造函数12345678// 一条会汪汪叫的白狗function Dog() &#123;  this.bark = '汪汪汪'  this.color = 'white'&#125;// 创建一个实例化对象const dog1 = new Dog()console.log(dog1.bark, dog1.color) // '汪汪汪' 'white'
+这样就完成了一个构造函数的继承方式，注意：JS 本身不存在构造函数这种东西，但因为有了 new 操作符，所以被 ne...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/26</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/25</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="JavaScript">JavaScript</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="JS原理">JS原理</a>
     
 </div>
             
@@ -640,29 +450,32 @@ GO module在较早前的版本，GO 需要配置 go path 才能工作，新版�
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/10/24/BFC及其应用/">
+        <a class="abstract-title" href="/2020/04/23/前端面试题之CSS/">
             
-                <span>BFC及其应用</span>
+                <span>前端面试题之CSS</span>
         </a>
         <div class="abstract-content">
-            BFC（Block formatting context）就是块级格式化上下文，它是一个独立的渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及其子元素的关系和相互作用。
-特性
-内部 box 会在垂直方向一个接一个的放置
-box 垂直方向的距离由 margin 决定，在一个 BFC 中，两个相邻的块级盒子的垂直外边距会产生重叠
-每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此
-BFC 的区域不会与 float box 重叠
-BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不...
+            CSS 的盒子模型有哪两种标准盒子模型图示如下：
+
+IE 盒子模型和标准盒模型的不同在于 IE 的盒子宽高包括了 padding 和 border
+CSS3 的 box-sizing 属性给了开发者选择盒模型解析方式的权利，设置为 border-box 就可以统一盒模型：
+1box-sizing: border-box;
+说说 CSS 选择器
+通用选择器：选择所有元素，不参与计算优先级*，兼容性 IE6+*{}
+id 选择器：选择 id 值为 X 的元素，兼容性：IE6+#div1{}
+类选择器：选择 class 包含 X 的元素，兼容性：IE6+.div1{}
+后代选择器：选择满足 X...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/24</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/23</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="CSS">CSS</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="面试">面试</a>
     
 </div>
             
@@ -675,36 +488,111 @@ BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不.
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/10/22/前端需要知道的网络知识/">
+        <a class="abstract-title" href="/2020/04/22/前端面试题之HTML/">
             
-                <span>前端需要知道的网络知识</span>
+                <span>前端面试题之HTML</span>
         </a>
         <div class="abstract-content">
-            HTTPHTTP 协议也叫做超文本传输协议，是客户端和服务器端之间进行数据传输的格式规范，WEB 就是建立在 HTTP 协议上进行通信的
-特性
-无状态协议
+            XHTML 和 HTML 的区别HTML 是一种基本的 WEB 网页设计语言，XHTML 是一个基于 XML 的置标语言
+主要不同：
+
+XHTML 元素必须被正确地嵌套
+XHTML 元素必须被关闭
+标签名必须用小写字母
+XHTML 文档必须拥有根元素
+
+前端页面有哪三层构成，分别是什么，作用是什么
+结构层
+HTML/XHTML
 
 
-HTTP 是无状态协议，因为它不会对请求和响应之间的通信状态进行保存，协议对于请求和响应都不做持久化处理，这是为了更快的处理大量事务
+表示层
+CSS
 
 
-客户端可以主动向服务器发起请求，而反过来则不行
+行为层
+JS
 
 
-HTTP 协议规定，请求必须先从客户端发出，服务器才能响应请求并返回
 
+html5 有哪些新特性、移除了那些元素新增：
 
-基于 TCP 实现
-
-报文
-用于 HTTP 协议交互的信息被称为报文，客户端的报文叫做请求报文，服务器端的报文叫响应报文
-
-请求报文请求报文由请求行、请求头、空行和请求数...
+canvas
+video 和 audio 元素
+本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失
+sessionStorage 的数据在浏览器...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="面试">面试</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/22/学习websocket/">
+            
+                <span>学习WebSocket</span>
+        </a>
+        <div class="abstract-content">
+            这篇笔记参考阮一峰的 WebSocket 教程
+WebSocket 协议是基于 TCP 的一种新的网络协议，实现了浏览器与服务器双向通信给客户端
+WebSocket 简介在 WebSocket 之前，已经有 HTTP 协议了，但是 HTTP 协议为了安全性，只能够由客户端发起
+如果使用 HTTP 向服务器发起请求以获取推送信息的话，每隔一段时间就要发起一次请求，非常麻烦和低效
+WebSocket 可以使服务器主动向客户端推送信息，真正实现了客户端和服务器之间的双向通信
+在实现 websocket 连线过程中，需要通过浏览器发出 websocket 连线请求，然后服务器发出回应，这个过程通...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/22</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="WebSocket">WebSocket</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/10/文件断点上传/">
+            
+                <span>文件断点上传</span>
+        </a>
+        <div class="abstract-content">
+            断点续传断点续传就是上传到一半可以暂停，其主要依靠 HTML5 特性，无法兼容较老的浏览器
+HTML5 可以分割文件内容，靠的就是数组/字符串的 slice 方法
+前端拿到 FileList 对象中的文件，获取内容后将文件分段，一段一段的传给后端，后端再一段一段地拼接起来
+FileListFileList 对象不能够直接被修改，浏览器为了安全性的考虑，把 FileList 对象的内容设为了不可更改，只可以手动置空，但不能修改内容
+解决办法是，新增一个数组，初始复制 FileList 对象的文件内容，之后的修改操作则通过这个可更改的数组进行，也就是说，新增的数组实际上是 FileList ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/10</span>
             </div>
             <!-- tags  -->
             
@@ -717,30 +605,90 @@ HTTP 协议规定，请求必须先从客户端发出，服务器才能响应请
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/10/21/Vue生命周期详解/">
+        <a class="abstract-title" href="/2020/04/10/Webpack生命周期/">
             
-                <span>Vue生命周期详解</span>
+                <span>Webpack生命周期</span>
         </a>
         <div class="abstract-content">
-            首先来看看 Vue 的生命周期图示：
+            Webpack 整体流程图如下：
 
-beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周期函数
-
-在数据观测 data observer 前执行：
-
-12345&lt;template&gt;  &lt;div&gt;    &#123;&#123;a&#125;&#125;  &lt;/div&gt;&lt;/template&gt;
-123456789101112export default &#123;  data() &#123;    return &#123;      a: 1    &#125;  &#125;,  before...
+下面将注意说明整个流程。
+webpack.config.js 和 shell 解析webpack.config.js 大致结构如下：
+123456789101112131415161718192021222324252627282930313233343536373839404142var path = require('path');var node_modules = path.resolve(__dirname, 'node_modules');var pathToReact = path.resolve(node_modules, 'react...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/21</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/10</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Vue">Vue</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Webpack">Webpack</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/04/09/完整的通讯流程/">
+            
+                <span>完整的通讯流程</span>
+        </a>
+        <div class="abstract-content">
+            当用户在浏览器中输入链接并跳转时，会发生什么呢？
+拿百度举例，用户在转到链接 www.baidu.com 时，会向域名 baidu.com 所关联的服务器发送一个网页数据包。
+要知道域名所关联的服务器 IP 需要进行解析，需要发送一个 DNS 数据包给 DNS 服务器，DNS 服务器做出响应返回百度 IP 地址。
+DNS 域名解析为什么需要 DNS网络通讯大部分基于 TCP/IP，TCP/IP 是基于 IP 地址，所以计算机在网络通讯时不能识别域名。
+DNS 是什么DNS( Domain Name System) 域名系统是一种组织成域层次结构的计算机和网络服务命名系统，用于 TCP/I...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/09</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/01/04/koa2框架入门/">
+            
+                <span>koa2框架入门</span>
+        </a>
+        <div class="abstract-content">
+            koa 框架是基于 Node.js 平台的 web 开发框架，由 express 框架原班人马打造，因此开发思路和 express 相仿，最大的特点就是避免了异步嵌套
+安装koa2 框架要求 Node.js 版本至少是 8.x 的版本
+安装教程
+使用安装好 koa 之后，在目录中创建一个 app.js 文件
+如果想在 app.js 文件中使用 koa，就要先引入：
+12const koa = require("koa");const app = new koa();
+在 express 框架中是自带路由的，不需要配置，但是在 koa 中就需要配置了，等一下会讲怎么配置
+先写一个中间件，中...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/04</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Node.js">Node.js</a>
     
 </div>
             
@@ -750,7 +698,7 @@ beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周�
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/3/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1305,9 +1253,79 @@ beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 63
+        Total : 73
         </div>
         <!-- search  -->
         
@@ -1318,8 +1336,67 @@ beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周�
     
     
     
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href="/2021/02/20/简单梳理下Vue3的新特性/">简单梳理下Vue3的新特性</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/04</span><a class="archive-post-title" href="/2020/12/04/技术专题3-状态管理/">技术专题#3:状态管理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/03</span><a class="archive-post-title" href="/2020/12/03/技术专题2-浏览器渲染原理/">技术专题#2:浏览器渲染原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/23</span><a class="archive-post-title" href="/2020/11/23/技术专题1-eventLoop/">技术专题#1:Event Loop</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/28</span><a class="archive-post-title" href="/2020/06/28/网络协议/">网络协议</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/27</span><a class="archive-post-title" href="/2020/06/27/ES6知识点/">ES6知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href="/2020/06/23/Vue面试题/">Vue面试题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span><a class="archive-post-title" href="/2020/06/22/浏览器兼容性/">前端面试题汇总</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/26</span><a class="archive-post-title" href="/2020/05/26/前端面试题之JS/">前端面试题之JS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/23</span><a class="archive-post-title" href="/2020/05/23/git详解/">git详解</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1654,29 +1731,35 @@ beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周�
     
         <span class="sidebar-tag-name" data-tags="JS原理"><span class="iconfont-archer">&#xe606;</span>JS原理</span>
     
+        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
+    
+        <span class="sidebar-tag-name" data-tags="ES6"><span class="iconfont-archer">&#xe606;</span>ES6</span>
+    
         <span class="sidebar-tag-name" data-tags="JavaScript"><span class="iconfont-archer">&#xe606;</span>JavaScript</span>
     
         <span class="sidebar-tag-name" data-tags="正则表达式"><span class="iconfont-archer">&#xe606;</span>正则表达式</span>
-    
-        <span class="sidebar-tag-name" data-tags="Generator"><span class="iconfont-archer">&#xe606;</span>Generator</span>
     
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
     
-        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
+        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
     
-        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+        <span class="sidebar-tag-name" data-tags="MVC&MVVM"><span class="iconfont-archer">&#xe606;</span>MVC&MVVM</span>
     
         <span class="sidebar-tag-name" data-tags="TypeScript"><span class="iconfont-archer">&#xe606;</span>TypeScript</span>
     
         <span class="sidebar-tag-name" data-tags="Vuex"><span class="iconfont-archer">&#xe606;</span>Vuex</span>
     
+        <span class="sidebar-tag-name" data-tags="Sass"><span class="iconfont-archer">&#xe606;</span>Sass</span>
+    
         <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
-        <span class="sidebar-tag-name" data-tags="Promise"><span class="iconfont-archer">&#xe606;</span>Promise</span>
-    
         <span class="sidebar-tag-name" data-tags="Webpack"><span class="iconfont-archer">&#xe606;</span>Webpack</span>
+    
+        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="Axios"><span class="iconfont-archer">&#xe606;</span>Axios</span>
     
@@ -1684,23 +1767,33 @@ beforeCreatebeforeCreate 是 Vue 实例化之后要执行的第一个生命周�
     
         <span class="sidebar-tag-name" data-tags="Nginx"><span class="iconfont-archer">&#xe606;</span>Nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
-    
         <span class="sidebar-tag-name" data-tags="GO"><span class="iconfont-archer">&#xe606;</span>GO</span>
     
-        <span class="sidebar-tag-name" data-tags="Weex"><span class="iconfont-archer">&#xe606;</span>Weex</span>
-    
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="面试"><span class="iconfont-archer">&#xe606;</span>面试</span>
     
         <span class="sidebar-tag-name" data-tags="WebSocket"><span class="iconfont-archer">&#xe606;</span>WebSocket</span>
     
+        <span class="sidebar-tag-name" data-tags="系列：技术专题"><span class="iconfont-archer">&#xe606;</span>系列：技术专题</span>
+    
+        <span class="sidebar-tag-name" data-tags="浏览器"><span class="iconfont-archer">&#xe606;</span>浏览器</span>
+    
+        <span class="sidebar-tag-name" data-tags="兼容性"><span class="iconfont-archer">&#xe606;</span>兼容性</span>
+    
+        <span class="sidebar-tag-name" data-tags="框架"><span class="iconfont-archer">&#xe606;</span>框架</span>
+    
+        <span class="sidebar-tag-name" data-tags="HTML"><span class="iconfont-archer">&#xe606;</span>HTML</span>
+    
         <span class="sidebar-tag-name" data-tags="缓存"><span class="iconfont-archer">&#xe606;</span>缓存</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
         <span class="sidebar-tag-name" data-tags="回流与重绘"><span class="iconfont-archer">&#xe606;</span>回流与重绘</span>
     
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="网络协议"><span class="iconfont-archer">&#xe606;</span>网络协议</span>
     
         <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
